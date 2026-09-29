@@ -39,7 +39,7 @@ export default function ScrollExtras({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="fixed bottom-6 left-6 z-50 hidden h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-xl shadow-green-600/30 transition hover:scale-110 md:grid"
+        className="fixed bottom-6 right-6 z-50 hidden h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-xl shadow-green-600/30 transition hover:scale-110 md:grid"
       >
         <span className="absolute inset-0 animate-pulse-ring rounded-full bg-[#25D366]" />
         <WhatsappIcon className="relative h-7 w-7" />
@@ -53,7 +53,7 @@ export default function ScrollExtras({
             exit={{ opacity: 0, y: 20, scale: 0.8 }}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             aria-label="Back to top"
-            className="fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-4 z-50 grid h-11 w-11 place-items-center rounded-full bg-gradient-to-br from-brand-600 to-brand-800 text-white shadow-xl shadow-brand-600/40 transition hover:scale-110 md:bottom-6 md:right-6 md:h-12 md:w-12"
+            className="fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-4 z-50 grid h-11 w-11 place-items-center rounded-full bg-gradient-to-br from-brand-600 to-brand-800 text-white shadow-xl shadow-brand-600/40 transition hover:scale-110 md:bottom-24 md:right-7 md:h-12 md:w-12"
           >
             <ArrowUp className="h-5 w-5" />
           </motion.button>

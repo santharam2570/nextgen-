@@ -47,25 +47,25 @@ export default function Navbar({ ctaHref = "/#contact" }: { ctaHref?: string }) 
         solid ? "bg-white/85 py-3 shadow-lg shadow-brand-900/5 backdrop-blur-xl" : "py-5"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 lg:px-8">
-        <Link href="/#home" className="flex items-center gap-2.5">
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-800 text-white shadow-lg shadow-brand-600/30">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 lg:px-6 xl:px-8">
+        <Link href="/#home" className="flex shrink-0 items-center gap-2.5">
+          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-800 text-white shadow-lg shadow-brand-600/30">
             <GraduationCap className="h-6 w-6" />
           </span>
-          <span className={`font-display text-xl font-bold transition-colors ${solid ? "text-slate-900" : "text-white"}`}>
+          <span className={`whitespace-nowrap font-display text-lg font-bold transition-colors xl:text-xl ${solid ? "text-slate-900" : "text-white"}`}>
             {site.shortName}
             <span className={solid ? "text-brand-600" : "text-brand-200"}> Innovation</span>
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-0.5 lg:flex 2xl:gap-1">
           {navLinks.map((l) => {
             const isActive = active === l.href;
             return (
               <li key={l.href}>
                 <a
                   href={`/${l.href}`}
-                  className={`relative rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
+                  className={`relative whitespace-nowrap rounded-full px-2.5 py-2 text-[13px] font-medium transition-colors xl:px-3 xl:text-sm 2xl:px-3.5 ${
                     solid
                       ? isActive ? "text-brand-700" : "text-slate-600 hover:text-brand-700"
                       : isActive ? "text-white" : "text-white/75 hover:text-white"
@@ -85,18 +85,21 @@ export default function Navbar({ ctaHref = "/#contact" }: { ctaHref?: string }) 
           })}
         </ul>
 
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-2 xl:gap-3">
           <a
             href={`tel:${site.phone.replace(/\s/g, "")}`}
-            className={`hidden items-center gap-2 rounded-full px-4 py-2.5 text-sm font-bold ring-2 transition hover:scale-105 xl:flex ${
+            aria-label={`Call ${site.phone}`}
+            title={site.phone}
+            className={`hidden h-10 shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-bold ring-2 transition hover:scale-105 lg:flex lg:w-10 2xl:w-auto 2xl:px-4 ${
               solid ? "bg-brand-50 text-brand-800 ring-brand-200 hover:bg-brand-100" : "bg-white/10 text-white ring-white/40 hover:bg-white/20"
             }`}
           >
-            <Phone className="h-4 w-4" /> {site.phone}
+            <Phone className="h-4 w-4" />
+            <span className="hidden 2xl:inline">{site.phone}</span>
           </a>
           <a
             href={ctaHref}
-            className="relative hidden rounded-full bg-gradient-to-r from-brand-500 to-brand-700 px-5 py-2.5 text-sm font-bold text-white shadow-[0_0_24px_-4px_rgba(59,130,246,0.8)] ring-2 ring-white/30 transition hover:scale-105 sm:inline-block"
+            className="relative hidden whitespace-nowrap rounded-full bg-gradient-to-r from-brand-500 to-brand-700 px-4 py-2.5 text-sm font-bold text-white shadow-[0_0_24px_-4px_rgba(59,130,246,0.8)] ring-2 ring-white/30 transition hover:scale-105 sm:inline-block xl:px-5"
           >
             <span className="absolute inset-0 -z-10 animate-pulse-ring rounded-full bg-brand-500/50" />
             Free Counselling
