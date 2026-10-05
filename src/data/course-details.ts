@@ -1,4 +1,6 @@
 export type CourseDetail = {
+  seoTitle: string;
+  metaDescription: string;
   overview: string;
   level: string;
   eligibility: string[];
@@ -12,8 +14,11 @@ export type CourseDetail = {
 
 export const courseDetails: Record<string, CourseDetail> = {
   "sap-fico": {
+    seoTitle: "SAP FICO Training in Coimbatore & Trichy with Placement Support",
+    metaDescription:
+      "Job-focused SAP FICO course in Coimbatore, Trichy & online. Learn S/4HANA Finance on a live server — GL, AP, AR, Asset Accounting, Controlling — with a real project and placement support.",
     overview:
-      "SAP FICO is the most in-demand SAP functional module, used by thousands of companies to run their finance and accounting. This course takes you from SAP basics to end-to-end S/4HANA Finance configuration, with daily hands-on practice on a live server and a complete implementation project.",
+      "SAP FICO is the most in-demand SAP functional skill in finance. Our SAP FICO training in Coimbatore, Trichy and online takes you from SAP basics to end-to-end S/4HANA Finance configuration — with daily practice on a live server, a full implementation project and dedicated placement support.",
     level: "Beginner to Advanced",
     eligibility: [
       "B.Com, M.Com, BBA, MBA (Finance), CA / CMA aspirants",
@@ -39,8 +44,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "Preparation for SAP Certified Associate – S/4HANA Financial Accounting, plus a NextGen Innovation course completion certificate.",
   },
   "sap-mm": {
+    seoTitle: "SAP MM Training in Coimbatore & Trichy | S/4HANA Procurement Course",
+    metaDescription:
+      "Master SAP MM on S/4HANA in Coimbatore, Trichy or online — Procure-to-Pay, inventory, valuation and FI/SD integration — through real business scenarios, a live project and placement support.",
     overview:
-      "SAP MM powers procurement and inventory for manufacturing, retail and logistics companies. Learn the complete Procure-to-Pay cycle on S/4HANA with real business scenarios, integration with Finance and Sales, and an end-to-end project.",
+      "SAP MM runs procurement and inventory for manufacturing, retail and logistics leaders. Master the complete Procure-to-Pay cycle on S/4HANA through real business scenarios, integration with Finance and Sales, and an end-to-end project that mirrors a live client implementation.",
     level: "Beginner to Advanced",
     eligibility: [
       "Graduates in any discipline, especially B.E. Mechanical, B.Com, BBA and MBA (Operations)",
@@ -66,8 +74,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "Preparation for SAP Certified Associate – S/4HANA Sourcing and Procurement, plus a NextGen Innovation course completion certificate.",
   },
   "sap-sd": {
+    seoTitle: "SAP SD Training in Coimbatore & Trichy | S/4HANA Sales Course",
+    metaDescription:
+      "Learn SAP SD on S/4HANA in Coimbatore, Trichy or online — Order-to-Cash, pricing, shipping, billing and credit management — with hands-on scenarios, a live project and placement support.",
     overview:
-      "SAP SD manages how companies sell, ship and bill their products. Master the Order-to-Cash cycle on S/4HANA — from sales orders and pricing to delivery, billing and credit management — through practical scenarios and a live project.",
+      "SAP SD controls how companies sell, ship and bill. Master the complete Order-to-Cash cycle on S/4HANA — sales orders, pricing, delivery, billing and credit management — through practical business scenarios and a live project designed around real consulting work.",
     level: "Beginner to Advanced",
     eligibility: [
       "Graduates in any discipline, especially B.Com, BBA and MBA (Marketing)",
@@ -93,8 +104,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "Preparation for SAP Certified Associate – S/4HANA Sales, plus a NextGen Innovation course completion certificate.",
   },
   "sap-abap": {
+    seoTitle: "SAP ABAP on HANA Training in Coimbatore & Trichy | RAP & CDS Course",
+    metaDescription:
+      "SAP ABAP on HANA course in Coimbatore, Trichy & online. Learn classic ABAP, CDS views, AMDP, RAP and OData, build real reports, forms and Fiori apps, and get placement support.",
     overview:
-      "SAP ABAP is the programming language behind every SAP system. Learn classic ABAP and modern ABAP on HANA — CDS views, AMDP and the RESTful Application Programming model — and build the reports, forms and enhancements companies need every day.",
+      "SAP ABAP is the language behind every SAP system. Learn classic ABAP and modern ABAP on HANA — CDS views, AMDP and the RESTful Application Programming model — and build the reports, forms, enhancements and Fiori apps that SAP teams deliver every day.",
     level: "Beginner to Advanced",
     eligibility: [
       "B.E., B.Tech, BCA, MCA, B.Sc Computer Science graduates",
@@ -120,8 +134,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "Preparation for SAP Certified Associate – Back-End Developer (ABAP Cloud), plus a NextGen Innovation course completion certificate.",
   },
   "sap-successfactors": {
+    seoTitle: "SAP SuccessFactors Training in Coimbatore & Trichy | HCM Cloud Course",
+    metaDescription:
+      "SAP SuccessFactors course in Coimbatore, Trichy & online — Employee Central, Recruiting, Onboarding, Performance & Compensation — with real HR transformation projects and placement support.",
     overview:
-      "SAP SuccessFactors is SAP's cloud HR suite, adopted by companies worldwide as they move HR to the cloud. Learn to configure Employee Central, Recruiting, Onboarding and Performance modules and work on real HR transformation scenarios.",
+      "SAP SuccessFactors is the cloud HR suite global companies are moving to right now. Learn to configure Employee Central, Recruiting, Onboarding, Performance and Compensation, and work through real HR transformation scenarios that prepare you for consulting roles.",
     level: "Beginner to Advanced",
     eligibility: [
       "HR professionals, MBA (HR) and BBA graduates",
@@ -147,8 +164,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "Preparation for SAP Certified Associate – SuccessFactors Employee Central, plus a NextGen Innovation course completion certificate.",
   },
   "data-science": {
+    seoTitle: "Data Science Course in Coimbatore & Trichy with Placement Support",
+    metaDescription:
+      "Data Science course in Coimbatore, Trichy & online for beginners and professionals. Python, SQL, statistics, Power BI, Tableau and machine learning, with real projects and placement support.",
     overview:
-      "Data Science turns raw data into business decisions. Learn Python, SQL, statistics, visualisation and machine learning step by step, and build a portfolio of real-world projects that prove you can solve business problems with data.",
+      "Data Science turns raw data into decisions that move businesses. Learn Python, SQL, statistics, visualisation and machine learning step by step, and graduate with a portfolio of real-world projects that proves you can solve business problems with data.",
     level: "Beginner to Advanced",
     eligibility: [
       "Graduates in any discipline (engineering, science, commerce, maths)",
@@ -174,8 +194,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "NextGen Innovation Data Science certificate, plus guidance for Microsoft PL-300 (Power BI) certification.",
   },
   "ai-machine-learning": {
+    seoTitle: "AI & Machine Learning Course in Coimbatore & Trichy | Deep Learning & MLOps",
+    metaDescription:
+      "Advanced AI & Machine Learning course in Coimbatore, Trichy & online — deep learning, NLP, computer vision and MLOps with TensorFlow and PyTorch. Build and deploy real AI models.",
     overview:
-      "Go deep into Artificial Intelligence — machine learning, deep learning, NLP and computer vision. Build and deploy real AI models with Python, TensorFlow and PyTorch, and learn the MLOps practices companies use to run AI in production.",
+      "Go deep into Artificial Intelligence — machine learning, deep learning, NLP and computer vision. Build and deploy production-grade AI models with Python, TensorFlow and PyTorch, and master the MLOps practices companies rely on to run AI at scale.",
     level: "Intermediate to Advanced",
     eligibility: [
       "B.E., B.Tech, M.Sc, MCA graduates",
@@ -201,8 +224,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "NextGen Innovation AI & ML certificate, plus guidance for TensorFlow Developer and cloud AI certifications.",
   },
   "generative-ai": {
+    seoTitle: "Generative AI & Prompt Engineering Course in Coimbatore & Trichy",
+    metaDescription:
+      "Generative AI course in Coimbatore, Trichy & online. Master prompt engineering with ChatGPT, Gemini & Claude, and build LLM apps, RAG chatbots and AI agents that automate real business work.",
     overview:
-      "Generative AI is changing how every business works. Learn to use ChatGPT, Gemini and Claude like a pro, design effective prompts, and build real AI applications — chatbots, RAG systems and AI agents — that automate business tasks.",
+      "Generative AI is reshaping every job and every industry. Learn to use ChatGPT, Gemini and Claude like a professional, engineer prompts that deliver reliable results, and build real AI applications — chatbots, RAG systems and AI agents — that automate business work.",
     level: "Beginner to Intermediate",
     eligibility: [
       "Graduates and working professionals from any background",
@@ -228,8 +254,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "NextGen Innovation Generative AI certificate, plus guidance for cloud AI certifications (Azure AI / Google Cloud).",
   },
   "data-analytics": {
+    seoTitle: "Data Analytics Course in Coimbatore & Trichy | Excel, SQL & Power BI",
+    metaDescription:
+      "Data Analytics course in Coimbatore, Trichy & online — Advanced Excel, SQL, Power BI and Python basics. Build real business dashboards and get PL-300 prep plus placement support.",
     overview:
-      "Data Analytics is the fastest way into a data career. Master Advanced Excel, SQL and Power BI, learn to clean and analyse business data, and build dashboards that managers actually use to make decisions.",
+      "Data Analytics is the fastest route into a data career — no coding background required. Master Advanced Excel, SQL and Power BI, learn to clean and analyse real business data, and build dashboards managers actually use to make decisions.",
     level: "Beginner to Intermediate",
     eligibility: [
       "Graduates in any discipline, including non-IT backgrounds",
@@ -255,8 +284,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "NextGen Innovation Data Analytics certificate, plus preparation for Microsoft PL-300 (Power BI Data Analyst).",
   },
   "full-stack-development": {
+    seoTitle: "Full Stack Development Course in Coimbatore & Trichy | MERN & Next.js",
+    metaDescription:
+      "Full Stack Developer course in Coimbatore, Trichy & online — HTML, CSS, JavaScript, React, Next.js, Node.js and databases. Build and deploy real web apps with placement support.",
     overview:
-      "Become a complete web developer. Learn front-end with HTML, CSS, JavaScript and React, back-end with Node.js and Express, databases, APIs and cloud deployment — and build real applications you can show to employers.",
+      "Become a complete, hireable web developer. Learn front-end with HTML, CSS, JavaScript, React and Next.js, back-end with Node.js and Express, databases, APIs and cloud deployment — and ship real applications you can demo to employers.",
     level: "Beginner to Advanced",
     eligibility: [
       "B.E., B.Tech, BCA, MCA, B.Sc graduates",
@@ -282,8 +314,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "NextGen Innovation Full Stack Development certificate with a verified project portfolio.",
   },
   "software-testing": {
+    seoTitle: "Software Testing Course in Coimbatore & Trichy | Manual & Selenium Automation",
+    metaDescription:
+      "Software Testing course in Coimbatore, Trichy & online — manual testing, Selenium with Java, API testing, JIRA and CI/CD. ISTQB prep, live projects and placement support for freshers.",
     overview:
-      "Software Testing is one of the easiest and most stable entries into IT. Learn manual testing, Selenium automation with Java, API testing and Agile tools, and prepare for the ISTQB certification with real project experience.",
+      "Software Testing is one of the most accessible and stable ways into IT. Learn manual testing, Selenium automation with Java, API testing and Agile tooling, and prepare for ISTQB certification through real project experience.",
     level: "Beginner to Advanced",
     eligibility: [
       "Graduates in any discipline, including non-IT backgrounds",
@@ -309,8 +344,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "Preparation for ISTQB Foundation Level, plus a NextGen Innovation Software Testing certificate.",
   },
   salesforce: {
+    seoTitle: "Salesforce Admin & Developer Training in Coimbatore & Trichy",
+    metaDescription:
+      "Salesforce training in Coimbatore, Trichy & online — administration, Flows, Apex and Lightning Web Components. Prepare for Admin and Platform Developer I certifications with real CRM projects.",
     overview:
-      "Salesforce is the world's No. 1 CRM, and certified Salesforce professionals are in constant demand. Learn Salesforce administration, automation and development with Apex and Lightning Web Components, and prepare for official certifications.",
+      "Salesforce is the world's leading CRM, and certified Salesforce professionals are hired across industries. Learn administration, automation and development with Apex and Lightning Web Components, and prepare for official Salesforce certifications.",
     level: "Beginner to Advanced",
     eligibility: [
       "Graduates in any discipline",
@@ -336,8 +374,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "Preparation for Salesforce Certified Administrator and Platform Developer I, plus a NextGen Innovation certificate.",
   },
   "mobile-app-development": {
+    seoTitle: "Flutter App Development Course in Coimbatore & Trichy | Android & iOS",
+    metaDescription:
+      "Flutter mobile app development course in Coimbatore, Trichy & online. Learn Dart, UI design, state management, Firebase and APIs, and publish real Android & iOS apps to the store.",
     overview:
-      "Build Android and iOS apps from a single codebase with Flutter. Learn Dart, beautiful UI design, state management, Firebase and APIs, and publish your own apps to the Play Store.",
+      "Build Android and iOS apps from a single codebase with Flutter. Learn Dart, polished UI design, state management, Firebase and REST APIs — and publish your own apps to the Play Store as proof of your skills.",
     level: "Beginner to Advanced",
     eligibility: [
       "B.E., B.Tech, BCA, MCA, B.Sc graduates",
@@ -363,8 +404,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "NextGen Innovation Mobile App Development certificate with published app portfolio.",
   },
   "cloud-computing": {
+    seoTitle: "Cloud Computing Course in Coimbatore & Trichy | AWS & Azure Training",
+    metaDescription:
+      "AWS & Azure cloud computing course in Coimbatore, Trichy & online — compute, storage, networking, IAM, security and cost control. Prepare for AWS SAA and AZ-104 with hands-on labs.",
     overview:
-      "Almost every company now runs on the cloud. Learn Amazon Web Services and Microsoft Azure hands-on — compute, storage, networking, security and cost management — and prepare for the most valuable cloud certifications.",
+      "Almost every company now runs on the cloud. Learn Amazon Web Services and Microsoft Azure hands-on — compute, storage, networking, security and cost management — and prepare for the cloud certifications employers value most.",
     level: "Beginner to Advanced",
     eligibility: [
       "B.E., B.Tech, BCA, MCA, B.Sc graduates",
@@ -390,8 +434,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "Preparation for AWS Solutions Architect – Associate and Microsoft Azure Administrator (AZ-104).",
   },
   devops: {
+    seoTitle: "DevOps Training in Coimbatore & Trichy | Docker, Kubernetes & CI/CD",
+    metaDescription:
+      "DevOps course in Coimbatore, Trichy & online — Linux, Git, Jenkins, GitHub Actions, Docker, Kubernetes, Terraform, Ansible and monitoring. Real pipeline projects and CKA preparation.",
     overview:
-      "DevOps engineers automate how software is built, tested and deployed — one of the highest-paid roles in IT. Learn Linux, Git, CI/CD, Docker, Kubernetes, Terraform and monitoring through real pipeline projects.",
+      "DevOps engineers automate how software is built, tested and shipped — and are among the best-paid professionals in IT. Learn Linux, Git, CI/CD, Docker, Kubernetes, Terraform and monitoring by building real delivery pipelines end to end.",
     level: "Intermediate to Advanced",
     eligibility: [
       "B.E., B.Tech, BCA, MCA graduates",
@@ -417,8 +464,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "Preparation for Certified Kubernetes Administrator (CKA) and AWS DevOps certifications.",
   },
   cybersecurity: {
+    seoTitle: "Cybersecurity & Ethical Hacking Course in Coimbatore & Trichy",
+    metaDescription:
+      "Cybersecurity and ethical hacking course in Coimbatore, Trichy & online — network security, penetration testing, web app security and SOC operations in hands-on labs. CEH & Security+ prep.",
     overview:
-      "Cyber attacks are rising every year, and companies urgently need security professionals. Learn network security, ethical hacking, penetration testing and SOC operations in hands-on labs, and prepare for top security certifications.",
+      "Cyber attacks grow every year, and companies urgently need skilled defenders. Learn network security, ethical hacking, penetration testing and SOC operations in hands-on labs, and prepare for globally recognised security certifications.",
     level: "Beginner to Advanced",
     eligibility: [
       "B.E., B.Tech, BCA, MCA, B.Sc graduates",
@@ -444,8 +494,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "Preparation for CEH (Certified Ethical Hacker) and CompTIA Security+.",
   },
   "digital-marketing": {
+    seoTitle: "Digital Marketing Course in Coimbatore & Trichy with Live Projects",
+    metaDescription:
+      "Digital Marketing course in Coimbatore, Trichy & online — SEO, Google Ads, Meta Ads, social media, content, email, GA4 and AI tools. Run live campaigns and earn Google certifications.",
     overview:
-      "Every business needs online customers. Learn SEO, Google Ads, social media marketing, content, email and analytics — and use AI tools to work faster. Run live campaigns with real budgets and build a portfolio of results.",
+      "Every business is competing for customers online. Learn SEO, Google Ads, social media, content, email and analytics, and use AI tools to work faster. Run live campaigns with real budgets and build a portfolio of measurable results.",
     level: "Beginner to Advanced",
     eligibility: [
       "Graduates in any discipline",
@@ -471,8 +524,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "Preparation for Google Ads and Google Analytics certifications, plus a NextGen Innovation certificate.",
   },
   "master-of-bim": {
+    seoTitle: "BIM Course in Coimbatore & Trichy | Master of BIM with Revit & Navisworks",
+    metaDescription:
+      "Master of BIM course in Coimbatore, Trichy & online for civil, mechanical and architecture graduates. Revit Architecture, Structure & MEP, Navisworks, ISO 19650 and real coordination projects.",
     overview:
-      "Building Information Modelling (BIM) is now the standard for construction and infrastructure projects worldwide. Master Revit for Architecture, Structure and MEP, Navisworks coordination and BIM standards, and work on real project models.",
+      "Building Information Modelling (BIM) is now the global standard for construction and infrastructure projects. Master Revit for Architecture, Structure and MEP, Navisworks coordination and ISO 19650 workflows, and build real project models for India and Gulf careers.",
     level: "Beginner to Advanced",
     eligibility: [
       "B.E. / Diploma in Civil, Mechanical or Electrical Engineering",
@@ -498,8 +554,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "Preparation for Autodesk Certified Professional (Revit), plus a NextGen Innovation Master of BIM certificate.",
   },
   "interior-designing": {
+    seoTitle: "Interior Designing Course in Coimbatore & Trichy | AutoCAD, SketchUp & 3ds Max",
+    metaDescription:
+      "Interior Designing course in Coimbatore, Trichy & online — design principles, space planning, materials, lighting, AutoCAD, SketchUp, 3ds Max and V-Ray. Graduate with a pro portfolio.",
     overview:
-      "Turn spaces into experiences. Learn design principles, space planning, materials and lighting, and master AutoCAD, SketchUp, 3ds Max and V-Ray to create photorealistic interiors for homes, offices and retail spaces.",
+      "Turn spaces into experiences. Learn design principles, space planning, materials and lighting, and master AutoCAD, SketchUp, 3ds Max and V-Ray to create photorealistic interiors for homes, offices and retail — then present them like a professional.",
     level: "Beginner to Advanced",
     eligibility: [
       "Anyone who has completed 12th standard",
@@ -525,8 +584,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "NextGen Innovation Interior Designing certificate with a professional design portfolio.",
   },
   "architectural-designing": {
+    seoTitle: "Architectural Designing Course in Coimbatore & Trichy | AutoCAD, Revit & Lumion",
+    metaDescription:
+      "Architectural Designing course in Coimbatore, Trichy & online — AutoCAD drafting, Revit, SketchUp, Lumion rendering and working drawings. Build a standout portfolio for architecture firms.",
     overview:
-      "Learn the software and skills architectural firms use every day. Master AutoCAD drafting, Revit modelling, SketchUp, Lumion rendering and working drawings, and graduate with a portfolio that stands out.",
+      "Learn the software and skills architecture firms use every day. Master AutoCAD drafting, Revit modelling, SketchUp, Lumion rendering and municipal-ready working drawings, and graduate with a portfolio that stands out in every interview.",
     level: "Beginner to Advanced",
     eligibility: [
       "B.Arch students and graduates",
@@ -552,8 +614,11 @@ export const courseDetails: Record<string, CourseDetail> = {
     certification: "Preparation for Autodesk Certified Professional (AutoCAD / Revit), plus a NextGen Innovation certificate.",
   },
   "ui-ux-design": {
+    seoTitle: "UI/UX Design Course in Coimbatore & Trichy | Figma & Portfolio Training",
+    metaDescription:
+      "UI/UX Design course in Coimbatore, Trichy & online — user research, wireframing, visual design, Figma prototyping and design systems. Build a 3 case-study portfolio. No coding needed.",
     overview:
-      "UI/UX designers shape how millions of people use apps and websites. Learn user research, wireframing, visual design and prototyping in Figma, and build a case-study portfolio that gets you hired — no coding needed.",
+      "UI/UX designers shape how millions of people experience apps and websites. Learn user research, wireframing, visual design and Figma prototyping, and build a case-study portfolio that gets you hired — no coding required.",
     level: "Beginner to Advanced",
     eligibility: [
       "Graduates in any discipline, including non-IT",

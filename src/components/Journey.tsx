@@ -15,9 +15,9 @@ export default function Journey() {
     <section id="journey" className="relative overflow-hidden bg-gradient-to-b from-white to-brand-50/70 py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <SectionHeading
-          eyebrow="Your Learning Journey"
-          title={<>From first class to <span className="text-gradient">dream job</span></>}
-          text="A simple, guided path that takes you step by step from your first class to your first job. Here is how your journey with us unfolds."
+          eyebrow="Placement Support"
+          title={<>From enrolment to <span className="text-gradient">getting placed</span></>}
+          text="Our dedicated placement cell guides you at every step — from choosing the right course to interview preparation and recruitment drives with leading companies."
         />
 
         <div ref={ref} className="relative mt-20">

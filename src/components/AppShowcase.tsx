@@ -86,8 +86,8 @@ export default function AppShowcase() {
   return (
     <section ref={ref} id="app" className="relative overflow-hidden bg-brand-950 py-16 sm:py-24 lg:py-32">
       <div className="absolute inset-0 bg-grid opacity-20" />
-      <div className="absolute left-1/4 top-0 h-[500px] w-[500px] animate-blob rounded-full bg-brand-600/30 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-[400px] w-[400px] animate-blob rounded-full bg-brand-800/25 blur-3xl [animation-delay:-7s]" />
+      <div className="glow absolute left-1/4 top-0 h-[500px] w-[500px] animate-blob text-brand-600/30" />
+      <div className="glow absolute bottom-0 right-0 h-[400px] w-[400px] animate-blob text-brand-800/25 [animation-delay:-7s]" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-5 lg:grid-cols-2 lg:px-8">
         <div>
@@ -95,15 +95,15 @@ export default function AppShowcase() {
             light
             align="left"
             eyebrow="The NextGen App"
-            title={<>Your entire learning, <span className="bg-gradient-to-r from-brand-300 to-brand-300 bg-clip-text text-transparent">in your pocket</span></>}
-            text="Our app is the heart of NextGen Innovation. Attend live classes, rewatch sessions, follow hands-on exercises, take mock tests and chat with expert trainers — all from one beautifully simple app."
+            title={<>Your classroom and mentor, <span className="bg-gradient-to-r from-brand-300 to-brand-300 bg-clip-text text-transparent">in your pocket</span></>}
+            text="The NextGen app keeps your entire learning journey in one place. Join live classes, replay any session, practise hands-on exercises, take exam-pattern mock tests, message your trainer and track job alerts — wherever you are."
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {appFeatures.map((f, i) => (
               <Reveal
                 key={f.title}
                 delay={i * 0.07}
-                className="flex items-start gap-4 rounded-2xl bg-white/5 p-4 ring-1 ring-white/10 backdrop-blur transition hover:bg-white/10"
+                className="flex items-start gap-4 rounded-2xl bg-white/5 p-4 ring-1 ring-white/10 transition-colors hover:bg-white/10"
               >
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 text-white">
                   <Icon name={f.icon} className="h-5 w-5" />

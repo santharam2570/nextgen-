@@ -20,9 +20,9 @@ export default function Gallery() {
     <section className="bg-gradient-to-b from-white to-brand-50/60 py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
-          eyebrow="Life at NextGen"
-          title={<>Moments from our <span className="text-gradient">learning community</span></>}
-          text="Live sessions, hands-on labs, design studios, project workshops and placement drives — a glimpse into life at NextGen Innovation."
+          eyebrow="Inside NextGen"
+          title={<>A campus built for <span className="text-gradient">hands-on learning</span></>}
+          text="Live sessions, practical labs, design studios, project reviews and mock interviews — a glimpse of what a day at NextGen Innovation really looks like."
         />
         <div className="mt-16 grid auto-rows-[200px] grid-cols-2 gap-4 md:grid-cols-4">
           {gallery.map((g, i) => (

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { CheckCircle2, Clock, Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
+import { branches } from "@/data/branches";
 import { inquiryCourses, site } from "@/data/site";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
@@ -63,7 +64,7 @@ export default function Inquiry() {
   const contacts = [
     { icon: Phone, label: "Call us", value: site.phone, href: `tel:${site.phone.replace(/\s/g, "")}` },
     { icon: Mail, label: "Email", value: site.email, href: `mailto:${site.email}` },
-    { icon: MapPin, label: "Visit", value: site.address, href: site.googleMapsUrl },
+    { icon: MapPin, label: "Visit", value: branches.map((b) => b.city).join(" & ") + " branches", href: "/branches" },
     { icon: Clock, label: "Hours", value: site.hours },
   ];
 
@@ -72,9 +73,9 @@ export default function Inquiry() {
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50/60 via-white to-brand-50/40" />
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
-          eyebrow="Course Inquiry"
-          title={<>Start your journey <span className="text-gradient">today</span></>}
-          text="Fill in the form and our career counsellor will call you within 24 hours to help you choose the right course and book your free demo class."
+          eyebrow="Course Enquiry"
+          title={<>Book a FREE <span className="text-gradient">counselling session</span></>}
+          text="Fill in the form and our team will call you within 24 hours with course details, fees, upcoming batch dates and a free demo class."
         />
 
         <div className="mt-10 grid gap-6 sm:mt-16 sm:gap-8 lg:grid-cols-[1fr_1.35fr]">
@@ -93,14 +94,14 @@ export default function Inquiry() {
               );
               const cls = "flex items-center gap-4 rounded-2xl border border-brand-100 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg";
               return c.href ? (
-                <a key={c.label} href={c.href} target={c.label === "Visit" ? "_blank" : undefined} rel="noopener noreferrer" className={cls}>{inner}</a>
+                <a key={c.label} href={c.href} className={cls}>{inner}</a>
               ) : (
                 <div key={c.label} className={cls}>{inner}</div>
               );
             })}
             <div className="min-h-[220px] flex-1 overflow-hidden rounded-2xl border border-brand-100 shadow-sm">
               <iframe
-                title="Training centre location"
+                title={`${branches[0].name} location`}
                 src={site.mapEmbed}
                 className="h-full min-h-[220px] w-full grayscale-[30%]"
                 loading="lazy"
@@ -129,7 +130,7 @@ export default function Inquiry() {
                   </motion.span>
                   <h3 className="mt-6 text-2xl font-bold">Thank you! 🎉</h3>
                   <p className="mt-3 max-w-sm text-slate-600">
-                    We&apos;ve received your inquiry. Our counsellor will contact you within 24 hours.
+                    Your request is in. A senior counsellor will call you within 24 hours to plan your next step.
                   </p>
                   <button onClick={() => setStatus("idle")} className="mt-8 rounded-full bg-brand-50 px-6 py-3 font-semibold text-brand-700 hover:bg-brand-100">
                     Submit another inquiry
@@ -138,8 +139,8 @@ export default function Inquiry() {
               ) : (
                 <motion.form key="form" onSubmit={onSubmit} noValidate initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="grid gap-5 sm:grid-cols-2">
                   <div className="sm:col-span-2">
-                    <h3 className="text-2xl font-bold">Book your free career counselling</h3>
-                    <p className="mt-1 text-sm text-slate-500">It takes less than a minute.</p>
+                    <h3 className="text-2xl font-bold">Schedule 1:1 free counselling</h3>
+                    <p className="mt-1 text-sm text-slate-500">Get course details, fees and batch dates.</p>
                   </div>
 
                   <Field label="Full name *" error={errors.name}>
@@ -172,7 +173,7 @@ export default function Inquiry() {
                   </div>
 
                   <Field label="Message" className="sm:col-span-2">
-                    <textarea value={form.message} onChange={set("message")} rows={4} placeholder="Tell us about your education, work experience or any questions about the course..." className={`${inputBase} resize-none border-brand-100`} />
+                    <textarea value={form.message} onChange={set("message")} rows={4} placeholder="Tell us your qualification, current role or career goal — and any questions about the course, fees or batches..." className={`${inputBase} resize-none border-brand-100`} />
                   </Field>
 
                   {status === "error" && (
@@ -189,11 +190,11 @@ export default function Inquiry() {
                     {status === "loading" ? (
                       <><Loader2 className="h-5 w-5 animate-spin" /> Sending...</>
                     ) : (
-                      <>Submit Inquiry <Send className="h-5 w-5 transition group-hover:translate-x-1 group-hover:-translate-y-1" /></>
+                      <>Ask For Demo <Send className="h-5 w-5 transition group-hover:translate-x-1 group-hover:-translate-y-1" /></>
                     )}
                   </button>
                   <p className="text-center text-xs text-slate-500 sm:col-span-2">
-                    By submitting, you agree to be contacted by {site.name}. We never share your details.
+                    By submitting, you agree to be contacted by {site.name}. Your details stay private — we never sell or share them.
                   </p>
                 </motion.form>
               )}

@@ -26,9 +26,9 @@ export default function Courses() {
     <section id="courses" className="py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
-          eyebrow="Our Courses"
-          title={<>Courses designed for <span className="text-gradient">real careers</span></>}
-          text="SAP, Data Science, Generative AI, Cloud, Cybersecurity, Full Stack, Software Testing, Digital Marketing, BIM, UI/UX and Design — pick your path and start learning on the app today."
+          eyebrow="Explore Our Programs"
+          title={<>Popular courses <span className="text-gradient">with placements</span></>}
+          text="SAP, Data Science, Gen AI & Machine Learning, Cloud Computing, DevOps, Cyber Security, Full Stack, Software Testing, Digital Marketing, BIM and Design — classroom and online training with new batches every month."
         />
 
         <div className="no-scrollbar -mx-5 mt-8 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:mt-10 sm:flex-wrap sm:justify-center sm:overflow-visible sm:px-0">
@@ -124,7 +124,7 @@ export default function Courses() {
               onClick={() => setShowAll(true)}
               className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-600 to-brand-800 px-8 py-4 font-semibold text-white shadow-xl shadow-brand-600/30 transition hover:scale-105"
             >
-              View all {courses.length} courses
+              Explore all {courses.length} career programs
               <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
             </button>
           </div>

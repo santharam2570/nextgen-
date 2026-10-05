@@ -58,7 +58,7 @@ export default async function GoogleReviews() {
         <SectionHeading
           eyebrow="Google Reviews"
           title={<>Rated <span className="text-gradient">{data.rating.toFixed(1)} stars</span> on Google</>}
-          text="Don't just take our word for it — here's what our learners say about us on Google."
+          text="Don't take our word for it. Read unfiltered feedback from real learners on Google — then visit our centre and see for yourself."
         />
 
         <Reveal delay={0.1} className="mx-auto mt-14 grid max-w-4xl items-center gap-8 rounded-[2rem] border border-brand-100 bg-gradient-to-br from-white to-brand-50 p-8 shadow-xl shadow-brand-900/5 md:grid-cols-[auto_1fr_auto]">

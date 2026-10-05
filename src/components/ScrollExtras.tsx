@@ -62,7 +62,7 @@ export default function ScrollExtras({
 
       <nav
         aria-label="Quick contact"
-        className="fixed inset-x-0 bottom-0 z-50 border-t border-brand-100 bg-white/95 px-3 pb-[calc(0.625rem+env(safe-area-inset-bottom))] pt-2.5 shadow-[0_-8px_30px_-12px_rgba(10,26,63,0.35)] backdrop-blur-xl md:hidden"
+        className="fixed inset-x-0 bottom-0 z-50 border-t border-brand-100 bg-white/95 px-3 pb-[calc(0.625rem+env(safe-area-inset-bottom))] pt-2.5 shadow-[0_-8px_30px_-12px_rgba(10,26,63,0.35)] md:hidden"
       >
         <div className="grid grid-cols-[1fr_1fr_1.4fr] gap-2">
           <a

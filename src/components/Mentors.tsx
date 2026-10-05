@@ -9,9 +9,9 @@ export default function Mentors() {
     <section className="py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
-          eyebrow="Meet Our Trainers"
-          title={<>Learn from <span className="text-gradient">working industry experts</span></>}
-          text="Our trainers are SAP consultants, data scientists, engineers, marketers and architects with years of real project experience — and they love to teach."
+          eyebrow="Our Faculty"
+          title={<>Get experienced <span className="text-gradient">faculty guidance</span></>}
+          text="Our faculty bring teaching expertise and real-world industry knowledge to every classroom, giving you effective instruction and mentorship throughout your learning journey."
         />
         <div className="mt-10 grid grid-cols-2 gap-4 sm:mt-16 sm:gap-7 lg:grid-cols-4">
           {mentors.map((m, i) => (

@@ -27,14 +27,14 @@ export default function Testimonials() {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-brand-50/70 to-white py-16 sm:py-24 lg:py-32">
-      <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-brand-200/50 blur-3xl" />
-      <div className="absolute -right-40 bottom-10 h-96 w-96 rounded-full bg-brand-200/40 blur-3xl" />
+      <div className="glow absolute -left-40 top-20 h-96 w-96 text-brand-200/50" />
+      <div className="glow absolute -right-40 bottom-10 h-96 w-96 text-brand-200/40" />
 
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
-          eyebrow="Alumni Stories"
-          title={<>Careers built at <span className="text-gradient">NextGen</span></>}
-          text="Real words from freshers, career switchers and working professionals who built their careers with NextGen Innovation."
+          eyebrow="Student Success Stories"
+          title={<>Hear it from <span className="text-gradient">our graduates</span></>}
+          text="Freshers, non-IT graduates and working professionals share how NextGen Innovation helped them land their jobs."
         />
 
         <div

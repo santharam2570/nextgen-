@@ -59,14 +59,14 @@ export default function CourseEnquiry({ course }: { course: string }) {
             </span>
             <h3 className="mt-5 text-xl font-bold">Thank you, {name.split(" ")[0]}!</h3>
             <p className="mt-2 text-sm text-slate-600">
-              Our counsellor will call you within 24 hours about the {course} course.
+              A senior counsellor will call you within 24 hours with fee details and the next batch dates for {course}.
             </p>
           </motion.div>
         ) : (
           <motion.form key="form" onSubmit={submit} noValidate exit={{ opacity: 0 }} className="space-y-4">
             <div>
-              <h3 className="text-xl font-bold">Enquire about this course</h3>
-              <p className="mt-1 text-sm text-slate-500">Free counselling & demo class. No obligation.</p>
+              <h3 className="text-xl font-bold">Book a FREE Counselling</h3>
+              <p className="mt-1 text-sm text-slate-500">Course details, fees & upcoming batch dates.</p>
             </div>
             <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Full name *" className={input} />
             <input value={phone} onChange={(e) => setPhone(e.target.value)} inputMode="tel" placeholder="Mobile number *" className={input} />
@@ -98,7 +98,7 @@ export default function CourseEnquiry({ course }: { course: string }) {
               {status === "loading" ? (
                 <Loader2 className="h-5 w-5 animate-spin" />
               ) : (
-                <>Get Free Counselling <Send className="h-4 w-4 transition group-hover:translate-x-1" /></>
+                <>Ask For Demo <Send className="h-4 w-4 transition group-hover:translate-x-1" /></>
               )}
             </button>
           </motion.form>

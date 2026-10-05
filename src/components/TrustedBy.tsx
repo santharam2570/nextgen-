@@ -6,7 +6,7 @@ export default function TrustedBy() {
   return (
     <section className="border-b border-brand-100 bg-[#f5f9ff] py-8">
       <p className="mb-5 text-center text-xs font-semibold uppercase tracking-[0.25em] text-brand-700/70">
-        Our trainers & alumni work at
+        Our Hiring Partners
       </p>
       <div className="mask-fade-x overflow-hidden">
         <div className="flex w-max animate-marquee gap-12 hover:[animation-play-state:paused]">

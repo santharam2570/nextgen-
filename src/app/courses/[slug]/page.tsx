@@ -29,6 +29,7 @@ import ScrollExtras from "@/components/ScrollExtras";
 import { WhatsappIcon } from "@/components/ui/Brand";
 import Icon from "@/components/ui/Icon";
 import Reveal from "@/components/ui/Reveal";
+import { branchAddress, branches } from "@/data/branches";
 import { courseDetails } from "@/data/course-details";
 import { courses, site } from "@/data/site";
 
@@ -46,25 +47,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const detail = courseDetails[slug];
   if (!course || !detail) return {};
   return {
-    title: `${course.title} Course | ${site.name}`,
-    description: detail.overview,
-    openGraph: { title: `${course.title} Course | ${site.name}`, description: detail.overview, images: [course.image] },
+    title: detail.seoTitle,
+    description: detail.metaDescription,
+    alternates: { canonical: `/courses/${course.slug}` },
+    openGraph: {
+      title: `${detail.seoTitle} | ${site.name}`,
+      description: detail.metaDescription,
+      url: `/courses/${course.slug}`,
+      images: [course.image],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${detail.seoTitle} | ${site.name}`,
+      description: detail.metaDescription,
+      images: [course.image],
+    },
   };
 }
 
 const batches = [
-  { name: "Weekday Batch", time: "Mon – Fri · 1.5 hrs/day", note: "Ideal for freshers & students" },
-  { name: "Weekend Batch", time: "Sat & Sun · 3 hrs/day", note: "Ideal for working professionals" },
-  { name: "Fast-track Batch", time: "Mon – Fri · 3 hrs/day", note: "Finish in half the time" },
+  { name: "Weekday Batch", time: "Mon – Fri · 1.5 hrs/day", note: "Best for freshers & final-year students" },
+  { name: "Weekend Batch", time: "Sat & Sun · 3 hrs/day", note: "Built for working professionals" },
+  { name: "Fast-track Batch", time: "Mon – Fri · 3 hrs/day", note: "Job-ready in half the time" },
 ];
 
 const included = [
-  "Live interactive classes + HD recordings",
-  "Hands-on labs on real industry tools",
-  "Real-time projects & portfolio",
-  "Dedicated mentor & doubt support",
-  "Mock interviews & resume building",
-  "Placement assistance & job referrals",
+  "Free aptitude & technical skills training",
+  "Hands-on real-time projects",
+  "Interview preparation for freshers",
+  "Learning app with HD class recordings",
+  "Resume building & mock interviews",
+  "Placement assistance in top MNC companies",
 ];
 
 export default async function CoursePage({ params }: Props) {
@@ -90,15 +103,67 @@ export default async function CoursePage({ params }: Props) {
   ];
 
   const faqs = [
-    { q: `Who can join the ${course.title} course?`, a: `${detail.eligibility.join(". ")}. Our counsellor will help you check if the course is the right fit.` },
-    { q: "What is the course fee and duration?", a: `The course runs for ${course.duration} with ${course.lessons}+ sessions. The fee is ${course.price}, with no-cost EMI and early registration offers available.` },
-    { q: "Will I get a certificate?", a: detail.certification },
-    { q: "Do you provide placement support?", a: `Yes. You get resume building, mock interviews and referrals for roles like ${detail.roles.slice(0, 3).join(", ")}.` },
-    { q: "Can I attend a demo class first?", a: "Yes. Fill in the enquiry form, call or WhatsApp us, and we will book a free demo class and counselling session for you." },
+    { q: `What are the requirements to become a ${course.title} professional?`, a: `No prior experience is required. A basic understanding of computers and a willingness to learn are enough — the course starts from the fundamentals and builds up to real-time projects using ${detail.tools.slice(0, 4).join(", ")}.` },
+    { q: `Who can join ${course.title} training?`, a: `Fresh graduates, non-IT career switchers, candidates with a career gap, graduates with less than 60%, diploma holders and working professionals can join. It is especially suited for: ${detail.eligibility.join("; ")}.` },
+    { q: `What is the ${course.title} course fee and duration?`, a: `The course runs for ${course.duration} with ${course.lessons}+ sessions. The fee is ${course.price}, with no-cost EMI and early registration offers available.` },
+    { q: `What kind of placement support is provided after ${course.title} training?`, a: `Our placement cell provides free aptitude training, resume building, interview preparation, mock interviews and recruitment drives for roles like ${detail.roles.slice(0, 3).join(", ")}. The typical salary range is ${detail.salary}.` },
+    { q: `Will I receive a certificate after completing the ${course.title} course?`, a: detail.certification },
+    { q: "Are classroom and online batches available?", a: `Yes. ${course.title} training is available as classroom training at our Coimbatore and Trichy branches and as live online training, with weekday, weekend and fast-track batches.` },
+    { q: "Can I attend a free demo class?", a: "Yes. Fill in the enquiry form, call or WhatsApp us, and we will schedule a free demo class and 1:1 counselling session for you." },
   ];
+
+  const courseUrl = `${site.url}/courses/${course.slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Course",
+        "@id": `${courseUrl}#course`,
+        name: `${course.title} Training`,
+        description: detail.overview,
+        url: courseUrl,
+        image: course.image,
+        educationalLevel: detail.level,
+        teaches: detail.modules.map((m) => m.title),
+        provider: { "@type": "EducationalOrganization", name: site.name, url: site.url },
+        offers: {
+          "@type": "Offer",
+          category: "Paid",
+          price: Number(course.price.replace(/[^\d]/g, "")),
+          priceCurrency: "INR",
+          availability: "https://schema.org/InStock",
+          url: courseUrl,
+        },
+        hasCourseInstance: [
+          ...branches.map((b) => ({
+            "@type": "CourseInstance",
+            courseMode: "Onsite",
+            location: { "@type": "Place", name: b.name, address: branchAddress(b) },
+          })),
+          { "@type": "CourseInstance", courseMode: "Online" },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+          { "@type": "ListItem", position: 2, name: "Courses", item: `${site.url}/courses` },
+          { "@type": "ListItem", position: 3, name: course.title, item: courseUrl },
+        ],
+      },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       <ScrollExtras
         enquireHref="#enquire"
         whatsappText={`Hi ${site.name}, I'm interested in the ${course.title} course. Please share the details.`}
@@ -106,7 +171,7 @@ export default async function CoursePage({ params }: Props) {
       <Navbar ctaHref="#enquire" />
       <main>
         <section className="relative isolate overflow-hidden bg-brand-950 pb-14 pt-28 sm:pb-20 sm:pt-32 lg:pb-28 lg:pt-40">
-          <Image src={course.image} alt="" fill priority sizes="100vw" className="-z-20 object-cover opacity-25" />
+          <Image src={course.image} alt="" fill preload sizes="100vw" className="-z-20 object-cover opacity-25" />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(110deg,rgba(10,26,63,0.98)_0%,rgba(19,42,99,0.92)_55%,rgba(29,78,216,0.6)_100%)]" />
           <div className="absolute inset-0 -z-10 bg-grid opacity-20" />
 
@@ -115,7 +180,7 @@ export default async function CoursePage({ params }: Props) {
               <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-sm text-brand-200/80">
                 <Link href="/" className="hover:text-white">Home</Link>
                 <ChevronRight className="h-4 w-4" />
-                <Link href="/#courses" className="hover:text-white">Courses</Link>
+                <Link href="/courses" className="hover:text-white">Courses</Link>
                 <ChevronRight className="h-4 w-4" />
                 <span className="text-white">{course.title}</span>
               </nav>
@@ -159,7 +224,7 @@ export default async function CoursePage({ params }: Props) {
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider text-brand-200">Course fee</p>
                     <p className="font-display text-3xl font-extrabold text-white">{course.price}</p>
-                    <p className="text-xs text-brand-100">No-cost EMI available</p>
+                    <p className="text-xs text-brand-100">No-cost EMI · No hidden charges</p>
                   </div>
                   <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-brand-500 to-brand-800 text-white shadow-xl">
                     <Icon name={course.icon} className="h-7 w-7" />
@@ -185,7 +250,7 @@ export default async function CoursePage({ params }: Props) {
           <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1fr_380px] lg:px-8">
             <div className="space-y-12 sm:space-y-16">
               <Reveal>
-                <h2 className="text-2xl font-bold sm:text-3xl">What you&apos;ll learn</h2>
+                <h2 className="text-2xl font-bold sm:text-3xl">What you&apos;ll learn from {course.title} training</h2>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   {[...course.points, ...detail.modules.slice(0, 3).map((m) => m.title)].map((p) => (
                     <div key={p} className="flex items-start gap-3 rounded-2xl border border-brand-100 bg-brand-50/50 p-4">
@@ -200,7 +265,7 @@ export default async function CoursePage({ params }: Props) {
 
               <Reveal>
                 <div className="flex flex-wrap items-end justify-between gap-3">
-                  <h2 className="text-2xl font-bold sm:text-3xl">Course curriculum</h2>
+                  <h2 className="text-2xl font-bold sm:text-3xl">{course.title} course syllabus</h2>
                   <p className="text-sm text-slate-500">
                     {detail.modules.length} modules · {course.lessons}+ sessions · {course.duration}
                   </p>
@@ -232,7 +297,7 @@ export default async function CoursePage({ params }: Props) {
 
               <Reveal>
                 <h2 className="flex items-center gap-3 text-2xl font-bold sm:text-3xl">
-                  <Wrench className="h-7 w-7 text-brand-600" /> Tools you&apos;ll master
+                  <Wrench className="h-7 w-7 text-brand-600" /> Tools covered
                 </h2>
                 <div className="mt-6 flex flex-wrap gap-3">
                   {detail.tools.map((t) => (
@@ -244,7 +309,7 @@ export default async function CoursePage({ params }: Props) {
               </Reveal>
 
               <Reveal>
-                <h2 className="text-2xl font-bold sm:text-3xl">Real-time projects</h2>
+                <h2 className="text-2xl font-bold sm:text-3xl">Gain hands-on experience with real-time projects</h2>
                 <div className="mt-6 grid gap-4 md:grid-cols-3">
                   {detail.projects.map((p, i) => (
                     <div key={p} className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-700 to-brand-950 p-6 text-white shadow-lg">
@@ -258,7 +323,7 @@ export default async function CoursePage({ params }: Props) {
 
               <Reveal>
                 <h2 className="flex items-center gap-3 text-2xl font-bold sm:text-3xl">
-                  <TrendingUp className="h-7 w-7 text-brand-600" /> Career outcomes
+                  <TrendingUp className="h-7 w-7 text-brand-600" /> Job roles for {course.title}
                 </h2>
                 <div className="mt-6 grid gap-4 sm:grid-cols-[1fr_auto]">
                   <div className="grid gap-3 sm:grid-cols-2">
@@ -271,7 +336,7 @@ export default async function CoursePage({ params }: Props) {
                   </div>
                   <div className="flex flex-col justify-center rounded-2xl bg-brand-950 p-6 text-white sm:w-56">
                     <IndianRupee className="h-7 w-7 text-brand-300" />
-                    <p className="mt-3 text-xs uppercase tracking-wider text-brand-200">Salary range</p>
+                    <p className="mt-3 text-xs uppercase tracking-wider text-brand-200">Typical salary range</p>
                     <p className="mt-1 font-display text-2xl font-bold">{detail.salary}</p>
                   </div>
                 </div>
@@ -279,7 +344,7 @@ export default async function CoursePage({ params }: Props) {
 
               <div className="grid gap-6 md:grid-cols-2">
                 <Reveal className="rounded-3xl border border-brand-100 bg-white p-7 shadow-sm">
-                  <h3 className="text-xl font-bold">Who can join?</h3>
+                  <h3 className="text-xl font-bold">Who should take this course?</h3>
                   <ul className="mt-4 space-y-3">
                     {detail.eligibility.map((e) => (
                       <li key={e} className="flex items-start gap-2.5 text-slate-600">
@@ -290,13 +355,13 @@ export default async function CoursePage({ params }: Props) {
                 </Reveal>
                 <Reveal delay={0.1} className="rounded-3xl bg-gradient-to-br from-brand-600 to-brand-900 p-7 text-white shadow-xl shadow-brand-900/20">
                   <Award className="h-9 w-9 text-brand-200" />
-                  <h3 className="mt-4 text-xl font-bold text-white">Certification</h3>
+                  <h3 className="mt-4 text-xl font-bold text-white">Industry-recognised certification</h3>
                   <p className="mt-3 leading-relaxed text-brand-100">{detail.certification}</p>
                 </Reveal>
               </div>
 
               <Reveal>
-                <h2 className="text-2xl font-bold sm:text-3xl">What&apos;s included</h2>
+                <h2 className="text-2xl font-bold sm:text-3xl">What&apos;s included?</h2>
                 <div className="mt-6 grid gap-3 sm:grid-cols-2">
                   {included.map((f) => (
                     <div key={f} className="flex items-center gap-3 text-slate-700">
@@ -310,7 +375,7 @@ export default async function CoursePage({ params }: Props) {
             <aside id="enquire" className="scroll-mt-28 lg:sticky lg:top-28 lg:self-start">
               <CourseEnquiry course={course.title} />
               <div className="mt-5 rounded-3xl border border-brand-100 bg-white p-5 shadow-sm">
-                <p className="text-sm font-semibold text-slate-900">Talk to us directly</p>
+                <p className="text-sm font-semibold text-slate-900">Prefer to talk? Reach us directly</p>
                 <div className="mt-4 grid gap-2.5">
                   <a href={tel} className="flex items-center gap-3 rounded-xl bg-brand-50 px-4 py-3 font-semibold text-brand-800 transition hover:bg-brand-100">
                     <Phone className="h-5 w-5" /> {site.phone}
@@ -331,8 +396,8 @@ export default async function CoursePage({ params }: Props) {
         <section className="bg-gradient-to-b from-brand-50/70 to-white py-14 sm:py-20">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <Reveal className="text-center">
-              <h2 className="text-2xl font-bold sm:text-4xl">Choose a batch that fits you</h2>
-              <p className="mx-auto mt-3 max-w-2xl text-slate-600">Online live, classroom at our Chennai centre, or hybrid — every batch includes recordings and mentor support.</p>
+              <h2 className="text-2xl font-bold sm:text-4xl">Upcoming batches for classroom and online</h2>
+              <p className="mx-auto mt-3 max-w-2xl text-slate-600">New batches start every month. Choose the timing that suits you — every batch includes class recordings, trainer support and placement assistance.</p>
             </Reveal>
             <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-6 md:grid-cols-3">
               {batches.map((b, i) => (
@@ -355,7 +420,7 @@ export default async function CoursePage({ params }: Props) {
         <section className="py-14 sm:py-20">
           <div className="mx-auto max-w-3xl px-5 lg:px-8">
             <Reveal className="text-center">
-              <h2 className="text-2xl font-bold sm:text-4xl">Frequently asked questions</h2>
+              <h2 className="text-2xl font-bold sm:text-4xl">{course.title} course FAQs</h2>
             </Reveal>
             <div className="mt-10 space-y-3">
               {faqs.map((f) => (
@@ -375,8 +440,8 @@ export default async function CoursePage({ params }: Props) {
           <section className="bg-gradient-to-b from-white to-brand-50/60 py-14 sm:py-20">
             <div className="mx-auto max-w-7xl px-5 lg:px-8">
               <Reveal className="flex flex-wrap items-end justify-between gap-4">
-                <h2 className="text-2xl font-bold sm:text-4xl">Related courses</h2>
-                <Link href="/#courses" className="inline-flex items-center gap-1.5 font-semibold text-brand-700 hover:text-brand-900">
+                <h2 className="text-2xl font-bold sm:text-4xl">Related category courses</h2>
+                <Link href="/courses" className="inline-flex items-center gap-1.5 font-semibold text-brand-700 hover:text-brand-900">
                   View all courses <ArrowRight className="h-4 w-4" />
                 </Link>
               </Reveal>
@@ -409,10 +474,10 @@ export default async function CoursePage({ params }: Props) {
             <div className="absolute inset-0 bg-grid opacity-20" />
             <div className="relative">
               <h2 className="mx-auto max-w-3xl text-3xl font-bold text-white sm:text-4xl">
-                Start your {course.title} journey today
+                Getting started with {course.title} training in Coimbatore & Trichy
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-brand-100">
-                Book a free demo class and career counselling session. Limited seats in every batch.
+                Book a FREE counselling session and demo class today. Limited seats in every batch.
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                 <a href="#enquire" className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-brand-800 shadow-xl transition hover:scale-105">

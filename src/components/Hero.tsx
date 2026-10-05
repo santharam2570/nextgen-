@@ -5,7 +5,6 @@ import Image from "next/image";
 import {
   AnimatePresence,
   motion,
-  useMotionTemplate,
   useMotionValue,
   useScroll,
   useSpring,
@@ -119,7 +118,7 @@ function QuickInquiry() {
     "w-full rounded-xl border-2 border-brand-100 bg-brand-50/60 px-4 py-3.5 text-sm font-medium text-slate-900 outline-none transition placeholder:text-slate-500 focus:border-brand-500 focus:bg-white focus:ring-4 focus:ring-brand-500/20";
 
   return (
-    <div className="relative rounded-[1.75rem] bg-[linear-gradient(110deg,#60a5fa,#2563eb,#93c5fd,#1d4ed8,#60a5fa)] bg-[length:200%_auto] p-[3px] shadow-[0_0_60px_-10px_rgba(59,130,246,0.75)] animate-gradient">
+    <div className="relative rounded-[1.75rem] bg-[linear-gradient(110deg,#60a5fa,#2563eb,#93c5fd,#1d4ed8)] p-[3px] shadow-[0_0_60px_-10px_rgba(59,130,246,0.75)]">
       <div className="rounded-[calc(1.75rem-3px)] bg-white p-5 sm:p-6">
         <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
@@ -129,10 +128,10 @@ function QuickInquiry() {
             </span>
             <div>
               <p className="flex flex-wrap items-center gap-2 font-display text-lg font-extrabold text-slate-900 sm:text-xl">
-                Book a Free Career Counselling Call
+                Book a FREE Counselling Session
                 <span className="rounded-full bg-brand-600 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white">Free</span>
               </p>
-              <p className="text-sm text-slate-500">Takes 20 seconds · Our counsellor calls you back within 24 hours</p>
+              <p className="text-sm text-slate-500">Schedule 1:1 free counselling · Our team calls you within 24 hours</p>
             </div>
           </div>
           <div className="flex gap-2">
@@ -162,7 +161,7 @@ function QuickInquiry() {
               className="flex items-center gap-3 rounded-xl bg-green-50 px-4 py-4 text-green-800"
             >
               <CheckCircle2 className="h-6 w-6 text-green-600" />
-              <span className="font-semibold">Thanks {name.split(" ")[0]}! Our career counsellor will call you within 24 hours.</span>
+              <span className="font-semibold">Thanks {name.split(" ")[0]}! A senior counsellor will call you within 24 hours with your personalised career roadmap.</span>
             </motion.div>
           ) : (
             <motion.form
@@ -175,7 +174,7 @@ function QuickInquiry() {
               <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" className={field} />
               <input value={phone} onChange={(e) => setPhone(e.target.value)} inputMode="tel" placeholder="Mobile number" className={field} />
               <select value={course} onChange={(e) => setCourse(e.target.value)} className={`${field} ${course ? "" : "text-slate-500"}`}>
-                <option value="">Which course interests you?</option>
+                <option value="">Which career path interests you?</option>
                 {inquiryCourses.map((c) => (
                   <option key={c} value={c}>{c}</option>
                 ))}
@@ -189,7 +188,7 @@ function QuickInquiry() {
                 {status === "loading" ? (
                   <Loader2 className="h-5 w-5 animate-spin" />
                 ) : (
-                  <>Book Free Call <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" /></>
+                  <>Ask For Demo <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" /></>
                 )}
               </button>
             </motion.form>
@@ -215,7 +214,8 @@ export default function Hero() {
 
   const mx = useMotionValue(50);
   const my = useMotionValue(40);
-  const spotlight = useMotionTemplate`radial-gradient(600px circle at ${mx}% ${my}%, rgba(147,197,253,0.2), transparent 60%)`;
+  const spotX = useMotionValue(0);
+  const spotY = useMotionValue(0);
   const tiltX = useSpring(useTransform(my, [0, 100], [8, -8]), { stiffness: 80, damping: 20 });
   const tiltY = useSpring(useTransform(mx, [0, 100], [-8, 8]), { stiffness: 80, damping: 20 });
 
@@ -226,8 +226,12 @@ export default function Hero() {
 
   const onMove = (e: React.MouseEvent) => {
     const r = e.currentTarget.getBoundingClientRect();
-    mx.set(((e.clientX - r.left) / r.width) * 100);
-    my.set(((e.clientY - r.top) / r.height) * 100);
+    const x = e.clientX - r.left;
+    const y = e.clientY - r.top;
+    mx.set((x / r.width) * 100);
+    my.set((y / r.height) * 100);
+    spotX.set(x - r.width / 2);
+    spotY.set(y - r.height * 0.4);
   };
 
   const current = heroSlides[slide];
@@ -249,19 +253,22 @@ export default function Hero() {
           className="absolute inset-0 -z-30"
         >
           <div className="absolute inset-0 animate-kenburns">
-            <Image src={current.image} alt="" fill priority={slide === 0} sizes="100vw" className="object-cover" />
+            <Image src={current.image} alt="" fill preload={slide === 0} sizes="100vw" className="object-cover" />
           </div>
         </motion.div>
       </AnimatePresence>
 
       <div className="absolute inset-0 -z-20 bg-[linear-gradient(110deg,rgba(10,26,63,0.97)_0%,rgba(19,42,99,0.9)_45%,rgba(29,78,216,0.55)_100%)]" />
-      <motion.div className="pointer-events-none absolute inset-0 -z-10" style={{ background: spotlight }} />
+      <motion.div
+        style={{ x: spotX, y: spotY }}
+        className="pointer-events-none absolute left-1/2 top-[40%] -z-10 -ml-[360px] -mt-[360px] h-[720px] w-[720px] bg-[radial-gradient(closest-side,rgba(147,197,253,0.2),transparent)]"
+      />
       <div className="absolute inset-0 -z-10 bg-grid opacity-20 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-      <div className="pointer-events-none absolute -top-40 right-1/4 -z-10 h-[500px] w-[500px] animate-blob rounded-full bg-brand-700/25 blur-3xl" />
+      <div className="glow absolute -top-40 right-1/4 -z-10 h-[500px] w-[500px] animate-blob text-brand-700/25" />
 
       <motion.div
         style={{ y: contentY, opacity: fade }}
-        className="mx-auto w-full max-w-7xl px-4 pb-24 pt-28 sm:px-5 sm:pb-40 sm:pt-32 lg:px-8 lg:pb-44"
+        className="mx-auto w-full max-w-7xl px-4 will-change-[transform,opacity] pb-24 pt-28 sm:px-5 sm:pb-40 sm:pt-32 lg:px-8 lg:pb-44"
       >
         <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_1fr]">
           <div>
@@ -269,12 +276,12 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-3 rounded-full bg-white/10 py-1.5 pl-1.5 pr-4 text-sm text-brand-100 ring-1 ring-white/20 backdrop-blur"
+              className="inline-flex items-center gap-3 rounded-full bg-white/10 py-1.5 pl-1.5 pr-4 text-sm text-brand-100 ring-1 ring-white/20"
             >
               <span className="rounded-full bg-gradient-to-r from-brand-400 to-brand-700 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
                 New
               </span>
-              New batches: SAP, Generative AI, Cloud & more
+              Students placed every month — be the next!
             </motion.div>
 
             <h1 className="mt-6 font-display text-[2.2rem] font-extrabold leading-[1.08] tracking-tight text-white min-[400px]:text-[2.5rem] sm:mt-7 sm:text-6xl lg:text-7xl">
@@ -284,7 +291,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="block"
               >
-                Your journey to
+                Learn
               </motion.span>
               <span className="relative block h-[1.15em] overflow-hidden">
                 <AnimatePresence mode="wait">
@@ -306,7 +313,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 className="relative inline-block"
               >
-                starts here.
+                from experts.
                 <svg viewBox="0 0 300 20" className="absolute -bottom-3 left-0 w-full" preserveAspectRatio="none" aria-hidden="true">
                   <motion.path
                     d="M3 14 C 80 4, 200 4, 297 12"
@@ -334,8 +341,8 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.5 }}
               className="mt-6 max-w-xl text-base leading-relaxed text-brand-100/85 sm:mt-8 sm:text-lg"
             >
-              Live classes by industry experts in SAP, Data Science, Generative AI, Cloud, Cybersecurity,
-              Software, Digital Marketing, BIM and Design — hands-on projects and placement support.
+              NextGen Innovation is a leading software training institute in Coimbatore and Trichy, aligning classroom learning with real industry
+              needs. Grow your career with SAP, Data Science, Gen AI, Cloud, Testing, Digital Marketing and BIM courses with placements.
             </motion.p>
 
             <motion.div
@@ -353,11 +360,11 @@ export default function Hero() {
                 <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
               </a>
               <a href="#journey" className="group inline-flex items-center gap-3 font-semibold text-white">
-                <span className="relative grid h-12 w-12 place-items-center rounded-full bg-white/15 ring-1 ring-white/30 backdrop-blur transition group-hover:bg-white group-hover:text-brand-700">
+                <span className="relative grid h-12 w-12 place-items-center rounded-full bg-white/15 ring-1 ring-white/30 transition group-hover:bg-white group-hover:text-brand-700">
                   <span className="absolute inset-0 animate-pulse-ring rounded-full bg-white/30" />
                   <PlayCircle className="relative h-6 w-6" />
                 </span>
-                How it works
+                See how it works
               </a>
             </motion.div>
 
@@ -373,8 +380,8 @@ export default function Hero() {
                 </span>
                 <b className="text-white">4.9</b> Google rating
               </span>
-              <span><b className="text-white">5,000+</b> professionals trained</span>
-              <span><b className="text-white">92%</b> placement</span>
+              <span><b className="text-white">5,000+</b> careers launched</span>
+              <span><b className="text-white">92%</b> placement rate</span>
             </motion.div>
           </div>
 
@@ -385,13 +392,13 @@ export default function Hero() {
             style={{ rotateX: tiltX, rotateY: tiltY, transformPerspective: 1000 }}
             className="relative mx-auto hidden aspect-square w-full max-w-[520px] lg:block"
           >
-            <div className="absolute inset-[18%] rounded-full bg-gradient-to-br from-brand-400/40 to-brand-700/40 blur-2xl" />
+            <div className="glow absolute inset-[10%] text-brand-500/40" />
             <Orbit items={outerOrbit} size={480} spin="animate-orbit" counter="animate-orbit-reverse" offset={Math.PI / 4} />
             <Orbit items={innerOrbit} size={330} spin="animate-orbit-fast" counter="animate-orbit-fast-reverse" />
 
             <div className="absolute left-1/2 top-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-brand-300 via-brand-400 to-brand-600 p-1.5 shadow-2xl shadow-brand-950/50">
               <div className="relative h-full w-full overflow-hidden rounded-full">
-                <Image src={heroPortrait} alt="NextGen professional" fill sizes="240px" className="object-cover" priority />
+                <Image src={heroPortrait} alt="NextGen Innovation learner" fill sizes="240px" className="object-cover" preload />
               </div>
             </div>
 

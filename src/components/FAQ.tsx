@@ -17,13 +17,13 @@ export default function FAQ() {
           <SectionHeading
             align="left"
             eyebrow="FAQ"
-            title={<>Questions? <span className="text-gradient">We&apos;ve got answers</span></>}
-            text="Everything learners usually ask before joining a course. Can't find your answer? Talk to us directly."
+            title={<>Questions? <span className="text-gradient">Straight answers.</span></>}
+            text="Everything learners ask before joining — about courses, fees, placements and learning modes. Can't find your answer? Talk to a counsellor directly."
           />
           <Reveal delay={0.2} className="mt-8 rounded-3xl bg-gradient-to-br from-brand-600 to-brand-800 p-7 text-white shadow-2xl shadow-brand-600/30">
             <MessageCircle className="h-8 w-8" />
-            <h3 className="mt-4 text-xl font-semibold text-white">Still have questions?</h3>
-            <p className="mt-2 text-sm text-brand-100">Our counsellors are happy to help you choose the right course.</p>
+            <h3 className="mt-4 text-xl font-semibold text-white">Still deciding?</h3>
+            <p className="mt-2 text-sm text-brand-100">Get honest, no-pressure advice on the right course for your background and goals.</p>
             <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="mt-5 inline-block rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-brand-700 transition hover:scale-105">
               Call {site.phone}
             </a>

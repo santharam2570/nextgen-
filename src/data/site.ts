@@ -1,27 +1,28 @@
+import { branches, mapDirectionsUrl, mapEmbedUrl } from "./branches";
+
 const img = (id: string, w = 1600) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
 
 export const site = {
   name: "NextGen Innovation",
   shortName: "NextGen",
-  tagline: "Job-Ready Skills. Real Careers.",
+  url: "https://www.nextgeninnovation.in",
   description:
-    "NextGen Innovation is a career training institute offering SAP, Data Science, Generative AI, Cloud & DevOps, Cybersecurity, Full Stack, Software Testing, Digital Marketing, BIM, UI/UX, Interior and Architectural Designing — with live classes, hands-on projects and placement support, all in one app.",
-  phone: "+91 98765 43210",
-  whatsapp: "919876543210",
-  email: "hello@nextgeninnovation.in",
-  address: "2nd Floor, Anna Salai, Chennai, Tamil Nadu 600002",
+    "NextGen Innovation is a career training institute with branches in Coimbatore and Trichy for SAP, Data Science, Generative AI, Cloud, DevOps, Cybersecurity, Full Stack, Software Testing, Digital Marketing, BIM and Design — live mentor-led classes, real-world projects and dedicated placement support, online and in classroom.",
+  phone: "+91 95978 81959",
+  whatsapp: "919597881959",
+  email: "info@nextgeninnovations.co.in",
+  address: "Branches in Coimbatore & Trichy, Tamil Nadu",
   hours: "Mon – Sat · 9:00 AM – 8:00 PM",
-  mapEmbed:
-    "https://www.google.com/maps?q=Anna+Salai+Chennai&output=embed",
+  mapEmbed: mapEmbedUrl(branches[0].mapQuery),
   googleReviewUrl: "https://g.page/r/your-google-place-id/review",
-  googleMapsUrl: "https://maps.google.com/?q=Anna+Salai+Chennai",
+  googleMapsUrl: mapDirectionsUrl(branches[0].mapQuery),
   playStoreUrl: "#",
   appStoreUrl: "#",
   socials: {
-    instagram: "#",
-    facebook: "#",
-    youtube: "#",
+    instagram: "https://www.instagram.com/nextgeninnovations_official/",
+    facebook: "https://www.facebook.com/nextgeninnovationsacademy",
+    youtube: "https://www.youtube.com/@nextgeninnovations_official",
     linkedin: "#",
   },
 };
@@ -29,11 +30,12 @@ export const site = {
 export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Courses", href: "#courses" },
+  { label: "All Courses", href: "#courses" },
   { label: "Our App", href: "#app" },
   { label: "Journey", href: "#journey" },
   { label: "Reviews", href: "#reviews" },
   { label: "FAQ", href: "#faq" },
+  { label: "Branches", href: "/branches" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -48,7 +50,7 @@ export const images = {
 
 export const heroSlides = [
   {
-    word: "SAP Excellence",
+    word: "SAP S/4HANA",
     label: "SAP",
     image: img("1460925895917-afdab827c52f", 2000),
   },
@@ -63,7 +65,7 @@ export const heroSlides = [
     image: img("1451187580459-43490279c0fa", 2000),
   },
   {
-    word: "Software Careers",
+    word: "Software & QA",
     label: "IT",
     image: img("1531482615713-2afd69097998", 2000),
   },
@@ -90,33 +92,33 @@ export const trustedBy = [
 export const features = [
   {
     icon: "Laptop",
-    title: "Hands-On with Real Tools",
-    text: "Practise on the tools companies use — SAP S/4HANA, Python, Power BI, AWS, Docker, Selenium, Figma, Google Ads, Revit, AutoCAD and more.",
+    title: "We Keep Pace with Technology",
+    text: "Technology moves fast, and so do we. Our classroom and live online courses cover what companies hire for today — SAP S/4HANA, Generative AI, Data Science, AWS, DevOps, Testing and BIM.",
   },
   {
     icon: "Video",
-    title: "Live + Recorded Classes",
-    text: "Attend live interactive sessions or rewatch HD recordings at your own pace — perfect for students and working professionals.",
+    title: "Learn from Anywhere",
+    text: "Attend classroom training at our Coimbatore or Trichy branch, or join live online classes from anywhere in India or abroad. Your location never limits your learning.",
   },
   {
     icon: "UserCheck",
-    title: "Industry Expert Trainers",
-    text: "Learn from consultants, engineers, marketers and architects who work on real projects every day.",
+    title: "Experienced, Certified Trainers",
+    text: "Learn from certified trainers with years of real project experience in SAP, IT, design and construction — so every concept is taught the way it is used at work.",
   },
   {
     icon: "Briefcase",
-    title: "Real-Time Projects & Portfolio",
-    text: "Build live projects in every course and graduate with a portfolio that proves your skills to employers.",
+    title: "Project-Based Learning",
+    text: "Every course is built around hands-on, real-time projects, so you can confidently apply what you learn to real-world job scenarios from day one.",
   },
   {
     icon: "BadgeCheck",
-    title: "Certification Prep",
-    text: "Mock exams and guidance for industry certifications like SAP, AWS, Azure, CEH, ISTQB, Salesforce, Google Ads and Autodesk.",
+    title: "Study on Your Own Schedule",
+    text: "Choose weekday, weekend or fast-track batches and rewatch every class on our app. Earn your certification without putting your life on hold.",
   },
   {
     icon: "Rocket",
-    title: "Placement Support",
-    text: "Resume building, mock interviews and referrals to our hiring partners across IT, design and construction.",
+    title: "For Individuals & Companies",
+    text: "Whether you are a fresher, a career switcher or a company upskilling its team, we offer one-to-one attention for individuals and custom corporate training for businesses.",
   },
 ];
 
@@ -132,7 +134,7 @@ export const courses = [
     lessons: 90,
     price: "₹45,000",
     icon: "Landmark",
-    points: ["GL, AP, AR, Asset Accounting", "Controlling & Product Costing", "End-to-end FICO project"],
+    points: ["GL, AP, AR & Asset Accounting on S/4HANA", "Controlling, product costing & CO-PA", "End-to-end implementation project"],
     featured: true,
   },
   {
@@ -146,7 +148,7 @@ export const courses = [
     lessons: 80,
     price: "₹40,000",
     icon: "Boxes",
-    points: ["Procure-to-Pay cycle", "Inventory & valuation", "Integration with FI & SD"],
+    points: ["Complete Procure-to-Pay cycle", "Inventory management & valuation", "MM–FI & MM–SD integration"],
   },
   {
     slug: "sap-sd",
@@ -159,7 +161,7 @@ export const courses = [
     lessons: 80,
     price: "₹40,000",
     icon: "ShoppingCart",
-    points: ["Order-to-Cash cycle", "Pricing & billing", "Shipping & credit management"],
+    points: ["Complete Order-to-Cash cycle", "Pricing, billing & credit management", "Intercompany & third-party sales"],
   },
   {
     slug: "sap-abap",
@@ -172,7 +174,7 @@ export const courses = [
     lessons: 110,
     price: "₹50,000",
     icon: "Database",
-    points: ["Reports, ALV, Smart Forms", "CDS Views & AMDP", "RAP & OData basics"],
+    points: ["Reports, ALV, Smart & Adobe Forms", "CDS Views, AMDP & code pushdown", "RAP, OData & Fiori apps"],
     featured: true,
   },
   {
@@ -186,7 +188,7 @@ export const courses = [
     lessons: 75,
     price: "₹55,000",
     icon: "Users",
-    points: ["Employee Central", "Recruiting & Onboarding", "Performance & Compensation"],
+    points: ["Employee Central & data models", "Recruiting, Onboarding & Performance", "Live HR transformation project"],
   },
   {
     slug: "data-science",
@@ -199,7 +201,7 @@ export const courses = [
     lessons: 160,
     price: "₹60,000",
     icon: "BarChart3",
-    points: ["Python, SQL & Statistics", "Power BI & Tableau", "Machine learning projects"],
+    points: ["Python, SQL & applied statistics", "Power BI & Tableau storytelling", "End-to-end machine learning projects"],
     featured: true,
   },
   {
@@ -213,7 +215,7 @@ export const courses = [
     lessons: 150,
     price: "₹65,000",
     icon: "Brain",
-    points: ["ML & Deep Learning", "NLP & Computer Vision", "Model deployment (MLOps)"],
+    points: ["Machine learning & deep learning", "NLP, Transformers & computer vision", "Model deployment & MLOps"],
   },
   {
     slug: "generative-ai",
@@ -226,7 +228,7 @@ export const courses = [
     lessons: 70,
     price: "₹40,000",
     icon: "Sparkles",
-    points: ["ChatGPT, Gemini & prompt design", "LLM apps with RAG & AI agents", "AI automation for business"],
+    points: ["Prompt engineering for ChatGPT & Gemini", "LLM apps with RAG & AI agents", "AI automation for real business tasks"],
     featured: true,
   },
   {
@@ -240,7 +242,7 @@ export const courses = [
     lessons: 80,
     price: "₹30,000",
     icon: "PieChart",
-    points: ["Advanced Excel & SQL", "Power BI dashboards", "Business case studies"],
+    points: ["Advanced Excel, Power Query & SQL", "Interactive Power BI dashboards & DAX", "Real business case studies"],
   },
   {
     slug: "full-stack-development",
@@ -253,7 +255,7 @@ export const courses = [
     lessons: 180,
     price: "₹55,000",
     icon: "Code2",
-    points: ["HTML, CSS, JavaScript & React", "Node.js, APIs & databases", "Deploy real web apps"],
+    points: ["HTML, CSS, JavaScript, React & Next.js", "Node.js, REST APIs & databases", "Deploy production-ready web apps"],
     featured: true,
   },
   {
@@ -267,7 +269,7 @@ export const courses = [
     lessons: 100,
     price: "₹35,000",
     icon: "Bug",
-    points: ["Manual testing & ISTQB", "Selenium automation with Java", "API testing & JIRA"],
+    points: ["Manual testing & ISTQB preparation", "Selenium automation with Java", "API testing, JIRA & CI/CD"],
   },
   {
     slug: "salesforce",
@@ -280,7 +282,7 @@ export const courses = [
     lessons: 95,
     price: "₹45,000",
     icon: "Cloud",
-    points: ["Salesforce CRM administration", "Apex & Lightning Web Components", "Certification preparation"],
+    points: ["Salesforce admin, security & Flows", "Apex & Lightning Web Components", "Admin & PD1 certification prep"],
   },
   {
     slug: "mobile-app-development",
@@ -293,7 +295,7 @@ export const courses = [
     lessons: 100,
     price: "₹40,000",
     icon: "Smartphone",
-    points: ["Dart & Flutter fundamentals", "Android & iOS apps from one code", "Firebase & Play Store publishing"],
+    points: ["Dart & Flutter from scratch", "One codebase for Android & iOS", "Firebase & Play Store publishing"],
   },
   {
     slug: "cloud-computing",
@@ -306,7 +308,7 @@ export const courses = [
     lessons: 100,
     price: "₹45,000",
     icon: "Server",
-    points: ["AWS & Azure core services", "Networking, storage & security", "AWS / Azure certification prep"],
+    points: ["Hands-on AWS & Azure core services", "Networking, IAM, security & cost control", "AWS & Azure certification prep"],
     featured: true,
   },
   {
@@ -320,7 +322,7 @@ export const courses = [
     lessons: 110,
     price: "₹50,000",
     icon: "Workflow",
-    points: ["Linux, Git & CI/CD pipelines", "Docker & Kubernetes", "Terraform & monitoring"],
+    points: ["Linux, Git & CI/CD pipelines", "Docker, Kubernetes & Helm", "Terraform, Ansible & monitoring"],
   },
   {
     slug: "cybersecurity",
@@ -333,7 +335,7 @@ export const courses = [
     lessons: 120,
     price: "₹55,000",
     icon: "ShieldCheck",
-    points: ["Network security & SOC basics", "Ethical hacking & pen testing", "CEH / Security+ preparation"],
+    points: ["Network security & SOC operations", "Ethical hacking & penetration testing", "CEH & CompTIA Security+ prep"],
     featured: true,
   },
   {
@@ -347,7 +349,7 @@ export const courses = [
     lessons: 90,
     price: "₹30,000",
     icon: "Megaphone",
-    points: ["SEO, SEM & Google Ads", "Social media & Meta Ads", "AI tools & live campaigns"],
+    points: ["SEO, Google Ads & performance marketing", "Social media strategy & Meta Ads", "AI marketing tools & live campaigns"],
     featured: true,
   },
   {
@@ -361,7 +363,7 @@ export const courses = [
     lessons: 140,
     price: "₹55,000",
     icon: "Building2",
-    points: ["Revit Architecture, Structure & MEP", "Navisworks & clash detection", "BIM coordination projects"],
+    points: ["Revit Architecture, Structure & MEP", "Navisworks clash detection & 4D", "ISO 19650 coordination projects"],
     featured: true,
   },
   {
@@ -375,7 +377,7 @@ export const courses = [
     lessons: 120,
     price: "₹45,000",
     icon: "Sofa",
-    points: ["AutoCAD, SketchUp & 3ds Max", "V-Ray & photorealistic rendering", "Residential & commercial projects"],
+    points: ["AutoCAD, SketchUp & 3ds Max", "V-Ray photorealistic rendering", "Residential & commercial portfolio"],
   },
   {
     slug: "architectural-designing",
@@ -388,7 +390,7 @@ export const courses = [
     lessons: 130,
     price: "₹50,000",
     icon: "DraftingCompass",
-    points: ["AutoCAD & Revit drafting", "3D modelling & visualisation", "Working drawings & portfolio"],
+    points: ["AutoCAD & Revit drafting", "3D modelling, Lumion & walkthroughs", "Working drawings & job-ready portfolio"],
   },
   {
     slug: "ui-ux-design",
@@ -401,75 +403,75 @@ export const courses = [
     lessons: 90,
     price: "₹40,000",
     icon: "PenTool",
-    points: ["User research & wireframing", "Figma prototyping & design systems", "Case-study portfolio"],
+    points: ["User research & wireframing", "Figma prototyping & design systems", "Portfolio of 3 real case studies"],
   },
 ];
 
 export const appFeatures = [
-  { icon: "PlayCircle", title: "HD Video Lessons", text: "Rewatch any session offline." },
-  { icon: "BellRing", title: "Class Reminders", text: "Never miss a live session." },
-  { icon: "LineChart", title: "Progress Tracker", text: "Track your course completion." },
-  { icon: "MessageCircle", title: "Doubt Chat", text: "Ask expert trainers in one tap." },
-  { icon: "BadgeCheck", title: "Mock Tests", text: "Practise certification patterns." },
-  { icon: "Briefcase", title: "Job Alerts", text: "Openings from hiring partners." },
+  { icon: "PlayCircle", title: "HD Class Replays", text: "Rewatch any session, even offline." },
+  { icon: "BellRing", title: "Smart Reminders", text: "Never miss a live class again." },
+  { icon: "LineChart", title: "Progress Insights", text: "See exactly where you stand." },
+  { icon: "MessageCircle", title: "1-Tap Doubt Chat", text: "Get answers from your trainer fast." },
+  { icon: "BadgeCheck", title: "Exam-Pattern Tests", text: "Practise real certification formats." },
+  { icon: "Briefcase", title: "Curated Job Alerts", text: "Openings shared by hiring partners." },
 ];
 
 export const journey = [
   {
     step: "01",
     icon: "Download",
-    title: "Download the App",
-    text: "Install the NextGen Innovation app from Play Store or App Store and create your free account in under a minute.",
+    title: "Get the App & Sign Up Free",
+    text: "Download the NextGen Innovation app from the Play Store or App Store and create your free account in under a minute — no payment needed to explore.",
   },
   {
     step: "02",
     icon: "Compass",
-    title: "Free Career Counselling",
-    text: "Talk to our career counsellor. Based on your education, experience and interests, we help you pick the right course — SAP, data & AI, cloud, software, marketing or design.",
+    title: "1:1 Career Counselling",
+    text: "A senior counsellor reviews your education, experience and goals, then recommends the path with the strongest job outlook for you — SAP, data & AI, cloud, software, marketing or design.",
   },
   {
     step: "03",
     icon: "Target",
-    title: "Your Personal Learning Plan",
-    text: "Get a course-wise study plan, a batch that fits your schedule and a dedicated mentor assigned just for you.",
+    title: "A Learning Plan Built for You",
+    text: "Receive a week-by-week study plan, a batch that fits your schedule and a dedicated mentor who tracks your progress from day one.",
   },
   {
     step: "04",
     icon: "Laptop",
-    title: "Learn Hands-On with Real Tools",
-    text: "Attend live classes, practise on industry tools, revise with recordings and clear doubts instantly.",
+    title: "Learn by Doing, Not Watching",
+    text: "Attend live classes, practise daily on industry tools, revise with HD replays and get doubts cleared the same day.",
   },
   {
     step: "05",
     icon: "CalendarCheck",
-    title: "Projects & Certification",
-    text: "Complete real-time projects, build your portfolio and prepare for industry certifications with mock exams.",
+    title: "Build Proof, Get Certified",
+    text: "Complete real-world projects, assemble a portfolio employers trust and prepare for global certifications with exam-pattern mock tests.",
   },
   {
     step: "06",
     icon: "Rocket",
-    title: "Get Placed",
-    text: "Resume building, mock interviews and referrals help you land your dream role — and join the NextGen alumni network.",
+    title: "Interview-Ready & Placed",
+    text: "Résumé and LinkedIn makeovers, mock interviews and referrals to hiring partners help you land the right role — then join a growing alumni network.",
   },
 ];
 
 export const stats = [
-  { value: 5000, suffix: "+", label: "Professionals Trained" },
-  { value: 60, suffix: "+", label: "Industry Expert Trainers" },
-  { value: 92, suffix: "%", label: "Placement Rate" },
-  { value: 20, suffix: "+", label: "Career Courses" },
+  { value: 2100, suffix: "+", label: "Freshers To IT" },
+  { value: 1200, suffix: "+", label: "Non-IT To IT" },
+  { value: 900, suffix: "+", label: "Career Gap" },
+  { value: 800, suffix: "+", label: "Less Than 60%" },
 ];
 
 export const mentors = [
   {
     name: "Priya Raman",
-    role: "SAP FICO Lead · S/4HANA Certified",
+    role: "SAP FICO Lead · S/4HANA Certified Consultant",
     image: img("1573497019940-1c28c88b4f3e", 600),
     exp: "14 yrs",
   },
   {
     name: "Karthik Subramanian",
-    role: "Data Science & AI Lead",
+    role: "Data Science & Generative AI Lead",
     image: img("1507003211169-0a1dd7228f2d", 600),
     exp: "11 yrs",
   },
@@ -481,7 +483,7 @@ export const mentors = [
   },
   {
     name: "Arjun Mehta",
-    role: "Full Stack & Testing Trainer",
+    role: "Full Stack & QA Automation Lead",
     image: img("1560250097-0b93528c311a", 600),
     exp: "9 yrs",
   },
@@ -542,7 +544,7 @@ export const googleReviews = {
       avatar: img("1544005313-94ddf0286df2", 120),
       rating: 5,
       time: "2 weeks ago",
-      text: "Best SAP training in Chennai! The FICO trainer explains every configuration step clearly and the live server access makes practice easy. Highly recommended.",
+      text: "Best SAP training in Coimbatore! The FICO trainer explains every configuration step clearly and the live server access makes practice easy. Highly recommended.",
     },
     {
       author: "Suresh Babu",
@@ -583,44 +585,56 @@ export const googleReviews = {
 };
 
 export const gallery = [
-  { src: img("1552664730-d307ca884978", 900), alt: "Live training session", span: "md:col-span-2 md:row-span-2" },
-  { src: img("1460925895917-afdab827c52f", 700), alt: "Hands-on SAP & analytics lab", span: "" },
-  { src: img("1503387762-592deb58ef4e", 700), alt: "Architecture & BIM studio", span: "" },
-  { src: img("1618221195710-dd6b41faaea6", 700), alt: "Interior design project", span: "" },
-  { src: img("1600880292089-90a7e086ee0c", 700), alt: "Mock interview session", span: "" },
-  { src: img("1521737604893-d14cc237f11d", 900), alt: "Training centre", span: "md:col-span-2" },
-  { src: img("1461749280684-dccba630e2f6", 700), alt: "Coding & testing lab", span: "" },
-  { src: img("1606761568499-6d2451b23c66", 700), alt: "Online live class", span: "" },
+  { src: img("1552664730-d307ca884978", 900), alt: "Live mentor-led training session at our Coimbatore branch", span: "md:col-span-2 md:row-span-2" },
+  { src: img("1460925895917-afdab827c52f", 700), alt: "Hands-on SAP S/4HANA & analytics lab", span: "" },
+  { src: img("1503387762-592deb58ef4e", 700), alt: "Architecture & BIM modelling studio", span: "" },
+  { src: img("1618221195710-dd6b41faaea6", 700), alt: "Interior design student project", span: "" },
+  { src: img("1600880292089-90a7e086ee0c", 700), alt: "Mock interview with a domain expert", span: "" },
+  { src: img("1521737604893-d14cc237f11d", 900), alt: "NextGen Innovation training centre, Trichy", span: "md:col-span-2" },
+  { src: img("1461749280684-dccba630e2f6", 700), alt: "Full stack coding & QA testing lab", span: "" },
+  { src: img("1606761568499-6d2451b23c66", 700), alt: "Live online class on the NextGen app", span: "" },
 ];
 
 export const faqs = [
   {
-    q: "Which courses does NextGen Innovation offer?",
-    a: "We offer SAP (FICO, MM, SD, ABAP, SuccessFactors), Data Science, Data Analytics, AI & Machine Learning, Generative AI, Cloud Computing (AWS & Azure), DevOps, Cybersecurity, Full Stack Development, Mobile App Development, Software Testing, Salesforce, Digital Marketing, UI/UX Design, Master of BIM, Interior Designing and Architectural Designing.",
+    q: "Which courses does NextGen Innovation offer in Coimbatore and Trichy?",
+    a: "We run 20+ career programs: SAP (FICO, MM, SD, ABAP on HANA, SuccessFactors), Data Science, Data Analytics, AI & Machine Learning, Generative AI, Cloud Computing (AWS & Azure), DevOps, Cybersecurity, Full Stack Development, Flutter App Development, Software Testing, Salesforce, Digital Marketing, UI/UX Design, Master of BIM, Interior Designing and Architectural Designing — available in classroom at our Coimbatore and Trichy branches and live online.",
   },
   {
-    q: "Do I need prior experience to join?",
-    a: "No. Every course starts from the fundamentals. A related background helps — for example commerce for SAP FICO or civil/architecture for BIM — but beginners are welcome in every batch.",
+    q: "Who can join NextGen Innovation courses?",
+    a: "Anyone who wants an IT or design career can join — fresh graduates, non-IT career switchers, candidates with a career gap, graduates with less than 60%, diploma holders and working professionals looking for a salary hike. Every program starts from the fundamentals.",
   },
   {
-    q: "How do I choose the right course?",
-    a: "Book a free career counselling call. Based on your education, experience and goals, our counsellor will recommend the course that fits you best.",
+    q: "What are the modes of training?",
+    a: "We offer three modes: Classroom Training at our Coimbatore and Trichy branches with face-to-face interaction and hands-on labs, Online Training with live instructor-led classes from anywhere, and Corporate Training customised for company teams.",
   },
   {
-    q: "Will I get hands-on practice?",
-    a: "Yes. You practise on real industry tools — a live SAP S/4HANA server, Python and Power BI, AWS and Azure labs, Docker and Kubernetes, security labs, Selenium, Figma, Google Ads, Revit, AutoCAD, SketchUp, 3ds Max and more — and complete real-time projects in every course.",
+    q: "How do I choose the right course for my career?",
+    a: "Book a free 1:1 career counselling session. A senior counsellor reviews your education, experience and goals, explains realistic salary and job outlooks, and recommends the path that fits you best — with zero pressure to enrol.",
   },
   {
-    q: "Do you provide certification and placement support?",
-    a: "Yes. You receive a course completion certificate, preparation for industry certifications, and placement support including resume building, mock interviews and referrals to our hiring partners.",
+    q: "How practical is the training?",
+    a: "Very. You train on the tools companies actually use — a live SAP S/4HANA server, Python and Power BI, AWS and Azure labs, Docker and Kubernetes, security labs, Selenium, Figma, Google Ads, Revit, AutoCAD, SketchUp and 3ds Max — and complete real-world projects in every course that you can present in interviews.",
+  },
+  {
+    q: "What kind of placement support is provided?",
+    a: "Our dedicated placement cell provides free aptitude and technical skills training, résumé building, interview preparation for freshers, mock interviews, regular recruitment drives and referrals to our hiring partners until you are placed.",
+  },
+  {
+    q: "Will I receive a certificate?",
+    a: "Yes. You earn a NextGen Innovation course completion certificate backed by a verified project portfolio, plus structured preparation for global certifications such as SAP, AWS, Azure, Salesforce, ISTQB, CEH, Google Ads and Autodesk.",
+  },
+  {
+    q: "Do you provide corporate training?",
+    a: "Yes. We deliver customised corporate training for companies of every size — flexible schedules, online or on-site sessions, certification guidance and dedicated trainers aligned with your business goals.",
   },
   {
     q: "What if I miss a live class?",
-    a: "Every live class is recorded and uploaded to the app within an hour. You can watch it any number of times and even download it for offline viewing.",
+    a: "Every live class is recorded and published on the app within an hour. Rewatch it as many times as you like, download it for offline viewing and post your doubts to the trainer directly.",
   },
   {
-    q: "Are classes available in Tamil? Do you offer EMI?",
-    a: "Sessions are in English with Tamil explanations available on request. We offer no-cost EMI on all courses and special fees for early registration.",
+    q: "What are the fees? Do you offer EMI or Tamil support?",
+    a: "Course fees are listed transparently on every course page — no hidden charges. No-cost EMI is available on all courses, with special fees for early registration. Sessions are delivered in English, with Tamil explanations available on request.",
   },
 ];
 

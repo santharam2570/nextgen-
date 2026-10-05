@@ -9,9 +9,9 @@ export default function Features() {
       <div className="absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
-          eyebrow="Why Choose Us"
-          title={<>Everything you need to <span className="text-gradient">get job-ready</span></>}
-          text="We combine industry expert trainers, real tools and live project work so that learning is practical, flexible and career-focused."
+          eyebrow="Why NextGen Innovation"
+          title={<>What makes us <span className="text-gradient">different</span></>}
+          text="NextGen Innovation brings you the most in-demand courses, recommended by our industry experts and designed to make you job-ready."
         />
 
         <div className="mt-10 grid gap-4 sm:mt-16 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
