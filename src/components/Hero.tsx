@@ -12,39 +12,37 @@ import {
 } from "motion/react";
 import {
   ArrowRight,
-  Brain,
+  Boxes,
+  BrainCircuit,
+  Bug,
   Building2,
   CheckCircle2,
   Cloud,
-  Code2,
   Database,
   Loader2,
   Megaphone,
   Phone,
   PhoneCall,
   PlayCircle,
-  ShieldCheck,
-  Sofa,
+  Sparkles,
   Star,
   Trophy,
   Video,
 } from "lucide-react";
-import { heroPortrait, heroSlides, inquiryCourses, site } from "@/data/site";
+import { heroOrbitInner, heroOrbitOuter, heroPortrait, heroSlides, inquiryCourses, site } from "@/data/site";
 import { WhatsappIcon } from "./ui/Brand";
 
 const SLIDE_MS = 6500;
 
-const outerOrbit = [
-  { Icon: Database, color: "from-brand-400 to-brand-700" },
-  { Icon: Brain, color: "from-brand-500 to-brand-800" },
-  { Icon: Code2, color: "from-brand-400 to-brand-700" },
-  { Icon: Building2, color: "from-brand-500 to-brand-800" },
-];
-const innerOrbit = [
-  { Icon: Cloud, color: "from-brand-600 to-brand-900" },
-  { Icon: ShieldCheck, color: "from-brand-600 to-brand-900" },
-  { Icon: Megaphone, color: "from-brand-600 to-brand-900" },
-  { Icon: Sofa, color: "from-brand-600 to-brand-900" },
+// `slide` must match a `heroSlides` label so the chip lights up with the rotating headline.
+const courseChips = [
+  { label: "SAP", Icon: Boxes, slide: "SAP" },
+  { label: "Data Science", Icon: Database, slide: "Data & AI" },
+  { label: "Gen AI", Icon: BrainCircuit, slide: "Data & AI", hot: true },
+  { label: "Cloud", Icon: Cloud, slide: "Cloud" },
+  { label: "Testing", Icon: Bug, slide: "IT" },
+  { label: "Digital Marketing", Icon: Megaphone, slide: "" },
+  { label: "BIM", Icon: Building2, slide: "Design" },
 ];
 
 function Orbit({
@@ -54,7 +52,7 @@ function Orbit({
   counter,
   offset = 0,
 }: {
-  items: typeof outerOrbit;
+  items: typeof heroOrbitOuter;
   size: number;
   spin: string;
   counter: string;
@@ -65,7 +63,7 @@ function Orbit({
       className={`absolute left-1/2 top-1/2 rounded-full border border-white/15 ${spin}`}
       style={{ width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2 }}
     >
-      {items.map(({ Icon, color }, i) => {
+      {items.map(({ src, alt }, i) => {
         const angle = (i / items.length) * Math.PI * 2 + offset;
         const x = 50 + 50 * Math.cos(angle);
         const y = 50 + 50 * Math.sin(angle);
@@ -76,9 +74,9 @@ function Orbit({
             style={{ left: `${x}%`, top: `${y}%` }}
           >
             <span
-              className={`grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br ${color} text-white shadow-xl ring-4 ring-white/20 ${counter}`}
+              className={`relative block h-14 w-14 overflow-hidden rounded-2xl bg-brand-800 shadow-xl ring-4 ring-white/20 ${counter}`}
             >
-              <Icon className="h-6 w-6" />
+              <Image src={src} alt={alt} fill sizes="56px" className="object-cover" />
             </span>
           </div>
         );
@@ -289,9 +287,10 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="block"
+                className="flex items-center gap-3"
               >
                 Learn
+                <Sparkles className="h-[0.55em] w-[0.55em] animate-twinkle text-amber-300 drop-shadow-[0_0_12px_rgba(252,211,77,0.7)]" />
               </motion.span>
               <span className="relative block h-[1.15em] overflow-hidden">
                 <AnimatePresence mode="wait">
@@ -301,7 +300,7 @@ export default function Hero() {
                     animate={{ y: "0%", rotateX: 0, opacity: 1 }}
                     exit={{ y: "-110%", rotateX: 60, opacity: 0 }}
                     transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute left-0 whitespace-nowrap bg-gradient-to-r from-white via-brand-200 to-brand-400 bg-clip-text text-transparent"
+                    className="absolute left-0 animate-shimmer-text whitespace-nowrap bg-[linear-gradient(90deg,#ffffff,#93c5fd,#60a5fa,#93c5fd,#ffffff)] bg-[length:200%_auto] bg-clip-text text-transparent drop-shadow-[0_0_28px_rgba(96,165,250,0.45)]"
                   >
                     {current.word}
                   </motion.span>
@@ -341,9 +340,49 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.5 }}
               className="mt-6 max-w-xl text-base leading-relaxed text-brand-100/85 sm:mt-8 sm:text-lg"
             >
-              NextGen Innovation is a leading software training institute in Coimbatore and Trichy, aligning classroom learning with real industry
-              needs. Grow your career with SAP, Data Science, Gen AI, Cloud, Testing, Digital Marketing and BIM courses with placements.
+              Train at <b className="font-semibold text-white">Coimbatore &amp; Trichy&apos;s</b> leading software institute — live mentor-led
+              classes, real industry projects and{" "}
+              <span className="relative isolate whitespace-nowrap font-semibold text-white">
+                placement support
+                <span className="absolute inset-x-0 bottom-0.5 -z-10 h-2 rounded-full bg-brand-500/50" />
+              </span>{" "}
+              until you&apos;re hired.
             </motion.p>
+
+            <motion.ul
+              initial="hidden"
+              animate="show"
+              variants={{ show: { transition: { staggerChildren: 0.06, delayChildren: 0.6 } } }}
+              className="mt-5 flex max-w-xl flex-wrap gap-2 sm:mt-6"
+              aria-label="Courses"
+            >
+              {courseChips.map(({ label, Icon, slide: slideLabel, hot }) => {
+                const active = slideLabel === current.label;
+                return (
+                  <motion.li
+                    key={label}
+                    variants={{ hidden: { opacity: 0, y: 12, scale: 0.9 }, show: { opacity: 1, y: 0, scale: 1 } }}
+                  >
+                    <a
+                      href="#courses"
+                      className={`relative inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold ring-1 backdrop-blur transition duration-300 hover:-translate-y-0.5 sm:text-sm ${
+                        active
+                          ? "bg-white text-brand-800 shadow-lg shadow-brand-400/40 ring-white"
+                          : "bg-white/10 text-brand-50 ring-white/20 hover:bg-white/20"
+                      }`}
+                    >
+                      <Icon className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${active ? "text-brand-600" : "text-brand-300"}`} />
+                      {label}
+                      {hot && (
+                        <span className="rounded-full bg-gradient-to-r from-amber-300 to-orange-400 px-1.5 py-px text-[10px] font-bold uppercase tracking-wide text-brand-950">
+                          Hot
+                        </span>
+                      )}
+                    </a>
+                  </motion.li>
+                );
+              })}
+            </motion.ul>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -393,12 +432,12 @@ export default function Hero() {
             className="relative mx-auto hidden aspect-square w-full max-w-[520px] lg:block"
           >
             <div className="glow absolute inset-[10%] text-brand-500/40" />
-            <Orbit items={outerOrbit} size={480} spin="animate-orbit" counter="animate-orbit-reverse" offset={Math.PI / 4} />
-            <Orbit items={innerOrbit} size={330} spin="animate-orbit-fast" counter="animate-orbit-fast-reverse" />
+            <Orbit items={heroOrbitOuter} size={480} spin="animate-orbit" counter="animate-orbit-reverse" offset={Math.PI / 4} />
+            <Orbit items={heroOrbitInner} size={330} spin="animate-orbit-fast" counter="animate-orbit-fast-reverse" />
 
             <div className="absolute left-1/2 top-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-brand-300 via-brand-400 to-brand-600 p-1.5 shadow-2xl shadow-brand-950/50">
               <div className="relative h-full w-full overflow-hidden rounded-full">
-                <Image src={heroPortrait} alt="NextGen Innovation learner" fill sizes="240px" className="object-cover" preload />
+                <Image src={heroPortrait} alt="AI robot" fill sizes="240px" className="object-cover" preload />
               </div>
             </div>
 

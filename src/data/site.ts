@@ -76,7 +76,21 @@ export const heroSlides = [
   },
 ];
 
-export const heroPortrait = img("1573496359142-b8d87734a5a2", 900);
+export const heroPortrait = img("1485827404703-89b55fcc595e", 900);
+
+export const heroOrbitOuter = [
+  { src: img("1677442136019-21780ecad995", 200), alt: "Artificial intelligence" },
+  { src: img("1684369175833-4b445ad6bfb5", 200), alt: "AI assistant" },
+  { src: img("1535378620166-273708d44e4c", 200), alt: "Humanoid robot" },
+  { src: img("1531746790731-6c087fecd65a", 200), alt: "Robotic hand" },
+];
+
+export const heroOrbitInner = [
+  { src: img("1639322537228-f710d846310a", 200), alt: "Neural network" },
+  { src: img("1550751827-4bd374c3f58b", 200), alt: "Circuit board" },
+  { src: img("1518770660439-4636190af475", 200), alt: "AI chip" },
+  { src: img("1655720828018-edd2daec9349", 200), alt: "Neural connections" },
+];
 
 export const trustedBy = [
   "Accenture",

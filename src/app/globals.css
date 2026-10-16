@@ -28,7 +28,16 @@
   --animate-orbit-fast: spin-reverse 24s linear infinite;
   --animate-orbit-fast-reverse: spin 24s linear infinite;
   --animate-kenburns: kenburns 7s ease-out forwards;
+  --animate-shimmer-text: shimmer-text 5s linear infinite;
+  --animate-twinkle: twinkle 2.4s ease-in-out infinite;
 
+  @keyframes shimmer-text {
+    to { background-position: 200% center; }
+  }
+  @keyframes twinkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(0.7) rotate(20deg); opacity: 0.6; }
+  }
   @keyframes spin-reverse {
     to { transform: rotate(-360deg); }
   }
