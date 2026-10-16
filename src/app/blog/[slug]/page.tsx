@@ -109,7 +109,7 @@ export default async function BlogPostPage({ params }: Props) {
                 <Reveal className="mt-12 rounded-3xl bg-gradient-to-br from-brand-600 to-brand-900 p-7 text-white shadow-xl shadow-brand-900/20">
                   <p className="text-xs font-semibold uppercase tracking-wider text-brand-200">Recommended course</p>
                   <h3 className="mt-2 text-xl font-bold text-white">{course.title} Training in Coimbatore & Trichy</h3>
-                  <p className="mt-2 text-brand-100">{course.duration} · {course.price} · Classroom & Online</p>
+                  <p className="mt-2 text-brand-100">{course.duration} · Classroom & Online</p>
                   <Link href={`/courses/${course.slug}`} className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-brand-800 transition hover:scale-105">
                     View course details <ArrowRight className="h-4 w-4" />
                   </Link>

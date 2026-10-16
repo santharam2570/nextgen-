@@ -634,7 +634,7 @@ export const faqs = [
   },
   {
     q: "What are the fees? Do you offer EMI or Tamil support?",
-    a: "Course fees are listed transparently on every course page — no hidden charges. No-cost EMI is available on all courses, with special fees for early registration. Sessions are delivered in English, with Tamil explanations available on request.",
+    a: "Contact our team for course fee details — no hidden charges. No-cost EMI is available on all courses, with special fees for early registration. Sessions are delivered in English, with Tamil explanations available on request.",
   },
 ];
 

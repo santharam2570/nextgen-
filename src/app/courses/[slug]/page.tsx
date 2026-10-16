@@ -105,7 +105,7 @@ export default async function CoursePage({ params }: Props) {
   const faqs = [
     { q: `What are the requirements to become a ${course.title} professional?`, a: `No prior experience is required. A basic understanding of computers and a willingness to learn are enough — the course starts from the fundamentals and builds up to real-time projects using ${detail.tools.slice(0, 4).join(", ")}.` },
     { q: `Who can join ${course.title} training?`, a: `Fresh graduates, non-IT career switchers, candidates with a career gap, graduates with less than 60%, diploma holders and working professionals can join. It is especially suited for: ${detail.eligibility.join("; ")}.` },
-    { q: `What is the ${course.title} course fee and duration?`, a: `The course runs for ${course.duration} with ${course.lessons}+ sessions. The fee is ${course.price}, with no-cost EMI and early registration offers available.` },
+    { q: `What is the ${course.title} course fee and duration?`, a: `The course runs for ${course.duration} with ${course.lessons}+ sessions. Contact our team for fee details — no-cost EMI and early registration offers are available.` },
     { q: `What kind of placement support is provided after ${course.title} training?`, a: `Our placement cell provides free aptitude training, resume building, interview preparation, mock interviews and recruitment drives for roles like ${detail.roles.slice(0, 3).join(", ")}. The typical salary range is ${detail.salary}.` },
     { q: `Will I receive a certificate after completing the ${course.title} course?`, a: detail.certification },
     { q: "Are classroom and online batches available?", a: `Yes. ${course.title} training is available as classroom training at our Coimbatore and Trichy branches and as live online training, with weekday, weekend and fast-track batches.` },
@@ -126,14 +126,6 @@ export default async function CoursePage({ params }: Props) {
         educationalLevel: detail.level,
         teaches: detail.modules.map((m) => m.title),
         provider: { "@type": "EducationalOrganization", name: site.name, url: site.url },
-        offers: {
-          "@type": "Offer",
-          category: "Paid",
-          price: Number(course.price.replace(/[^\d]/g, "")),
-          priceCurrency: "INR",
-          availability: "https://schema.org/InStock",
-          url: courseUrl,
-        },
         hasCourseInstance: [
           ...branches.map((b) => ({
             "@type": "CourseInstance",
@@ -220,12 +212,7 @@ export default async function CoursePage({ params }: Props) {
               <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-2xl ring-1 ring-white/20">
                 <Image src={course.image} alt={course.title} fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-950/80 via-transparent to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-brand-200">Course fee</p>
-                    <p className="font-display text-3xl font-extrabold text-white">{course.price}</p>
-                    <p className="text-xs text-brand-100">No-cost EMI · No hidden charges</p>
-                  </div>
+                <div className="absolute bottom-5 left-5 right-5 flex items-end justify-end">
                   <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-brand-500 to-brand-800 text-white shadow-xl">
                     <Icon name={course.icon} className="h-7 w-7" />
                   </span>
@@ -456,7 +443,6 @@ export default async function CoursePage({ params }: Props) {
                       <h3 className="text-lg font-semibold leading-snug">{r.title}</h3>
                       <p className="mt-2 flex items-center gap-4 text-sm text-slate-500">
                         <span className="flex items-center gap-1.5"><Clock className="h-4 w-4 text-brand-500" />{r.duration}</span>
-                        <span className="font-semibold text-brand-700">{r.price}</span>
                       </p>
                       <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">
                         View details <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />

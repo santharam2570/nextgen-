@@ -100,11 +100,7 @@ export default function Courses() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-auto flex items-center justify-between border-t border-brand-100 pt-5">
-                    <p>
-                      <span className="text-xs text-slate-500">Course fee</span>
-                      <span className="block font-display text-xl font-bold text-brand-700">{c.price}</span>
-                    </p>
+                  <div className="mt-auto flex items-center justify-end border-t border-brand-100 pt-5">
                     <Link
                       href={`/courses/${c.slug}`}
                       className="inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-4 py-2.5 text-sm font-semibold text-brand-700 transition group-hover:bg-brand-600 group-hover:text-white"
