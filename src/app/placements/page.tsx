@@ -36,7 +36,7 @@ export default function PlacementsPage() {
         <TrustedBy />
         <Stats />
 
-        <section className="relative bg-gradient-to-b from-white via-brand-50/50 to-white py-16 sm:py-24 lg:py-32">
+        <section className="relative bg-gradient-to-b from-white/40 via-brand-50/50 to-white/40 py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <SectionHeading
               eyebrow="Placement Activities"

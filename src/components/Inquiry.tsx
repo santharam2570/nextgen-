@@ -70,7 +70,7 @@ export default function Inquiry() {
 
   return (
     <section id="contact" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50/60 via-white to-brand-50/40" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50/60 via-white/40 to-brand-50/40" />
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
           eyebrow="Course Enquiry"

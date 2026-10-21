@@ -4,7 +4,7 @@ import { trustedBy } from "@/data/site";
 export default function TrustedBy() {
   const items = [...trustedBy, ...trustedBy];
   return (
-    <section className="border-b border-brand-100 bg-[#f5f9ff] py-8">
+    <section className="border-b border-brand-100 bg-[#f5f9ff]/70 py-8">
       <p className="mb-5 text-center text-xs font-semibold uppercase tracking-[0.25em] text-brand-700/70">
         Our Hiring Partners
       </p>

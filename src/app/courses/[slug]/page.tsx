@@ -380,7 +380,7 @@ export default async function CoursePage({ params }: Props) {
           </div>
         </section>
 
-        <section className="bg-gradient-to-b from-brand-50/70 to-white py-14 sm:py-20">
+        <section className="bg-gradient-to-b from-brand-50/70 to-white/40 py-14 sm:py-20">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <Reveal className="text-center">
               <h2 className="text-2xl font-bold sm:text-4xl">Upcoming batches for classroom and online</h2>
@@ -424,7 +424,7 @@ export default async function CoursePage({ params }: Props) {
         </section>
 
         {related.length > 0 && (
-          <section className="bg-gradient-to-b from-white to-brand-50/60 py-14 sm:py-20">
+          <section className="bg-gradient-to-b from-white/40 to-brand-50/60 py-14 sm:py-20">
             <div className="mx-auto max-w-7xl px-5 lg:px-8">
               <Reveal className="flex flex-wrap items-end justify-between gap-4">
                 <h2 className="text-2xl font-bold sm:text-4xl">Related category courses</h2>

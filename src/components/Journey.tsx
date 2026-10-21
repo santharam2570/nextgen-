@@ -12,7 +12,7 @@ export default function Journey() {
   const scaleY = useSpring(scrollYProgress, { stiffness: 90, damping: 25 });
 
   return (
-    <section id="journey" className="relative overflow-hidden bg-gradient-to-b from-white to-brand-50/70 py-16 sm:py-24 lg:py-32">
+    <section id="journey" className="relative overflow-hidden bg-gradient-to-b from-white/40 to-brand-50/70 py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <SectionHeading
           eyebrow="Placement Support"

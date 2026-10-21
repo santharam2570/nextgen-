@@ -7,7 +7,7 @@ import SectionHeading from "./ui/SectionHeading";
 
 export default function TrainingModes() {
   return (
-    <section id="modes" className="relative bg-gradient-to-b from-brand-50/70 to-white py-16 sm:py-24">
+    <section id="modes" className="relative bg-gradient-to-b from-brand-50/70 to-white/40 py-16 sm:py-24">
       <div className="absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading

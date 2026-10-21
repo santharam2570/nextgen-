@@ -17,7 +17,7 @@ export default function Gallery() {
   }, []);
 
   return (
-    <section className="bg-gradient-to-b from-white to-brand-50/60 py-16 sm:py-24 lg:py-32">
+    <section className="bg-gradient-to-b from-white/40 to-brand-50/60 py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
           eyebrow="Inside NextGen"

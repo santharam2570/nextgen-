@@ -26,7 +26,7 @@ export default function Testimonials() {
   const t = testimonials[index];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-brand-50/70 to-white py-16 sm:py-24 lg:py-32">
+    <section className="relative overflow-hidden bg-gradient-to-b from-brand-50/70 to-white/40 py-16 sm:py-24 lg:py-32">
       <div className="glow absolute -left-40 top-20 h-96 w-96 text-brand-200/50" />
       <div className="glow absolute -right-40 bottom-10 h-96 w-96 text-brand-200/40" />
 

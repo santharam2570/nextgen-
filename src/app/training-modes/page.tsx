@@ -35,7 +35,7 @@ export default function TrainingModesPage() {
           crumbs={[{ label: "Modes of Training" }]}
         />
 
-        <section className="relative bg-gradient-to-b from-white via-brand-50/50 to-white py-16 sm:py-24 lg:py-32">
+        <section className="relative bg-gradient-to-b from-white/40 via-brand-50/50 to-white/40 py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <SectionHeading
               eyebrow="Choose Your Mode"
@@ -113,7 +113,7 @@ export default function TrainingModesPage() {
           </div>
         </section>
 
-        <section className="bg-gradient-to-b from-brand-50/70 to-white py-16 sm:py-24">
+        <section className="bg-gradient-to-b from-brand-50/70 to-white/40 py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <SectionHeading
               eyebrow="Included In Every Mode"

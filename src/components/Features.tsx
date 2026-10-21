@@ -5,7 +5,7 @@ import SectionHeading from "./ui/SectionHeading";
 
 export default function Features() {
   return (
-    <section className="relative bg-gradient-to-b from-white via-brand-50/50 to-white py-16 sm:py-24 lg:py-32">
+    <section className="relative bg-gradient-to-b from-white/40 via-brand-50/50 to-white/40 py-16 sm:py-24 lg:py-32">
       <div className="absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
