@@ -6,7 +6,7 @@ const img = (id: string, w = 1600) =>
 export const site = {
   name: "NextGen Innovation",
   shortName: "NextGen",
-  url: "https://www.nextgeninnovation.co.in",
+  url: "https://www.nextgeninnovations.co.in",
   description:
     "NextGen Innovation is a career training institute with branches in Coimbatore and Trichy for SAP, Data Science, Generative AI, Cloud, DevOps, Cybersecurity, Full Stack, Software Testing, Digital Marketing, BIM and Design — live mentor-led classes, real-world projects and dedicated placement support, online and in classroom.",
   phone: "+91 95978 81959",
