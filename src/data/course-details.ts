@@ -643,4 +643,642 @@ export const courseDetails: Record<string, CourseDetail> = {
     salary: "₹4 – 15 LPA",
     certification: "NextGen Innovation UI/UX Design certificate with a portfolio of 3 case studies.",
   },
+  "autocad-mechanical": {
+    seoTitle: "AutoCAD Course for Mechanical Engineering in Coimbatore & Trichy",
+    metaDescription:
+      "AutoCAD training for mechanical engineers in Coimbatore, Trichy & online — 2D drafting, detailing, orthographic drawings and industry standards with placement support.",
+    overview:
+      "Master AutoCAD for mechanical drafting — from basic sketching to professional manufacturing drawings. Learn layers, dimensions, blocks and detailing used in design and production offices.",
+    level: "Beginner to Intermediate",
+    eligibility: [
+      "Diploma / B.E. Mechanical, Automobile or Production Engineering",
+      "ITI draughtsmen and CAD beginners",
+      "Working professionals who need AutoCAD for shop-floor drawings",
+    ],
+    modules: [
+      { title: "AutoCAD Essentials", topics: ["Interface & coordinate systems", "Draw & modify commands", "Layers, colours & linetypes"] },
+      { title: "Mechanical Drafting", topics: ["Orthographic projections", "Sectional views", "Dimensioning standards"] },
+      { title: "Detailing & Blocks", topics: ["Blocks, attributes & templates", "Title blocks & borders", "Isometric drawings"] },
+      { title: "Plotting & Standards", topics: ["Layouts & viewports", "Plot styles", "ISO / ASME drawing practices"] },
+      { title: "Project Work", topics: ["Machine component drawings", "Assembly detailing", "Portfolio drawings"] },
+    ],
+    tools: ["AutoCAD", "PDF plotters", "Excel"],
+    projects: [
+      "Complete machine part detailing set",
+      "Assembly drawing with BOM",
+      "Isometric presentation drawing",
+    ],
+    roles: ["CAD Draughtsman", "AutoCAD Designer", "Junior Design Engineer", "Detailing Engineer"],
+    salary: "₹2.5 – 6 LPA",
+    certification: "Preparation for Autodesk Certified User / Professional (AutoCAD), plus a NextGen Innovation certificate.",
+  },
+  "solidworks": {
+    seoTitle: "SolidWorks Course in Coimbatore & Trichy | Mechanical CAD Training",
+    metaDescription:
+      "SolidWorks training in Coimbatore, Trichy & online — part modelling, assemblies, drawings, sheet metal and product design projects with placement support.",
+    overview:
+      "Learn SolidWorks the way design offices use it. Build parts, assemblies and drawings, explore sheet metal and surfacing, and complete product design projects for your portfolio.",
+    level: "Beginner to Advanced",
+    eligibility: [
+      "Diploma / B.E. Mechanical, Automobile or Mechatronics",
+      "CAD professionals upgrading from 2D",
+      "Freshers aiming for design engineer roles",
+    ],
+    modules: [
+      { title: "Sketch & Part Modelling", topics: ["2D sketches & relations", "Extrude, revolve, sweep & loft", "Patterns, equations & configurations"] },
+      { title: "Assemblies", topics: ["Mates & advanced mates", "Exploded views", "Interference detection"] },
+      { title: "Drawings", topics: ["Drawing views & annotations", "GD&T basics on drawings", "BOM & balloons"] },
+      { title: "Sheet Metal & Weldments", topics: ["Sheet metal features", "Flat patterns", "Weldment structures"] },
+      { title: "Surfacing & Project", topics: ["Surface modelling basics", "Product design project", "Portfolio & interview prep"] },
+    ],
+    tools: ["SolidWorks", "SolidWorks eDrawings", "DraftSight"],
+    projects: [
+      "Consumer product assembly with drawings",
+      "Sheet metal enclosure design",
+      "Machine frame weldment project",
+    ],
+    roles: ["SolidWorks Design Engineer", "Product Design Engineer", "CAD Engineer", "Mechanical Design Engineer"],
+    salary: "₹3 – 8 LPA",
+    certification: "Preparation for CSWA / CSWP, plus a NextGen Innovation SolidWorks certificate.",
+  },
+  "creo": {
+    seoTitle: "Creo Course in Coimbatore & Trichy | PTC Creo Parametric Training",
+    metaDescription:
+      "Creo Parametric training in Coimbatore, Trichy & online — part design, assemblies, surfacing, sheet metal and drawings for product development careers.",
+    overview:
+      "PTC Creo is widely used in automotive and manufacturing. Learn parametric modelling, assemblies, drawings and sheet metal so you can contribute on real product development teams.",
+    level: "Beginner to Advanced",
+    eligibility: [
+      "Mechanical / Automobile / Production graduates",
+      "Design engineers moving to Creo",
+      "Diploma holders seeking CAD careers",
+    ],
+    modules: [
+      { title: "Creo Fundamentals", topics: ["Sketcher & constraints", "Extrude, revolve & blend", "Datums & references"] },
+      { title: "Advanced Parts", topics: ["Sweeps, helical sweeps", "Patterns & family tables", "Relations & parameters"] },
+      { title: "Assemblies & Drawings", topics: ["Assembly constraints", "Exploded views", "Detailed drawings"] },
+      { title: "Sheet Metal & Surfacing", topics: ["Sheet metal walls & forms", "Style & Freestyle surfaces", "Boundary blends"] },
+      { title: "Project", topics: ["Product assembly project", "Drawing package", "Interview preparation"] },
+    ],
+    tools: ["Creo Parametric", "Creo View"],
+    projects: [
+      "Parametric product family design",
+      "Sheet metal chassis project",
+      "Surfaced consumer product",
+    ],
+    roles: ["Creo Design Engineer", "CAD Engineer", "Product Development Engineer", "Mechanical Designer"],
+    salary: "₹3 – 9 LPA",
+    certification: "NextGen Innovation Creo certificate with project portfolio.",
+  },
+  "catia": {
+    seoTitle: "CATIA Course in Coimbatore & Trichy | Automotive CAD Training",
+    metaDescription:
+      "CATIA V5 training in Coimbatore, Trichy & online — Part Design, Assembly, GSD surfacing and automotive workflows with placement support.",
+    overview:
+      "CATIA powers automotive and aerospace design. Learn sketcher, part and assembly design, Generative Shape Design and drawing practices used by OEMs and Tier-1 suppliers.",
+    level: "Beginner to Advanced",
+    eligibility: [
+      "B.E. / Diploma Mechanical or Automobile",
+      "Design engineers targeting automotive OEMs",
+      "CAD professionals switching to CATIA",
+    ],
+    modules: [
+      { title: "Sketcher & Part Design", topics: ["Sketcher tools", "Pad, pocket, shaft & rib", "Boolean operations"] },
+      { title: "Assembly Design", topics: ["Product structure", "Constraints", "Clash analysis"] },
+      { title: "Drafting", topics: ["Views & projections", "Dimensions & annotations", "Bill of materials"] },
+      { title: "Generative Shape Design", topics: ["Wireframe & surfaces", "Multi-section surfaces", "Surface quality checks"] },
+      { title: "Automotive Project", topics: ["Body / BIW component", "Assembly with drawings", "Portfolio review"] },
+    ],
+    tools: ["CATIA V5", "DMU Navigator"],
+    projects: [
+      "Automotive bracket and assembly",
+      "Surface modelling of a body panel",
+      "Complete drawing package",
+    ],
+    roles: ["CATIA Design Engineer", "Automotive CAD Engineer", "Surface Designer", "BIW Design Engineer"],
+    salary: "₹3.5 – 10 LPA",
+    certification: "NextGen Innovation CATIA certificate with automotive project portfolio.",
+  },
+  "nx-cad": {
+    seoTitle: "NX CAD Course in Coimbatore & Trichy | Siemens NX Training",
+    metaDescription:
+      "Siemens NX CAD training in Coimbatore, Trichy & online — part modelling, assemblies, drafting and synchronous technology for mechanical design careers.",
+    overview:
+      "Siemens NX is a leading CAD platform in automotive and industrial design. Learn part modelling, assemblies, drafting and synchronous design techniques used in Tier-1 and OEM environments.",
+    level: "Beginner to Advanced",
+    eligibility: [
+      "Mechanical / Automobile / Production graduates",
+      "CAD engineers upgrading to NX",
+      "Freshers targeting Siemens NX roles",
+    ],
+    modules: [
+      { title: "NX Interface & Sketching", topics: ["NX environment", "Sketch constraints", "Feature modelling"] },
+      { title: "Part Modelling", topics: ["Extrude, revolve, sweep", "Synchronous modelling", "Expressions"] },
+      { title: "Assemblies", topics: ["Assembly constraints", "Arrangements", "Clearance analysis"] },
+      { title: "Drafting & PMI", topics: ["Drawing views", "Dimensions & PMI", "Templates"] },
+      { title: "Project", topics: ["Complete product model", "Drawing set", "Interview prep"] },
+    ],
+    tools: ["Siemens NX", "Teamcenter basics"],
+    projects: [
+      "Parametric machine component design",
+      "Multi-part product assembly",
+      "Manufacturing drawing package",
+    ],
+    roles: ["NX CAD Engineer", "Siemens NX Designer", "Mechanical Design Engineer", "CAD Modeller"],
+    salary: "₹3.5 – 10 LPA",
+    certification: "NextGen Innovation NX CAD certificate.",
+  },
+  "mastercam": {
+    seoTitle: "MasterCAM Course in Coimbatore & Trichy | CNC & CAM Training",
+    metaDescription:
+      "MasterCAM training in Coimbatore, Trichy & online — mill, lathe and multi-axis toolpaths, stock setup and G-code for CNC careers.",
+    overview:
+      "MasterCAM is one of the most widely used CAM systems worldwide. Learn mill and lathe programming, toolpath verification and G-code generation for job shops and manufacturing units.",
+    level: "Beginner to Intermediate",
+    eligibility: [
+      "Mechanical / Production diploma or degree holders",
+      "CNC operators upgrading to CAM",
+      "ITI machinists and programming aspirants",
+    ],
+    modules: [
+      { title: "MasterCAM Basics", topics: ["Interface & machine groups", "Stock & tool setup", "Geometry creation"] },
+      { title: "Mill Toolpaths", topics: ["Contour, pocket & drill", "Surface rough & finish", "High-speed toolpaths"] },
+      { title: "Lathe", topics: ["Turning & facing", "Grooving & threading", "C-axis basics"] },
+      { title: "Verification & Code", topics: ["Backplot & Verify", "Post processing", "Shop floor docs"] },
+      { title: "Project", topics: ["Complete mill job", "Lathe component", "Interview prep"] },
+    ],
+    tools: ["MasterCAM", "CNC simulator"],
+    projects: [
+      "3-axis milling job with fixture",
+      "Lathe component with threading",
+      "Production toolpath optimisation",
+    ],
+    roles: ["MasterCAM Programmer", "CNC Programmer", "CAM Engineer", "Manufacturing Programmer"],
+    salary: "₹3 – 8 LPA",
+    certification: "NextGen Innovation MasterCAM certificate.",
+  },
+  "solidworks-cam": {
+    seoTitle: "SolidWorks CAM Course in Coimbatore & Trichy",
+    metaDescription:
+      "SolidWorks CAM training in Coimbatore, Trichy & online — milling, turning, tool libraries and post processing directly from SolidWorks models.",
+    overview:
+      "Program CNC machines without leaving SolidWorks. Learn feature-based machining, toolpath strategies and post processing so design and manufacturing stay in one workflow.",
+    level: "Intermediate",
+    eligibility: [
+      "SolidWorks users and mechanical graduates",
+      "CAM beginners with CAD background",
+      "Design engineers supporting manufacturing",
+    ],
+    modules: [
+      { title: "CAM Setup", topics: ["Machine & stock definition", "Coordinate systems", "Tool crib"] },
+      { title: "Milling Strategies", topics: ["2.5D feature machining", "3D roughing & finishing", "Hole making"] },
+      { title: "Turning", topics: ["Lathe setup", "Turning operations", "Live tooling basics"] },
+      { title: "Posts & Simulation", topics: ["Toolpath simulation", "Post processors", "NC output"] },
+      { title: "Project", topics: ["End-to-end CAM job", "Drawing-to-code workflow", "Portfolio"] },
+    ],
+    tools: ["SolidWorks", "SolidWorks CAM"],
+    projects: [
+      "Milled housing from SolidWorks model",
+      "Turned shaft program",
+      "Combined mill-turn sample job",
+    ],
+    roles: ["SolidWorks CAM Engineer", "CNC Programmer", "Manufacturing CAD/CAM Engineer"],
+    salary: "₹3 – 8 LPA",
+    certification: "NextGen Innovation SolidWorks CAM certificate.",
+  },
+  "fusion-360": {
+    seoTitle: "Fusion 360 Course in Coimbatore & Trichy | CAD CAM Training",
+    metaDescription:
+      "Fusion 360 training in Coimbatore, Trichy & online — CAD modelling, assemblies, CAM, simulation and generative design with cloud collaboration.",
+    overview:
+      "Autodesk Fusion 360 combines CAD, CAM and simulation in one cloud platform. Learn modelling, assemblies, machining and collaboration skills valued by startups and product teams.",
+    level: "Beginner to Intermediate",
+    eligibility: [
+      "Mechanical / Mechatronics students and graduates",
+      "Makers, startups and product designers",
+      "CAD beginners seeking an all-in-one tool",
+    ],
+    modules: [
+      { title: "Sketch & Model", topics: ["Parametric sketches", "Extrude, revolve, loft", "Timeline & parameters"] },
+      { title: "Assemblies & Drawings", topics: ["Joints & motion", "Drawings & annotations", "Renderings"] },
+      { title: "CAM", topics: ["Setup & tooling", "2D/3D toolpaths", "Post processing"] },
+      { title: "Simulation & Generative", topics: ["Static stress basics", "Generative design intro", "Design alternatives"] },
+      { title: "Project", topics: ["Product design + CAM", "Cloud share & review", "Portfolio"] },
+    ],
+    tools: ["Fusion 360", "Autodesk Viewer"],
+    projects: [
+      "Consumer product from sketch to CAM",
+      "Assembly with motion study",
+      "Generative bracket redesign",
+    ],
+    roles: ["Fusion 360 Designer", "Product Design Engineer", "CAD/CAM Engineer", "Prototype Engineer"],
+    salary: "₹3 – 8 LPA",
+    certification: "Preparation for Autodesk Fusion 360 certification, plus a NextGen Innovation certificate.",
+  },
+  "wiring-harness-creo": {
+    seoTitle: "Wiring Harness Using Creo Course in Coimbatore & Trichy",
+    metaDescription:
+      "Creo Cabling & Wiring Harness Design course in Coimbatore, Trichy & online — connectors, cable routing and automotive electrical harness projects.",
+    overview:
+      "Specialise in wiring harness design with Creo Cabling. Learn harness structures, connectors, routing and flattened drawings used in automotive and industrial electrical design.",
+    level: "Intermediate",
+    eligibility: [
+      "Mechanical / Automobile / Electrical graduates",
+      "Creo users moving into cabling",
+      "Harness design and electrical CAD aspirants",
+    ],
+    modules: [
+      { title: "Harness Fundamentals", topics: ["Wire harness concepts", "Connectors & terminals", "Spec-driven design"] },
+      { title: "Creo Cabling", topics: ["Harness part creation", "Wire & cable routing", "Bundles & branches"] },
+      { title: "Logical & Physical", topics: ["Logical references", "Length reports", "Flattened harness"] },
+      { title: "Documentation", topics: ["Harness drawings", "Nailboard layouts", "BOM & reports"] },
+      { title: "Project", topics: ["Automotive harness project", "Drawing package", "Interview prep"] },
+    ],
+    tools: ["Creo Parametric", "Creo Cabling & Harness"],
+    projects: [
+      "Door / cockpit wiring harness model",
+      "Flattened nailboard drawing",
+      "Harness BOM and length report",
+    ],
+    roles: ["Wiring Harness Design Engineer", "Creo Cabling Engineer", "Electrical CAD Engineer", "Harness Detailer"],
+    salary: "₹3.5 – 9 LPA",
+    certification: "NextGen Innovation Wiring Harness Using Creo certificate.",
+  },
+  "gd-and-t": {
+    seoTitle: "GD&T Course in Coimbatore & Trichy | Geometric Dimensioning & Tolerancing",
+    metaDescription:
+      "GD&T training in Coimbatore, Trichy & online — ASME Y14.5 / ISO GPS, datums, tolerances and drawing interpretation for design and quality roles.",
+    overview:
+      "Geometric Dimensioning and Tolerancing is essential for design, manufacturing and quality. Learn symbols, datums and feature control frames so you can read and apply industry drawings correctly.",
+    level: "Beginner to Intermediate",
+    eligibility: [
+      "Mechanical / Production / Automobile graduates",
+      "Design, quality and manufacturing engineers",
+      "Inspectors and draughtsmen",
+    ],
+    modules: [
+      { title: "GD&T Basics", topics: ["Why GD&T vs coordinate tolerancing", "Symbols overview", "Feature control frames"] },
+      { title: "Datums", topics: ["Datum reference frames", "Datum targets", "Degrees of freedom"] },
+      { title: "Form & Orientation", topics: ["Flatness, straightness, cylindricity", "Parallelism, perpendicularity", "Angularity"] },
+      { title: "Location & Profile", topics: ["Position tolerance", "Concentricity & symmetry", "Profile of a surface"] },
+      { title: "Application", topics: ["Drawing exercises", "Inspection planning", "Interview Q&A"] },
+    ],
+    tools: ["Engineering drawings", "Tolerance stack-up worksheets"],
+    projects: [
+      "Annotate a part with full GD&T",
+      "Interpret a production drawing package",
+      "Basic tolerance stack-up exercise",
+    ],
+    roles: ["Design Engineer", "Quality Engineer", "Manufacturing Engineer", "Drawing Checker"],
+    salary: "₹3 – 8 LPA",
+    certification: "NextGen Innovation GD&T certificate.",
+  },
+  "reverse-engineering": {
+    seoTitle: "Reverse Engineering Course in Coimbatore & Trichy | 3D Scan to CAD",
+    metaDescription:
+      "Reverse Engineering course in Coimbatore, Trichy & online — 3D scanning, point clouds, CAD reconstruction and redesign for mechanical parts.",
+    overview:
+      "Learn to recreate CAD models from physical parts. Cover scanning workflows, mesh cleanup, surface/solid reconstruction and redesign for manufacturing and spare-part applications.",
+    level: "Intermediate",
+    eligibility: [
+      "Mechanical / Automobile / Production graduates",
+      "CAD designers and product engineers",
+      "Quality and tooling professionals",
+    ],
+    modules: [
+      { title: "RE Fundamentals", topics: ["When to reverse engineer", "Scan vs CMM", "Accuracy & datums"] },
+      { title: "Scanning & Meshes", topics: ["Point cloud capture basics", "Mesh cleanup", "Alignment"] },
+      { title: "CAD Reconstruction", topics: ["Surface fitting", "Solid modelling from scans", "Parametric rebuild"] },
+      { title: "Inspection & Redesign", topics: ["Deviation analysis", "Design improvements", "Manufacturing prep"] },
+      { title: "Project", topics: ["Scan-to-CAD part", "Comparison report", "Portfolio"] },
+    ],
+    tools: ["SolidWorks / Creo / Fusion 360", "Mesh / scan software"],
+    projects: [
+      "Reconstruct a mechanical casting",
+      "Scan-to-CAD plastic cover",
+      "Deviation inspection report",
+    ],
+    roles: ["Reverse Engineering Engineer", "CAD Reconstruction Specialist", "Product Design Engineer", "Metrology Engineer"],
+    salary: "₹3.5 – 9 LPA",
+    certification: "NextGen Innovation Reverse Engineering certificate.",
+  },
+  "ansys": {
+    seoTitle: "ANSYS Course in Coimbatore & Trichy | FEA & CFD Training",
+    metaDescription:
+      "ANSYS training in Coimbatore, Trichy & online — structural, thermal and CFD analysis, meshing and result interpretation for CAE careers.",
+    overview:
+      "ANSYS is the industry standard for simulation. Learn FEA and introductory CFD — geometry prep, meshing, boundary conditions and result interpretation — through practical engineering projects.",
+    level: "Intermediate to Advanced",
+    eligibility: [
+      "B.E. Mechanical, Automobile, Aerospace or Civil",
+      "Design engineers moving into CAE",
+      "M.Tech / analysis aspirants",
+    ],
+    modules: [
+      { title: "FEA Fundamentals", topics: ["Stress, strain & failure theories", "ANSYS Workbench UI", "Units & materials"] },
+      { title: "Structural Analysis", topics: ["Static structural", "Modal analysis", "Contacts & joints"] },
+      { title: "Thermal & Combined", topics: ["Steady-state thermal", "Thermal stress", "Basic transient intro"] },
+      { title: "Meshing & CFD Intro", topics: ["Mesh controls & quality", "Fluent / CFD basics", "Post-processing"] },
+      { title: "Project", topics: ["Component structural study", "Report writing", "Interview prep"] },
+    ],
+    tools: ["ANSYS Workbench", "Mechanical", "Fluent (intro)"],
+    projects: [
+      "Bracket / chassis structural analysis",
+      "Thermal stress on a housing",
+      "Simple CFD duct / valve study",
+    ],
+    roles: ["CAE Engineer", "FEA Analyst", "Simulation Engineer", "Structural Analyst"],
+    salary: "₹4 – 12 LPA",
+    certification: "NextGen Innovation ANSYS certificate with analysis reports.",
+  },
+  "delcam": {
+    seoTitle: "DelCAM Course in Coimbatore & Trichy | PowerMILL Training",
+    metaDescription:
+      "DelCAM / PowerMILL training in Coimbatore, Trichy & online — complex surface machining, toolpath strategies and CNC programming for tooling careers.",
+    overview:
+      "DelCAM (PowerMILL / PowerSHAPE) is widely used for moulds, dies and complex surface machining. Learn geometry prep, high-speed toolpaths and finishing strategies for tooling shops.",
+    level: "Intermediate",
+    eligibility: [
+      "Mechanical / Tool & Die / Production graduates",
+      "CNC programmers in mould shops",
+      "CAM engineers seeking PowerMILL skills",
+    ],
+    modules: [
+      { title: "PowerSHAPE / Geometry", topics: ["Surface & solid repair", "Electrode basics", "Model preparation"] },
+      { title: "PowerMILL Setup", topics: ["NC programs & tools", "Workplanes", "Stock models"] },
+      { title: "Roughing & Finishing", topics: ["Area clearance", "Raster & 3D offset finish", "Rest machining"] },
+      { title: "High-speed & Multi-axis", topics: ["HSM strategies", "5-axis intro", "Collision control"] },
+      { title: "Project", topics: ["Mould cavity machining", "Verification", "Shop documentation"] },
+    ],
+    tools: ["PowerMILL", "PowerSHAPE", "CNC simulator"],
+    projects: [
+      "Injection mould cavity toolpaths",
+      "Core / electrode machining",
+      "Finishing strategy comparison",
+    ],
+    roles: ["DelCAM / PowerMILL Programmer", "Toolroom CAM Engineer", "CNC Programmer", "Mould CAM Engineer"],
+    salary: "₹3.5 – 9 LPA",
+    certification: "NextGen Innovation DelCAM certificate.",
+  },
+  "autocad-civil": {
+    seoTitle: "AutoCAD Course for Civil Engineering in Coimbatore & Trichy",
+    metaDescription:
+      "AutoCAD for civil engineers in Coimbatore, Trichy & online — plans, sections, elevations and working drawings for site and approval submissions.",
+    overview:
+      "Learn AutoCAD tailored for civil and architectural drafting. Produce plans, sections, elevations and municipal-ready working drawings used by consultants and contractors.",
+    level: "Beginner to Intermediate",
+    eligibility: [
+      "Diploma / B.E. Civil Engineering",
+      "Architecture and interior students",
+      "Site engineers and draughtsmen",
+    ],
+    modules: [
+      { title: "AutoCAD Basics", topics: ["Draw & modify tools", "Layers & annotations", "Units & templates"] },
+      { title: "Building Drafting", topics: ["Floor plans", "Sections & elevations", "Door / window schedules"] },
+      { title: "Civil Details", topics: ["Staircase & toilet details", "Column layout", "Centre-line plans"] },
+      { title: "Layouts & Plotting", topics: ["Layouts & scales", "Title blocks", "Plotting to PDF"] },
+      { title: "Project", topics: ["Residential plan set", "Working drawings", "Portfolio"] },
+    ],
+    tools: ["AutoCAD", "PDF tools"],
+    projects: [
+      "G+1 residential plan set",
+      "Detailing sheet for staircase",
+      "Municipal submission drawings",
+    ],
+    roles: ["Civil CAD Draughtsman", "AutoCAD Civil Drafter", "Junior Architect Assistant", "Site Drawing Engineer"],
+    salary: "₹2.5 – 6 LPA",
+    certification: "Preparation for Autodesk AutoCAD certification, plus a NextGen Innovation certificate.",
+  },
+  "revit": {
+    seoTitle: "Revit Course in Coimbatore & Trichy | BIM for Civil Engineers",
+    metaDescription:
+      "Revit training in Coimbatore, Trichy & online — Architecture & Structure modelling, documentation and BIM basics for civil and architecture careers.",
+    overview:
+      "Build BIM models in Autodesk Revit. Learn walls, floors, roofs, structural elements, sheets and schedules so you can deliver coordinated building models and drawings.",
+    level: "Beginner to Advanced",
+    eligibility: [
+      "B.E. / Diploma Civil or Architecture",
+      "AutoCAD users moving to BIM",
+      "Draughtsmen and site engineers",
+    ],
+    modules: [
+      { title: "Revit Basics", topics: ["BIM concepts", "Levels & grids", "Project browser"] },
+      { title: "Architecture Modelling", topics: ["Walls, floors, roofs", "Doors, windows & components", "Stairs & railings"] },
+      { title: "Structure Basics", topics: ["Columns, beams & foundations", "Structural views", "Reinforcement intro"] },
+      { title: "Documentation", topics: ["Views & sheets", "Tags & schedules", "Printing & exporting"] },
+      { title: "Project", topics: ["Complete building model", "Drawing sheets", "Interview prep"] },
+    ],
+    tools: ["Revit", "Navisworks Freedom", "AutoCAD"],
+    projects: [
+      "Residential BIM model with sheets",
+      "Structural framing model",
+      "Door / window schedule package",
+    ],
+    roles: ["Revit Modeller", "BIM Engineer", "Revit Architect / Structure Modeller", "BIM Draughtsman"],
+    salary: "₹3 – 9 LPA",
+    certification: "Preparation for Autodesk Certified Professional (Revit), plus a NextGen Innovation certificate.",
+  },
+  "sketchup": {
+    seoTitle: "SketchUp Course in Coimbatore & Trichy | 3D Modelling Training",
+    metaDescription:
+      "SketchUp training in Coimbatore, Trichy & online — 3D building and interior modelling, components, scenes and presentation layouts.",
+    overview:
+      "SketchUp is the fastest way to turn concepts into 3D. Learn modelling, components, materials and scenes for architecture, interiors and client presentations.",
+    level: "Beginner to Intermediate",
+    eligibility: [
+      "Civil, architecture and interior students",
+      "Designers needing quick 3D concepts",
+      "Anyone starting in architectural visualisation",
+    ],
+    modules: [
+      { title: "SketchUp Essentials", topics: ["Push-pull modelling", "Groups & components", "Inference system"] },
+      { title: "Building Modelling", topics: ["Floor plans to 3D", "Roofs & openings", "Site & terrain basics"] },
+      { title: "Interiors & Materials", topics: ["Furniture components", "Materials & textures", "Styles"] },
+      { title: "Presentation", topics: ["Scenes & animation", "LayOut basics", "Exports"] },
+      { title: "Project", topics: ["Villa / apartment model", "Interior scene", "Portfolio"] },
+    ],
+    tools: ["SketchUp", "LayOut", "Extension Warehouse"],
+    projects: [
+      "Residential exterior model",
+      "Living room interior scene",
+      "Client presentation with LayOut",
+    ],
+    roles: ["SketchUp Modeller", "3D Visualiser", "Architectural Assistant", "Interior 3D Artist"],
+    salary: "₹2.5 – 7 LPA",
+    certification: "NextGen Innovation SketchUp certificate.",
+  },
+  "staad-pro": {
+    seoTitle: "STAAD Pro Course in Coimbatore & Trichy | Structural Analysis Training",
+    metaDescription:
+      "STAAD Pro training in Coimbatore, Trichy & online — modelling, load analysis and RCC / steel design as per IS codes with placement support.",
+    overview:
+      "Analyse and design structures with STAAD Pro. Learn modelling, load cases, steel and RCC design to IS codes, and produce analysis reports used by structural consultancies.",
+    level: "Intermediate",
+    eligibility: [
+      "B.E. / M.E. Civil or Structural Engineering",
+      "Site engineers moving to design offices",
+      "Freshers aiming for structural design roles",
+    ],
+    modules: [
+      { title: "Modelling", topics: ["Geometry & properties", "Supports & releases", "Load definitions"] },
+      { title: "Analysis", topics: ["Dead, live, wind & seismic", "Load combinations", "Result interpretation"] },
+      { title: "Concrete Design", topics: ["IS 456 design", "Beams, columns & slabs", "Design briefs"] },
+      { title: "Steel Design", topics: ["IS 800 design", "Members & connections intro", "Optimisation basics"] },
+      { title: "Project", topics: ["Building frame analysis", "Design report", "Interview prep"] },
+    ],
+    tools: ["STAAD Pro", "Excel"],
+    projects: [
+      "G+3 RCC building analysis",
+      "Steel shed design",
+      "Seismic load case study",
+    ],
+    roles: ["Structural Design Engineer", "STAAD Pro Engineer", "Junior Structural Analyst", "Design Consultant"],
+    salary: "₹3 – 9 LPA",
+    certification: "NextGen Innovation STAAD Pro certificate.",
+  },
+  "tekla": {
+    seoTitle: "Tekla Structures Course in Coimbatore & Trichy | Steel Detailing",
+    metaDescription:
+      "Tekla Structures training in Coimbatore, Trichy & online — steel modelling, connections, GA and fabrication drawings for detailing careers.",
+    overview:
+      "Tekla Structures is the global standard for steel detailing. Learn modelling, connections, numbering and fabrication drawings used by detailing offices and fabricators.",
+    level: "Beginner to Advanced",
+    eligibility: [
+      "Civil / Mechanical diploma or degree holders",
+      "Steel detailers and draughtsmen",
+      "BIM professionals focusing on steel",
+    ],
+    modules: [
+      { title: "Tekla Basics", topics: ["Interface & grids", "Parts & assemblies", "Views & planes"] },
+      { title: "Steel Modelling", topics: ["Beams, columns & plates", "Bolts & welds", "Custom components intro"] },
+      { title: "Connections", topics: ["System connections", "Moment & shear connections", "Clash checks"] },
+      { title: "Drawings & Reports", topics: ["GA drawings", "Assembly & single-part drawings", "Reports & NC files"] },
+      { title: "Project", topics: ["Industrial shed model", "Full drawing set", "Interview prep"] },
+    ],
+    tools: ["Tekla Structures", "Trimble Connect basics"],
+    projects: [
+      "Industrial steel building model",
+      "Connection detailing package",
+      "Fabrication drawing set",
+    ],
+    roles: ["Tekla Detailer", "Steel Detailing Engineer", "BIM Steel Modeller", "Fabrication Draughtsman"],
+    salary: "₹3 – 9 LPA (higher for overseas detailing)",
+    certification: "NextGen Innovation Tekla Structures certificate.",
+  },
+  "etabs": {
+    seoTitle: "ETABS Course in Coimbatore & Trichy | Building Design Training",
+    metaDescription:
+      "ETABS training in Coimbatore, Trichy & online — multi-storey modelling, seismic analysis and RCC design as per IS 456 and IS 1893.",
+    overview:
+      "ETABS is preferred for multi-storey building design. Learn modelling, load patterns, seismic analysis and RCC design workflows used in structural design consultancies.",
+    level: "Intermediate",
+    eligibility: [
+      "B.E. / M.E. Civil or Structural Engineering",
+      "STAAD users expanding to ETABS",
+      "Design office aspirants",
+    ],
+    modules: [
+      { title: "ETABS Modelling", topics: ["Grids, storeys & templates", "Beams, columns, slabs & walls", "Meshing & diaphragms"] },
+      { title: "Loads", topics: ["Dead & live loads", "Wind loads", "Seismic as per IS 1893"] },
+      { title: "Analysis", topics: ["Load combinations", "Drift & P-delta", "Result review"] },
+      { title: "Design", topics: ["IS 456 concrete design", "Shear walls", "Design reports"] },
+      { title: "Project", topics: ["Multi-storey building", "Design summary", "Interview prep"] },
+    ],
+    tools: ["ETABS", "Excel", "SAFE (intro)"],
+    projects: [
+      "G+5 residential building analysis",
+      "Seismic design case study",
+      "Shear wall building model",
+    ],
+    roles: ["ETABS Design Engineer", "Structural Engineer", "Building Design Engineer", "Junior Structural Consultant"],
+    salary: "₹3.5 – 10 LPA",
+    certification: "NextGen Innovation ETABS certificate.",
+  },
+  "lumion": {
+    seoTitle: "Lumion Course in Coimbatore & Trichy | Architectural Rendering",
+    metaDescription:
+      "Lumion training in Coimbatore, Trichy & online — materials, lighting, effects and photoreal walkthroughs for architecture presentations.",
+    overview:
+      "Create stunning architectural visualisations in Lumion. Import models, apply materials and lighting, and produce stills and walkthroughs that win client approvals.",
+    level: "Beginner to Intermediate",
+    eligibility: [
+      "Architecture, civil and interior students",
+      "3D modellers needing faster rendering",
+      "Visualisation artists",
+    ],
+    modules: [
+      { title: "Lumion Basics", topics: ["Importing models", "Scene setup", "Objects library"] },
+      { title: "Materials & Lighting", topics: ["Material editing", "Sun & real skies", "Omni / spot lights"] },
+      { title: "Effects", topics: ["Photo & movie effects", "Weather & landscape", "People & vehicles"] },
+      { title: "Output", topics: ["Still rendering", "Walkthrough videos", "Export settings"] },
+      { title: "Project", topics: ["Villa exterior renders", "Interior scene", "Client walkthrough"] },
+    ],
+    tools: ["Lumion", "SketchUp / Revit imports"],
+    projects: [
+      "Residential exterior photo set",
+      "Interior living room render",
+      "30-second project walkthrough",
+    ],
+    roles: ["Architectural Visualiser", "Lumion Artist", "3D Rendering Artist", "Presentation Designer"],
+    salary: "₹3 – 8 LPA",
+    certification: "NextGen Innovation Lumion certificate.",
+  },
+  "3ds-max": {
+    seoTitle: "3ds Max Course in Coimbatore & Trichy | Architectural Visualisation",
+    metaDescription:
+      "3ds Max training in Coimbatore, Trichy & online — modelling, materials, lighting and cameras for architectural and interior visualisation.",
+    overview:
+      "Master 3ds Max for architecture and interiors. Learn modelling, materials, lighting and camera setups used by professional visualisation studios.",
+    level: "Beginner to Intermediate",
+    eligibility: [
+      "Architecture, civil and interior graduates",
+      "SketchUp users upgrading to 3ds Max",
+      "Aspiring 3D visualisation artists",
+    ],
+    modules: [
+      { title: "3ds Max Basics", topics: ["Interface & navigation", "Primitive & editable poly", "Transforms & modifiers"] },
+      { title: "Architectural Modelling", topics: ["Walls, floors & openings", "Furniture modelling", "Import workflows"] },
+      { title: "Materials & Lighting", topics: ["Material Editor", "Photometric lights", "Daylight systems"] },
+      { title: "Cameras & Output", topics: ["Camera setup", "Animation basics", "Render setup"] },
+      { title: "Project", topics: ["Interior scene", "Exterior building", "Portfolio renders"] },
+    ],
+    tools: ["3ds Max", "V-Ray / Arnold (intro)", "Photoshop"],
+    projects: [
+      "Apartment interior model",
+      "Building exterior scene",
+      "Furniture product model",
+    ],
+    roles: ["3ds Max Artist", "Architectural Visualiser", "Interior 3D Artist", "Modelling Artist"],
+    salary: "₹3 – 9 LPA",
+    certification: "NextGen Innovation 3ds Max certificate.",
+  },
+  "v-ray": {
+    seoTitle: "V-Ray Course in Coimbatore & Trichy | Photoreal Rendering Training",
+    metaDescription:
+      "V-Ray training in Coimbatore, Trichy & online — materials, lighting and GI for photoreal architectural renders in 3ds Max or SketchUp.",
+    overview:
+      "V-Ray is the go-to renderer for architecture. Learn materials, lighting, global illumination and render settings to produce photoreal stills for clients and portfolios.",
+    level: "Intermediate",
+    eligibility: [
+      "3ds Max or SketchUp users",
+      "Architecture and interior visualisers",
+      "Artists seeking photoreal output",
+    ],
+    modules: [
+      { title: "V-Ray Setup", topics: ["V-Ray renderer settings", "Image sampler", "Colour mapping"] },
+      { title: "Materials", topics: ["V-Ray materials", "Reflections & refraction", "Textures & maps"] },
+      { title: "Lighting", topics: ["V-Ray sun & sky", "Dome & HDRI", "Artificial lights"] },
+      { title: "GI & Cameras", topics: ["Brute force & irradiance", "V-Ray physical camera", "Denoiser"] },
+      { title: "Project", topics: ["Photoreal interior", "Exterior daylight render", "Post-production tips"] },
+    ],
+    tools: ["V-Ray", "3ds Max / SketchUp", "Photoshop"],
+    projects: [
+      "Photoreal living room render",
+      "Exterior villa at golden hour",
+      "Product / material study sheet",
+    ],
+    roles: ["V-Ray Artist", "Architectural Renderer", "Visualisation Specialist", "3D Lighting Artist"],
+    salary: "₹3 – 9 LPA",
+    certification: "NextGen Innovation V-Ray certificate.",
+  },
 };

@@ -56,7 +56,7 @@ export default function Courses() {
             {list.map((c, i) => (
               <motion.article
                 layout
-                key={c.title}
+                key={c.slug}
                 initial={{ opacity: 0, y: 40, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
@@ -66,11 +66,12 @@ export default function Courses() {
               >
                 <Link href={`/courses/${c.slug}`} className="relative block aspect-[16/9] overflow-hidden sm:aspect-[16/10]">
                   <Image
+                    key={c.image}
                     src={c.image}
                     alt={c.title}
                     fill
                     sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-                    className="object-cover transition duration-700 group-hover:scale-110"
+                    className="object-cover object-center transition duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-950/60 to-transparent" />
                   <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-700 backdrop-blur">
