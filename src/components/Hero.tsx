@@ -13,46 +13,49 @@ import {
 import {
   ArrowRight,
   Boxes,
-  BrainCircuit,
-  Bug,
-  Building2,
+  Brain,
   CheckCircle2,
   Cloud,
-  Database,
+  Code2,
+  DraftingCompass,
+  Landmark,
   Loader2,
   Megaphone,
   Phone,
   PhoneCall,
-  PlayCircle,
   Sparkles,
-  Star,
   Trophy,
   Video,
 } from "lucide-react";
-import { heroOrbitInner, heroOrbitOuter, heroPortrait, heroSlides, inquiryCourses, site } from "@/data/site";
+import {
+  categorySlug,
+  coursesByCategory,
+  homeCategories,
+  type HomeCategory,
+} from "@/data/home-categories";
+import { heroPortrait, inquiryCourses, site } from "@/data/site";
 import { WhatsappIcon } from "./ui/Brand";
 
-const SLIDE_MS = 6500;
+const SLIDE_MS = 7000;
 
-// `slide` must match a `heroSlides` label so the chip lights up with the rotating headline.
-const courseChips = [
-  { label: "SAP", Icon: Boxes, slide: "SAP" },
-  { label: "Data Science", Icon: Database, slide: "Data & AI" },
-  { label: "Gen AI", Icon: BrainCircuit, slide: "Data & AI", hot: true },
-  { label: "Cloud", Icon: Cloud, slide: "Cloud" },
-  { label: "Testing", Icon: Bug, slide: "IT" },
-  { label: "Digital Marketing", Icon: Megaphone, slide: "" },
-  { label: "BIM", Icon: Building2, slide: "Design" },
-];
+const categoryIcons = {
+  Boxes,
+  Brain,
+  Code2,
+  Cloud,
+  Megaphone,
+  DraftingCompass,
+  Landmark,
+} as const;
 
-function Orbit({
+function OrbitRing({
   items,
   size,
   spin,
   counter,
   offset = 0,
 }: {
-  items: typeof heroOrbitOuter;
+  items: { src: string; alt: string }[];
   size: number;
   spin: string;
   counter: string;
@@ -69,15 +72,18 @@ function Orbit({
         const y = 50 + 50 * Math.sin(angle);
         return (
           <div
-            key={i}
+            key={`${src}-${i}`}
             className="absolute -translate-x-1/2 -translate-y-1/2"
             style={{ left: `${x}%`, top: `${y}%` }}
           >
-            <span
+            <motion.span
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.15 * i, type: "spring", stiffness: 220, damping: 18 }}
               className={`relative block h-14 w-14 overflow-hidden rounded-2xl bg-brand-800 shadow-xl ring-4 ring-white/20 ${counter}`}
             >
               <Image src={src} alt={alt} fill sizes="56px" className="object-cover" />
-            </span>
+            </motion.span>
           </div>
         );
       })}
@@ -85,12 +91,16 @@ function Orbit({
   );
 }
 
-function QuickInquiry() {
+function QuickInquiry({ preferredCourse }: { preferredCourse?: string }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [course, setCourse] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (preferredCourse) setCourse(preferredCourse);
+  }, [preferredCourse]);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -116,7 +126,12 @@ function QuickInquiry() {
     "w-full rounded-xl border-2 border-brand-100 bg-brand-50/60 px-4 py-3.5 text-sm font-medium text-slate-900 outline-none transition placeholder:text-slate-500 focus:border-brand-500 focus:bg-white focus:ring-4 focus:ring-brand-500/20";
 
   return (
-    <div className="relative rounded-[1.75rem] bg-[linear-gradient(110deg,#60a5fa,#2563eb,#93c5fd,#1d4ed8)] p-[3px] shadow-[0_0_60px_-10px_rgba(59,130,246,0.75)]">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
+      className="relative rounded-[1.75rem] bg-[linear-gradient(110deg,#60a5fa,#2563eb,#93c5fd,#1d4ed8)] p-[3px] shadow-[0_0_60px_-10px_rgba(59,130,246,0.75)]"
+    >
       <div className="rounded-[calc(1.75rem-3px)] bg-white p-5 sm:p-6">
         <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
@@ -127,9 +142,13 @@ function QuickInquiry() {
             <div>
               <p className="flex flex-wrap items-center gap-2 font-display text-lg font-extrabold text-slate-900 sm:text-xl">
                 Book a FREE Counselling Session
-                <span className="rounded-full bg-brand-600 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white">Free</span>
+                <span className="rounded-full bg-brand-600 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white">
+                  Free
+                </span>
               </p>
-              <p className="text-sm text-slate-500">Schedule 1:1 free counselling · Our team calls you within 24 hours</p>
+              <p className="text-sm text-slate-500">
+                Schedule 1:1 free counselling · Our team calls you within 24 hours
+              </p>
             </div>
           </div>
           <div className="flex gap-2">
@@ -159,7 +178,10 @@ function QuickInquiry() {
               className="flex items-center gap-3 rounded-xl bg-green-50 px-4 py-4 text-green-800"
             >
               <CheckCircle2 className="h-6 w-6 text-green-600" />
-              <span className="font-semibold">Thanks {name.split(" ")[0]}! A senior counsellor will call you within 24 hours with your personalised career roadmap.</span>
+              <span className="font-semibold">
+                Thanks {name.split(" ")[0]}! A senior counsellor will call you within 24 hours with your
+                personalised career roadmap.
+              </span>
             </motion.div>
           ) : (
             <motion.form
@@ -170,11 +192,23 @@ function QuickInquiry() {
               className="grid gap-3 md:grid-cols-[1fr_1fr_1.3fr_auto]"
             >
               <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" className={field} />
-              <input value={phone} onChange={(e) => setPhone(e.target.value)} inputMode="tel" placeholder="Mobile number" className={field} />
-              <select value={course} onChange={(e) => setCourse(e.target.value)} className={`${field} ${course ? "" : "text-slate-500"}`}>
+              <input
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                inputMode="tel"
+                placeholder="Mobile number"
+                className={field}
+              />
+              <select
+                value={course}
+                onChange={(e) => setCourse(e.target.value)}
+                className={`${field} ${course ? "" : "text-slate-500"}`}
+              >
                 <option value="">Which career path interests you?</option>
                 {inquiryCourses.map((c) => (
-                  <option key={c} value={c}>{c}</option>
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
                 ))}
               </select>
               <button
@@ -186,7 +220,9 @@ function QuickInquiry() {
                 {status === "loading" ? (
                   <Loader2 className="h-5 w-5 animate-spin" />
                 ) : (
-                  <>Ask For Demo <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" /></>
+                  <>
+                    Ask For Demo <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
+                  </>
                 )}
               </button>
             </motion.form>
@@ -198,16 +234,17 @@ function QuickInquiry() {
           </p>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const [slide, setSlide] = useState(0);
+  const [paused, setPaused] = useState(false);
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "14%"]);
   const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   const mx = useMotionValue(50);
@@ -218,9 +255,10 @@ export default function Hero() {
   const tiltY = useSpring(useTransform(mx, [0, 100], [-8, 8]), { stiffness: 80, damping: 20 });
 
   useEffect(() => {
-    const t = setInterval(() => setSlide((s) => (s + 1) % heroSlides.length), SLIDE_MS);
+    if (paused) return;
+    const t = setInterval(() => setSlide((s) => (s + 1) % homeCategories.length), SLIDE_MS);
     return () => clearInterval(t);
-  }, [slide]);
+  }, [slide, paused]);
 
   const onMove = (e: React.MouseEvent) => {
     const r = e.currentTarget.getBoundingClientRect();
@@ -232,7 +270,20 @@ export default function Hero() {
     spotY.set(y - r.height * 0.4);
   };
 
-  const current = heroSlides[slide];
+  const current = homeCategories[slide] as HomeCategory;
+  const catCourses = coursesByCategory(current.category);
+  const count = catCourses.length;
+  const preferred = catCourses[0]?.title;
+  const Icon = categoryIcons[current.icon];
+  const orbitOuter = catCourses.slice(0, 4).map((c) => ({ src: c.image, alt: c.title }));
+  const orbitInner = catCourses.slice(4, 8).map((c) => ({ src: c.image, alt: c.title }));
+  const liveCourse = catCourses[0];
+  const placedCourse = catCourses[1] ?? catCourses[0];
+
+  function selectCategory(index: number) {
+    setSlide(index);
+    setPaused(true);
+  }
 
   return (
     <section
@@ -241,65 +292,69 @@ export default function Hero() {
       onMouseMove={onMove}
       className="relative isolate flex min-h-screen items-center overflow-hidden bg-brand-950"
     >
-      <AnimatePresence>
+      <AnimatePresence mode="sync">
         <motion.div
-          key={slide}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          key={current.category}
+          initial={{ opacity: 0, scale: 1.08 }}
+          animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.4 }}
+          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0 -z-30"
         >
           <div className="absolute inset-0 animate-kenburns">
-            <Image src={current.image} alt="" fill preload={slide === 0} sizes="100vw" className="object-cover" />
+            <Image
+              src={current.image}
+              alt=""
+              fill
+              preload={slide === 0}
+              sizes="100vw"
+              className="object-cover"
+            />
           </div>
         </motion.div>
       </AnimatePresence>
 
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(110deg,rgba(10,26,63,0.97)_0%,rgba(19,42,99,0.9)_45%,rgba(29,78,216,0.55)_100%)]" />
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(115deg,rgba(10,26,63,0.97)_0%,rgba(19,42,99,0.88)_48%,rgba(29,78,216,0.5)_100%)]" />
       <motion.div
         style={{ x: spotX, y: spotY }}
-        className="pointer-events-none absolute left-1/2 top-[40%] -z-10 -ml-[360px] -mt-[360px] h-[720px] w-[720px] bg-[radial-gradient(closest-side,rgba(147,197,253,0.2),transparent)]"
+        className="pointer-events-none absolute left-1/2 top-[38%] -z-10 -ml-[360px] -mt-[360px] h-[720px] w-[720px] bg-[radial-gradient(closest-side,rgba(147,197,253,0.22),transparent)]"
       />
       <div className="absolute inset-0 -z-10 bg-grid opacity-20 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
       <div className="glow absolute -top-40 right-1/4 -z-10 h-[500px] w-[500px] animate-blob text-brand-700/25" />
 
       <motion.div
         style={{ y: contentY, opacity: fade }}
-        className="mx-auto w-full max-w-7xl px-4 will-change-[transform,opacity] pb-24 pt-28 sm:px-5 sm:pb-40 sm:pt-32 lg:px-8 lg:pb-44"
+        className="mx-auto w-full max-w-7xl px-4 will-change-[transform,opacity] pb-20 pt-28 sm:px-5 sm:pb-32 sm:pt-32 lg:px-8 lg:pb-36"
       >
-        <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_1fr]">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_1fr]">
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-3 rounded-full bg-white/10 py-1.5 pl-1.5 pr-4 text-sm text-brand-100 ring-1 ring-white/20"
+              transition={{ duration: 0.55 }}
+              className="font-display text-sm font-semibold uppercase tracking-[0.28em] text-brand-300 sm:text-base"
             >
-              <span className="rounded-full bg-gradient-to-r from-brand-400 to-brand-700 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
-                New
-              </span>
-              Students placed every month — be the next!
-            </motion.div>
+              NextGen Innovations
+            </motion.p>
 
-            <h1 className="mt-6 font-display text-[2.2rem] font-extrabold leading-[1.08] tracking-tight text-white min-[400px]:text-[2.5rem] sm:mt-7 sm:text-6xl lg:text-7xl">
+            <h1 className="mt-5 font-display text-[2.15rem] font-extrabold leading-[1.08] tracking-tight text-white min-[400px]:text-[2.45rem] sm:mt-6 sm:text-6xl lg:text-7xl">
               <motion.span
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 36 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.75, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
                 className="flex items-center gap-3"
               >
                 Learn
                 <Sparkles className="h-[0.55em] w-[0.55em] animate-twinkle text-amber-300 drop-shadow-[0_0_12px_rgba(252,211,77,0.7)]" />
               </motion.span>
-              <span className="relative block h-[1.15em] overflow-hidden">
+              <span className="relative mt-1 block h-[1.15em] overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={current.word}
-                    initial={{ y: "110%", rotateX: -60, opacity: 0 }}
+                    initial={{ y: "110%", rotateX: -50, opacity: 0 }}
                     animate={{ y: "0%", rotateX: 0, opacity: 1 }}
-                    exit={{ y: "-110%", rotateX: 60, opacity: 0 }}
-                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    exit={{ y: "-110%", rotateX: 40, opacity: 0 }}
+                    transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
                     className="absolute left-0 animate-shimmer-text whitespace-nowrap bg-[linear-gradient(90deg,#ffffff,#93c5fd,#60a5fa,#93c5fd,#ffffff)] bg-[length:200%_auto] bg-clip-text text-transparent drop-shadow-[0_0_28px_rgba(96,165,250,0.45)]"
                   >
                     {current.word}
@@ -307,13 +362,18 @@ export default function Hero() {
                 </AnimatePresence>
               </span>
               <motion.span
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 36 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.75, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
                 className="relative inline-block"
               >
                 from experts.
-                <svg viewBox="0 0 300 20" className="absolute -bottom-3 left-0 w-full" preserveAspectRatio="none" aria-hidden="true">
+                <svg
+                  viewBox="0 0 300 20"
+                  className="absolute -bottom-3 left-0 w-full"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
                   <motion.path
                     d="M3 14 C 80 4, 200 4, 297 12"
                     fill="none"
@@ -322,7 +382,7 @@ export default function Hero() {
                     strokeLinecap="round"
                     initial={{ pathLength: 0 }}
                     animate={{ pathLength: 1 }}
-                    transition={{ duration: 1.2, delay: 0.9, ease: "easeInOut" }}
+                    transition={{ duration: 1.1, delay: 0.8, ease: "easeInOut" }}
                   />
                   <defs>
                     <linearGradient id="hero-underline" x1="0" x2="1">
@@ -334,168 +394,251 @@ export default function Hero() {
               </motion.span>
             </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
-              className="mt-6 max-w-xl text-base leading-relaxed text-brand-100/85 sm:mt-8 sm:text-lg"
-            >
-              Train at <b className="font-semibold text-white">Coimbatore &amp; Trichy&apos;s</b> leading software institute — live mentor-led
-              classes, real industry projects and{" "}
-              <span className="relative isolate whitespace-nowrap font-semibold text-white">
-                placement support
-                <span className="absolute inset-x-0 bottom-0.5 -z-10 h-2 rounded-full bg-brand-500/50" />
-              </span>{" "}
-              until you&apos;re hired.
-            </motion.p>
-
-            <motion.ul
-              initial="hidden"
-              animate="show"
-              variants={{ show: { transition: { staggerChildren: 0.06, delayChildren: 0.6 } } }}
-              className="mt-5 flex max-w-xl flex-wrap gap-2 sm:mt-6"
-              aria-label="Courses"
-            >
-              {courseChips.map(({ label, Icon, slide: slideLabel, hot }) => {
-                const active = slideLabel === current.label;
-                return (
-                  <motion.li
-                    key={label}
-                    variants={{ hidden: { opacity: 0, y: 12, scale: 0.9 }, show: { opacity: 1, y: 0, scale: 1 } }}
-                  >
-                    <a
-                      href="#courses"
-                      className={`relative inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold ring-1 backdrop-blur transition duration-300 hover:-translate-y-0.5 sm:text-sm ${
-                        active
-                          ? "bg-white text-brand-800 shadow-lg shadow-brand-400/40 ring-white"
-                          : "bg-white/10 text-brand-50 ring-white/20 hover:bg-white/20"
-                      }`}
-                    >
-                      <Icon className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${active ? "text-brand-600" : "text-brand-300"}`} />
-                      {label}
-                      {hot && (
-                        <span className="rounded-full bg-gradient-to-r from-amber-300 to-orange-400 px-1.5 py-px text-[10px] font-bold uppercase tracking-wide text-brand-950">
-                          Hot
-                        </span>
-                      )}
-                    </a>
-                  </motion.li>
-                );
-              })}
-            </motion.ul>
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={current.category}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4 }}
+                className="mt-6 max-w-xl text-base leading-relaxed text-brand-100/90 sm:mt-7 sm:text-lg"
+              >
+                {current.blurb}{" "}
+                <span className="font-semibold text-white">
+                  {count} program{count === 1 ? "" : "s"}
+                </span>{" "}
+                in Coimbatore &amp; Trichy — classroom and live online.
+              </motion.p>
+            </AnimatePresence>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.65 }}
-              className="mt-8 flex flex-wrap items-center gap-4 sm:mt-9 sm:gap-5"
+              transition={{ duration: 0.65, delay: 0.4 }}
+              className="mt-8 sm:mt-9"
             >
-              <a
-                href="#courses"
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-brand-500 to-brand-700 px-7 py-4 font-semibold text-white shadow-2xl shadow-brand-950/40 transition hover:scale-105"
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-brand-300/90">
+                Browse by category
+              </p>
+              <motion.div
+                role="tablist"
+                aria-label="Course categories"
+                className="no-scrollbar -mx-1 flex gap-2 overflow-x-auto px-1 pb-1"
+                initial="hidden"
+                animate="show"
+                variants={{ show: { transition: { staggerChildren: 0.05, delayChildren: 0.45 } } }}
               >
-                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-                Explore Courses
-                <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
-              </a>
-              <a href="#journey" className="group inline-flex items-center gap-3 font-semibold text-white">
-                <span className="relative grid h-12 w-12 place-items-center rounded-full bg-white/15 ring-1 ring-white/30 transition group-hover:bg-white group-hover:text-brand-700">
-                  <span className="absolute inset-0 animate-pulse-ring rounded-full bg-white/30" />
-                  <PlayCircle className="relative h-6 w-6" />
-                </span>
-                See how it works
-              </a>
+                {homeCategories.map((cat, i) => {
+                  const CatIcon = categoryIcons[cat.icon];
+                  const active = i === slide;
+                  return (
+                    <motion.button
+                      key={cat.category}
+                      type="button"
+                      role="tab"
+                      aria-selected={active}
+                      onClick={() => selectCategory(i)}
+                      variants={{
+                        hidden: { opacity: 0, y: 14, scale: 0.9 },
+                        show: { opacity: 1, y: 0, scale: 1 },
+                      }}
+                      whileHover={{ y: -3, scale: 1.04 }}
+                      whileTap={{ scale: 0.96 }}
+                      className={`group relative inline-flex shrink-0 items-center gap-2 overflow-hidden rounded-full px-3.5 py-2 text-sm font-semibold transition-colors duration-300 ${
+                        active
+                          ? "bg-white text-brand-800 shadow-lg shadow-brand-400/35"
+                          : "bg-white/10 text-brand-50 ring-1 ring-white/20 hover:bg-white/20"
+                      }`}
+                    >
+                      {active && (
+                        <motion.span
+                          layoutId="hero-cat-glow"
+                          className="absolute inset-0 -z-0 rounded-full bg-white"
+                          transition={{ type: "spring", stiffness: 380, damping: 28 }}
+                        />
+                      )}
+                      <CatIcon className={`relative h-4 w-4 ${active ? "text-brand-600" : "text-brand-300"}`} />
+                      <span className="relative">{cat.shortLabel}</span>
+                      {"hot" in cat && cat.hot && (
+                        <motion.span
+                          animate={{ scale: [1, 1.08, 1] }}
+                          transition={{ duration: 1.6, repeat: Infinity }}
+                          className="relative rounded-full bg-gradient-to-r from-amber-300 to-orange-400 px-1.5 py-px text-[10px] font-bold uppercase tracking-wide text-brand-950"
+                        >
+                          Hot
+                        </motion.span>
+                      )}
+                      {active && !paused && (
+                        <motion.span
+                          key={`progress-${slide}`}
+                          initial={{ scaleX: 0 }}
+                          animate={{ scaleX: 1 }}
+                          transition={{ duration: SLIDE_MS / 1000, ease: "linear" }}
+                          className="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-brand-500"
+                        />
+                      )}
+                    </motion.button>
+                  );
+                })}
+              </motion.div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.85 }}
-              className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-brand-100/80 sm:mt-10 sm:gap-x-8"
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.55 }}
+              className="mt-8 flex flex-wrap items-center gap-4 sm:mt-9"
             >
-              <span className="flex items-center gap-2">
-                <span className="flex text-amber-300">
-                  {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
-                </span>
-                <b className="text-white">4.9</b> Google rating
-              </span>
-              <span><b className="text-white">5,000+</b> careers launched</span>
-              <span><b className="text-white">92%</b> placement rate</span>
+              <motion.a
+                href={`#category-${categorySlug(current.category)}`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-brand-500 to-brand-700 px-7 py-4 font-semibold text-white shadow-2xl shadow-brand-950/40"
+              >
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={current.category}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    className="relative inline-flex items-center gap-2"
+                  >
+                    <Icon className="h-5 w-5" />
+                    Explore {current.shortLabel}
+                    <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
+                  </motion.span>
+                </AnimatePresence>
+              </motion.a>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 rounded-full px-2 py-2 font-semibold text-white transition hover:text-brand-200"
+              >
+                Free counselling
+                <ArrowRight className="h-4 w-4" />
+              </a>
             </motion.div>
           </div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0, scale: 0.82, rotate: -4 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 1.1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
             style={{ rotateX: tiltX, rotateY: tiltY, transformPerspective: 1000 }}
             className="relative mx-auto hidden aspect-square w-full max-w-[520px] lg:block"
           >
             <div className="glow absolute inset-[10%] text-brand-500/40" />
-            <Orbit items={heroOrbitOuter} size={480} spin="animate-orbit" counter="animate-orbit-reverse" offset={Math.PI / 4} />
-            <Orbit items={heroOrbitInner} size={330} spin="animate-orbit-fast" counter="animate-orbit-fast-reverse" />
 
-            <div className="absolute left-1/2 top-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-brand-300 via-brand-400 to-brand-600 p-1.5 shadow-2xl shadow-brand-950/50">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`orbit-${current.category}`}
+                initial={{ opacity: 0, scale: 0.85 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0"
+              >
+                {orbitOuter.length > 0 && (
+                  <OrbitRing
+                    items={orbitOuter}
+                    size={480}
+                    spin="animate-orbit"
+                    counter="animate-orbit-reverse"
+                    offset={Math.PI / 4}
+                  />
+                )}
+                {orbitInner.length > 0 && (
+                  <OrbitRing
+                    items={orbitInner}
+                    size={330}
+                    spin="animate-orbit-fast"
+                    counter="animate-orbit-fast-reverse"
+                  />
+                )}
+              </motion.div>
+            </AnimatePresence>
+
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute left-1/2 top-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-brand-300 via-brand-400 to-brand-600 p-1.5 shadow-2xl shadow-brand-950/50"
+            >
               <div className="relative h-full w-full overflow-hidden rounded-full">
-                <Image src={heroPortrait} alt="AI robot" fill sizes="240px" className="object-cover" preload />
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={current.category}
+                    initial={{ opacity: 0, scale: 1.15 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.55 }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={catCourses[0]?.image ?? heroPortrait}
+                      alt={current.category}
+                      fill
+                      sizes="240px"
+                      className="object-cover"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-950/50 via-transparent to-transparent" />
+                <motion.div
+                  key={`badge-${current.category}`}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="absolute inset-x-0 bottom-5 text-center"
+                >
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-brand-800 shadow-lg">
+                    <Icon className="h-3.5 w-3.5 text-brand-600" />
+                    {current.shortLabel}
+                  </span>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="absolute -left-6 top-[14%] flex animate-float items-center gap-3 rounded-2xl bg-white p-3.5 pr-5 shadow-2xl">
+            <motion.div
+              key={`live-${current.category}`}
+              initial={{ opacity: 0, x: -24, y: 10 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ delay: 0.35, type: "spring", stiffness: 200, damping: 18 }}
+              className="absolute -left-6 top-[14%] flex animate-float items-center gap-3 rounded-2xl bg-white p-3.5 pr-5 shadow-2xl"
+            >
               <span className="relative grid h-10 w-10 place-items-center rounded-xl bg-red-500 text-white">
                 <Video className="h-5 w-5" />
                 <span className="absolute -right-1 -top-1 h-3 w-3 animate-ping rounded-full bg-red-400" />
               </span>
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-wider text-red-500">Live now</p>
-                <p className="text-sm font-bold text-slate-900">SAP FICO · 240 watching</p>
+                <p className="max-w-[11rem] truncate text-sm font-bold text-slate-900">
+                  {liveCourse?.title ?? current.shortLabel}
+                </p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="absolute -right-4 bottom-[14%] flex animate-float-slow items-center gap-3 rounded-2xl bg-white p-3.5 pr-5 shadow-2xl">
+            <motion.div
+              key={`placed-${current.category}`}
+              initial={{ opacity: 0, x: 24, y: 10 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ delay: 0.5, type: "spring", stiffness: 200, damping: 18 }}
+              className="absolute -right-4 bottom-[14%] flex animate-float-slow items-center gap-3 rounded-2xl bg-white p-3.5 pr-5 shadow-2xl"
+            >
               <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-100 text-brand-700">
                 <Trophy className="h-5 w-5" />
               </span>
               <div>
-                <p className="text-sm font-bold text-slate-900">Placed · BIM Modeller</p>
-                <p className="text-xs text-slate-500">Lakshmi, our 2025 batch</p>
+                <p className="max-w-[11rem] truncate text-sm font-bold text-slate-900">
+                  Placed · {placedCourse?.title?.split("(")[0]?.trim() ?? current.shortLabel}
+                </p>
+                <p className="text-xs text-slate-500">{count} programs in this path</p>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="mt-10 sm:mt-14"
-        >
-          <div className="mb-4 flex items-center justify-end gap-4">
-            <div className="hidden items-center gap-4 sm:flex">
-              {heroSlides.map((s, i) => (
-                <button
-                  key={s.label}
-                  onClick={() => setSlide(i)}
-                  className={`group flex flex-col gap-1.5 text-left text-xs font-semibold uppercase tracking-wider transition ${i === slide ? "text-white" : "text-white/50 hover:text-white/80"}`}
-                >
-                  {s.label}
-                  <span className="h-0.5 w-16 overflow-hidden rounded-full bg-white/20">
-                    {i === slide && (
-                      <motion.span
-                        key={slide}
-                        initial={{ width: 0 }}
-                        animate={{ width: "100%" }}
-                        transition={{ duration: SLIDE_MS / 1000, ease: "linear" }}
-                        className="block h-full bg-white"
-                      />
-                    )}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
-          <QuickInquiry />
-        </motion.div>
+        <div className="mt-12 sm:mt-16">
+          <QuickInquiry preferredCourse={preferred} />
+        </div>
       </motion.div>
 
       <svg

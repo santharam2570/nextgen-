@@ -40,7 +40,7 @@ export default function About() {
             align="left"
             eyebrow="About NextGen Innovation"
             title={<>Learn from experts, <span className="text-gradient">grow your career</span></>}
-            text={`${site.name} is a software training institute with branches in Coimbatore and Trichy that aligns academic learning with real industry needs. We train freshers, job seekers, non-IT graduates and working professionals in SAP, Data Science, Generative AI, Cloud, Software Testing, Digital Marketing, BIM and Design — through classroom, online and corporate training — and support every student until they are placed.`}
+            text={`${site.name} is a software training institute with branches in Coimbatore and Trichy that aligns academic learning with real industry needs. We train freshers, job seekers, non-IT graduates and working professionals in SAP, Data Science, Generative AI, Cloud, Software Testing, Digital Marketing, Mechanical and Civil Engineering — through classroom, online and corporate training — and support every student until they are placed.`}
           />
 
           <Reveal delay={0.15}>

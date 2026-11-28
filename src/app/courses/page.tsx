@@ -8,8 +8,8 @@ import ScrollExtras from "@/components/ScrollExtras";
 import { courses, images } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "All Courses | SAP, Data Science, Cloud, Testing & BIM Courses in Coimbatore & Trichy",
-  description: `Explore all ${courses.length} courses at NextGen Innovation, Coimbatore & Trichy — SAP, Data Science, Gen AI, Cloud, DevOps, Cyber Security, Full Stack, Software Testing, Digital Marketing, BIM and Design. Classroom & online with placements.`,
+  title: "All Courses | SAP, Data Science, Cloud, Testing, Mechanical & Civil in Coimbatore & Trichy",
+  description: `Explore all ${courses.length} courses at NextGen Innovation, Coimbatore & Trichy — SAP, Data Science, Gen AI, Cloud, DevOps, Cyber Security, Full Stack, Software Testing, Digital Marketing, Mechanical and Civil Engineering. Classroom & online with placements.`,
   alternates: { canonical: "/courses" },
 };
 
@@ -22,7 +22,7 @@ export default function AllCoursesPage() {
         <PageHero
           eyebrow="All Courses"
           title="Explore our programs"
-          text={`${courses.length} job-oriented courses across SAP, Data & AI, Software, Cloud & Security, Marketing and Design — classroom and online training with real-time projects and placement support.`}
+          text={`${courses.length} job-oriented courses across SAP, Data & AI, Software, Cloud & Security, Marketing, Mechanical and Civil Engineering — classroom and online training with real-time projects and placement support.`}
           image={images.stats}
           crumbs={[{ label: "All Courses" }]}
         />

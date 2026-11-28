@@ -28,7 +28,7 @@ export default function Courses() {
         <SectionHeading
           eyebrow="Explore Our Programs"
           title={<>Popular courses <span className="text-gradient">with placements</span></>}
-          text="SAP, Data Science, Gen AI & Machine Learning, Cloud Computing, DevOps, Cyber Security, Full Stack, Software Testing, Digital Marketing, BIM and Design — classroom and online training with new batches every month."
+          text="SAP, Data Science, Gen AI & Machine Learning, Cloud Computing, DevOps, Cyber Security, Full Stack, Software Testing, Digital Marketing, Mechanical and Civil Engineering — classroom and online training with new batches every month."
         />
 
         <div className="no-scrollbar -mx-5 mt-8 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:mt-10 sm:flex-wrap sm:justify-center sm:overflow-visible sm:px-0">

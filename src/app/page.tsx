@@ -1,6 +1,5 @@
 import About from "@/components/About";
 import AppShowcase from "@/components/AppShowcase";
-import Courses from "@/components/Courses";
 import CTA from "@/components/CTA";
 import FAQ from "@/components/FAQ";
 import Features from "@/components/Features";
@@ -8,6 +7,7 @@ import Footer from "@/components/Footer";
 import Gallery from "@/components/Gallery";
 import GoogleReviews from "@/components/GoogleReviews";
 import Hero from "@/components/Hero";
+import HomeCourses from "@/components/HomeCourses";
 import Inquiry from "@/components/Inquiry";
 import Journey from "@/components/Journey";
 import Locations from "@/components/Locations";
@@ -88,9 +88,9 @@ export default function Home() {
       <main>
         <Hero />
         <TrustedBy />
+        <HomeCourses />
         <About />
         <Features />
-        <Courses />
         <Locations />
         <TrainingModes />
         <WhyChoose />
