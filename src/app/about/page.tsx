@@ -15,9 +15,9 @@ import TrustedBy from "@/components/TrustedBy";
 import { images } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "About Us | Software Training Institute in Coimbatore & Trichy",
+  title: "About Us | Software & CAD Training Institute in Coimbatore & Trichy",
   description:
-    "About NextGen Innovation — a software training institute in Coimbatore and Trichy offering classroom, online and corporate training in SAP, Data Science, Gen AI, Cloud, Testing, Digital Marketing and BIM with placement support.",
+    "About NextGen Innovation — a career training institute in Coimbatore and Trichy offering classroom, online and corporate courses in SAP, Data Science, Gen AI, Cloud, Testing, Digital Marketing, Mechanical CAD and Civil Engineering with placement support.",
   alternates: { canonical: "/about" },
 };
 
@@ -30,7 +30,7 @@ export default function AboutPage() {
         <PageHero
           eyebrow="About Us"
           title="Learn from experts. Grow your career."
-          text="NextGen Innovation is a software training institute with branches in Coimbatore and Trichy that aligns academic learning with real industry needs — helping freshers, non-IT graduates and working professionals build successful careers in IT, SAP and design."
+          text="NextGen Innovation is a career training institute with branches in Coimbatore and Trichy that aligns academic learning with real industry needs — helping freshers, non-IT graduates and working professionals build successful careers in SAP, IT, Data & AI, Mechanical CAD and Civil Engineering."
           image={images.about1}
           crumbs={[{ label: "About Us" }]}
         />

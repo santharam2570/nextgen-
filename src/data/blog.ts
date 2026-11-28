@@ -101,7 +101,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Choose a course that matches your background",
         paragraphs: ["Pick a path that builds on what you already know."],
-        bullets: ["Commerce / finance: SAP FICO, Data Analytics", "Mechanical / production: SAP MM, SAP PP", "Civil / architecture: Master of BIM, Architectural Designing", "Arts / any degree: Software Testing, Digital Marketing, UI/UX Design"],
+        bullets: ["Commerce / finance: SAP FICO, Data Analytics", "Mechanical / production: SAP MM, AutoCAD, SolidWorks, Creo, CATIA", "Civil / architecture: AutoCAD Civil, Revit, STAAD Pro, ETABS", "Arts / any degree: Software Testing, Digital Marketing, Full Stack"],
       },
       {
         heading: "Build practical skills",
@@ -171,7 +171,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "How to start",
-        paragraphs: ["Our Master of BIM program teaches these tools through real building projects and supports you with portfolio building and placement assistance."],
+        paragraphs: ["Our Civil Engineering programs — including Revit, AutoCAD, STAAD Pro, ETABS and Tekla — teach these tools through real building projects and support you with portfolio building and placement assistance."],
       },
     ],
   },

@@ -15,7 +15,7 @@ import { courses, images } from "@/data/site";
 export const metadata: Metadata = {
   title: "Corporate Training in Coimbatore & Trichy | Employee Upskilling Programs",
   description:
-    "Corporate training programs by NextGen Innovation — customised SAP, Data & AI, Cloud, DevOps, Testing, Salesforce and BIM training for teams. Online, on-site or at our Coimbatore and Trichy branches.",
+    "Corporate training programs by NextGen Innovation — customised SAP, Data & AI, Cloud, DevOps, Testing, Salesforce, Mechanical CAD and Civil Engineering training for teams. Online, on-site or at our Coimbatore and Trichy branches.",
   alternates: { canonical: "/corporate-training" },
 };
 

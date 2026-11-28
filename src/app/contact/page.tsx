@@ -9,7 +9,7 @@ import { images, site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact Us | Course Enquiry & Free Counselling",
-  description: `Contact ${site.name}, Coimbatore & Trichy. Call ${site.phone}, WhatsApp or visit our Coimbatore or Trichy branch for course details, fees, batch dates and a free demo class.`,
+  description: `Contact ${site.name} in Coimbatore & Trichy. Call ${site.phone}, WhatsApp or visit a branch for SAP, Data & AI, Cloud, Mechanical CAD and Civil course details, fees, batch dates and a free demo class.`,
   alternates: { canonical: "/contact" },
 };
 

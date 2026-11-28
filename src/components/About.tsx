@@ -7,7 +7,7 @@ import SectionHeading from "./ui/SectionHeading";
 const values = [
   { icon: Target, title: "Placement Assistance", text: "A dedicated placement cell, recruitment drives and referrals to connect you with leading companies." },
   { icon: Lightbulb, title: "Experienced Faculty", text: "Certified trainers who bring real-world project knowledge and personal mentorship to every class." },
-  { icon: Heart, title: "Industry-Relevant Training", text: "Courses aligned with current IT trends, so you gain the practical skills employers demand." },
+  { icon: Heart, title: "Industry-Relevant Training", text: "Courses aligned with current hiring needs in SAP, IT, Data & AI, Mechanical CAD and Civil design." },
 ];
 
 const highlights = [

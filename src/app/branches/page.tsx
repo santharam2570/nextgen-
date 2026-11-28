@@ -10,7 +10,7 @@ import { gallery, site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Our Branches | Coimbatore & Trichy Training Centres",
-  description: `Visit ${site.name} branches in Coimbatore (Tech Park Road) and Trichy (Williams Road, Cantonment) for classroom SAP, AI, Cloud, IT and BIM training with placement support.`,
+  description: `Visit ${site.name} branches in Coimbatore (Tech Park Road) and Trichy (Williams Road, Cantonment) for classroom SAP, AI, Cloud, IT, Mechanical CAD and Civil Engineering training with placement support.`,
   alternates: { canonical: "/branches" },
 };
 

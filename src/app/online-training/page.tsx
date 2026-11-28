@@ -15,7 +15,7 @@ import { gallery } from "@/data/site";
 export const metadata: Metadata = {
   title: "Online Training | Live Instructor-Led Courses with Placement",
   description:
-    "Live online training in SAP, Data Science, Gen AI, Cloud, DevOps, Testing, Digital Marketing and BIM from NextGen Innovation — for learners across India, USA, UK, Canada, UAE, Singapore and Australia.",
+    "Live online training in SAP, Data Science, Gen AI, Cloud, DevOps, Testing, Digital Marketing, Mechanical CAD and Civil Engineering from NextGen Innovation — for learners across India, USA, UK, Canada, UAE, Singapore and Australia.",
   alternates: { canonical: "/online-training" },
 };
 

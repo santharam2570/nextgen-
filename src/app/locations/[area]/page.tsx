@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const branch = branchFor(loc.branch);
   return {
     title: `Software Training Institute in ${loc.name}, ${branch.city}`,
-    description: `SAP, Data Science, Gen AI, Cloud, Full Stack, Software Testing, Digital Marketing and BIM training for learners in ${loc.name}, ${branch.city} — classroom at our ${branch.city} branch and live online, with placement support.`,
+    description: `SAP, Data Science, Gen AI, Cloud, Full Stack, Software Testing, Digital Marketing, Mechanical CAD and Civil Engineering training for learners in ${loc.name}, ${branch.city} — classroom at our ${branch.city} branch and live online, with placement support.`,
     alternates: { canonical: `/locations/${loc.slug}` },
   };
 }

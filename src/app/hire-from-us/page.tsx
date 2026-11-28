@@ -15,7 +15,7 @@ import { courses, images } from "@/data/site";
 export const metadata: Metadata = {
   title: "Hire From Us | Hire Trained Freshers & IT Professionals",
   description:
-    "Hire job-ready, pre-screened candidates trained at NextGen Innovation, Coimbatore & Trichy — SAP consultants, data analysts, developers, testers, cloud engineers, digital marketers and BIM modellers.",
+    "Hire job-ready, pre-screened candidates trained at NextGen Innovation, Coimbatore & Trichy — SAP consultants, data analysts, developers, testers, cloud engineers, digital marketers, Mechanical CAD and Civil design professionals.",
   alternates: { canonical: "/hire-from-us" },
 };
 

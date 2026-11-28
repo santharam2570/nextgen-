@@ -11,7 +11,7 @@ import { images } from "@/data/site";
 export const metadata: Metadata = {
   title: "Student Reviews & Testimonials",
   description:
-    "Read student reviews and success stories of NextGen Innovation, Coimbatore & Trichy — SAP, Data Science, Software Testing, Digital Marketing, BIM and Interior Design graduates share their experience.",
+    "Read student reviews and success stories of NextGen Innovation, Coimbatore & Trichy — SAP, Data Science, Software Testing, Digital Marketing, Mechanical CAD and Civil Engineering graduates share their experience.",
   alternates: { canonical: "/reviews" },
 };
 

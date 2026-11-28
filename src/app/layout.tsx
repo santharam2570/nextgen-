@@ -20,9 +20,10 @@ export const viewport: Viewport = {
   themeColor: "#0a1a3f",
 };
 
-const homeTitle = "NextGen Innovation: Best Software Training Institute in Coimbatore & Trichy with Placements";
+const homeTitle =
+  "NextGen Innovation | Best Software & CAD Training Institute in Coimbatore & Trichy with Placements";
 const homeDescription =
-  "Career-focused training in Coimbatore, Trichy & online: SAP FICO, MM, SD, ABAP, Data Science, Generative AI, AWS & Azure, DevOps, Cybersecurity, Full Stack, Testing, Digital Marketing & BIM. Live classes, real projects, placement support.";
+  "Job-oriented training in Coimbatore, Trichy & online — SAP FICO, MM, SD, ABAP, Data Science, Generative AI, AWS & Azure, DevOps, Cybersecurity, Full Stack, Software Testing, Digital Marketing, Mechanical CAD and Civil Engineering. Live classes, real projects, placement support.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -62,12 +63,15 @@ export const metadata: Metadata = {
     "Flutter app development course",
     "Digital Marketing course in Coimbatore",
     "Digital Marketing course in Trichy",
-    "BIM course in Coimbatore",
-    "BIM course in Trichy",
-    "Revit MEP training",
-    "Interior Designing course in Coimbatore",
-    "Architectural Designing course",
-    "UI UX design course in Coimbatore",
+    "AutoCAD course in Coimbatore",
+    "AutoCAD course in Trichy",
+    "SolidWorks course in Coimbatore",
+    "CATIA course in Coimbatore",
+    "ANSYS course in Coimbatore",
+    "Revit course in Coimbatore",
+    "STAAD Pro course in Trichy",
+    "Mechanical Engineering CAD training",
+    "Civil Engineering design course",
     "online courses with placement support",
     site.name,
   ],
@@ -78,11 +82,13 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_IN",
     type: "website",
+    images: [{ url: "/logo.png", width: 512, height: 512, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: homeTitle,
     description: homeDescription,
+    images: ["/logo.png"],
   },
   robots: {
     index: true,

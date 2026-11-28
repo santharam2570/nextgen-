@@ -10,7 +10,7 @@ import { courses, images } from "@/data/site";
 export const metadata: Metadata = {
   title: "Interview Questions and Answers for Freshers & Experienced",
   description:
-    "Top interview questions and answers for SAP FICO, SAP MM, SAP ABAP, Data Science, Generative AI, Full Stack, Software Testing, Cloud, DevOps, Salesforce, BIM and more — prepared by NextGen Innovation trainers.",
+    "Top interview questions and answers for SAP FICO, SAP MM, SAP ABAP, Data Science, Generative AI, Full Stack, Software Testing, Cloud, DevOps, Salesforce, AutoCAD, Revit and more — prepared by NextGen Innovation trainers.",
   alternates: { canonical: "/interview-questions" },
 };
 

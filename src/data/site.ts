@@ -8,7 +8,7 @@ export const site = {
   shortName: "NextGen",
   url: "https://www.nextgeninnovations.co.in",
   description:
-    "NextGen Innovation is a career training institute with branches in Coimbatore and Trichy for SAP, Data Science, Generative AI, Cloud, DevOps, Cybersecurity, Full Stack, Software Testing, Digital Marketing, Mechanical and Civil Engineering — live mentor-led classes, real-world projects and dedicated placement support, online and in classroom.",
+    "NextGen Innovation is a career training institute in Coimbatore and Trichy offering SAP, Data Science, Generative AI, Cloud, DevOps, Cybersecurity, Full Stack, Software Testing, Digital Marketing, Mechanical CAD and Civil Engineering courses — live mentor-led classes, real projects and placement support, classroom and online.",
   phone: "+91 95978 81959",
   whatsapp: "919597881959",
   email: "info@nextgeninnovations.co.in",
@@ -102,7 +102,7 @@ export const features = [
   {
     icon: "Laptop",
     title: "We Keep Pace with Technology",
-    text: "Technology moves fast, and so do we. Our classroom and live online courses cover what companies hire for today — SAP S/4HANA, Generative AI, Data Science, AWS, DevOps, Testing and BIM.",
+    text: "Technology moves fast, and so do we. Our classroom and live online courses cover what companies hire for today — SAP S/4HANA, Generative AI, Data Science, AWS, DevOps, Testing, Mechanical CAD and Civil design tools.",
   },
   {
     icon: "Video",
@@ -816,8 +816,8 @@ export const googleReviews = {
 export const gallery = [
   { src: img("1552664730-d307ca884978", 900), alt: "Live mentor-led training session at our Coimbatore branch", span: "md:col-span-2 md:row-span-2" },
   { src: img("1460925895917-afdab827c52f", 700), alt: "Hands-on SAP S/4HANA & analytics lab", span: "" },
-  { src: img("1503387762-592deb58ef4e", 700), alt: "Architecture & BIM modelling studio", span: "" },
-  { src: img("1618221195710-dd6b41faaea6", 700), alt: "Interior design student project", span: "" },
+  { src: img("1503387762-592deb58ef4e", 700), alt: "Civil Engineering Revit & structural design lab", span: "" },
+  { src: img("1618221195710-dd6b41faaea6", 700), alt: "Mechanical CAD lab — SolidWorks and AutoCAD practice", span: "" },
   { src: img("1600880292089-90a7e086ee0c", 700), alt: "Mock interview with a domain expert", span: "" },
   { src: img("1521737604893-d14cc237f11d", 900), alt: "NextGen Innovation training centre, Trichy", span: "md:col-span-2" },
   { src: img("1461749280684-dccba630e2f6", 700), alt: "Full stack coding & QA testing lab", span: "" },
@@ -831,7 +831,7 @@ export const faqs = [
   },
   {
     q: "Who can join NextGen Innovation courses?",
-    a: "Anyone who wants an IT or design career can join — fresh graduates, non-IT career switchers, candidates with a career gap, graduates with less than 60%, diploma holders and working professionals looking for a salary hike. Every program starts from the fundamentals.",
+    a: "Anyone who wants an IT, SAP, Mechanical CAD or Civil Engineering career can join — fresh graduates, non-IT career switchers, candidates with a career gap, graduates with less than 60%, diploma holders and working professionals looking for a salary hike. Every program starts from the fundamentals.",
   },
   {
     q: "What are the modes of training?",
@@ -843,7 +843,7 @@ export const faqs = [
   },
   {
     q: "How practical is the training?",
-    a: "Very. You train on the tools companies actually use — a live SAP S/4HANA server, Python and Power BI, AWS and Azure labs, Docker and Kubernetes, security labs, Selenium, Figma, Google Ads, Revit, AutoCAD, SketchUp and 3ds Max — and complete real-world projects in every course that you can present in interviews.",
+    a: "Very. You train on the tools companies actually use — a live SAP S/4HANA server, Python and Power BI, AWS and Azure labs, Docker and Kubernetes, security labs, Selenium, Google Ads, AutoCAD, SolidWorks, Creo, CATIA, Revit, STAAD Pro, ETABS and ANSYS — and complete real-world projects in every course that you can present in interviews.",
   },
   {
     q: "What kind of placement support is provided?",

@@ -14,9 +14,9 @@ import { placementActivities } from "@/data/pages";
 import { images } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Placement Statistics & Placement Support",
+  title: "Placements | Job Support for SAP, IT, Mechanical & Civil Students",
   description:
-    "NextGen Innovation placement statistics and support — students placed from fresher, non-IT, career-gap and less-than-60% backgrounds. Aptitude training, resume building, mock interviews and recruitment drives.",
+    "NextGen Innovation placement support in Coimbatore & Trichy — aptitude training, resume building, mock interviews and recruitment drives for SAP, Data & AI, Cloud, Software Testing, Digital Marketing, Mechanical CAD and Civil Engineering students.",
   alternates: { canonical: "/placements" },
 };
 

@@ -12,7 +12,7 @@ import { gallery } from "@/data/site";
 export const metadata: Metadata = {
   title: "Training Locations in Coimbatore & Trichy | Classroom & Online Courses",
   description:
-    "NextGen Innovation offers classroom training at our Coimbatore and Trichy branches for learners from Gandhipuram, Peelamedu, RS Puram, Saravanampatti, Cantonment, Thillai Nagar, Srirangam, K.K. Nagar and nearby areas — plus live online classes.",
+    "Classroom & online training near you — NextGen Innovation serves learners from Gandhipuram, Peelamedu, RS Puram, Saravanampatti, Cantonment, Thillai Nagar, Srirangam and K.K. Nagar with SAP, Data & AI, Cloud, Mechanical CAD and Civil Engineering courses.",
   alternates: { canonical: "/locations" },
 };
 

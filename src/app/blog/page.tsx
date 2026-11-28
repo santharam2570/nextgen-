@@ -11,7 +11,7 @@ import { courses, images } from "@/data/site";
 export const metadata: Metadata = {
   title: "Blog | Career Guides, Tutorials & Training Tips",
   description:
-    "Career guides, learning roadmaps and tutorials on SAP, Data Science, Generative AI, Software Testing, BIM and more from the trainers at NextGen Innovation, Coimbatore & Trichy.",
+    "Career guides, learning roadmaps and tutorials on SAP, Data Science, Generative AI, Software Testing, Mechanical CAD, Civil Engineering and more from the trainers at NextGen Innovation, Coimbatore & Trichy.",
   alternates: { canonical: "/blog" },
 };
 

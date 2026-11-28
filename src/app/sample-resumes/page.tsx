@@ -11,7 +11,7 @@ import { courses, images } from "@/data/site";
 export const metadata: Metadata = {
   title: "Sample Resumes for Freshers & Experienced | Resume Templates",
   description:
-    "Free sample resumes for SAP, Data Science, Generative AI, Full Stack, Software Testing, Cloud, DevOps, Salesforce, Digital Marketing, BIM and design roles — with skills, projects and resume tips.",
+    "Free sample resumes for SAP, Data Science, Generative AI, Full Stack, Software Testing, Cloud, DevOps, Salesforce, Digital Marketing, Mechanical CAD and Civil Engineering roles — with skills, projects and resume tips.",
   alternates: { canonical: "/sample-resumes" },
 };
 
