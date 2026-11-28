@@ -38,8 +38,10 @@ const categoryIcons = {
   Landmark,
 } as const;
 
+type HomeCategoryName = (typeof homeCategories)[number]["category"];
+
 export default function HomeCourses() {
-  const [active, setActive] = useState(homeCategories[0].category);
+  const [active, setActive] = useState<HomeCategoryName>(homeCategories[0].category);
   const navRef = useRef<HTMLDivElement>(null);
   const bandRefs = useRef<Record<string, HTMLElement | null>>({});
 
